@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux命令," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk  awk中的记录，域，分割符读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在R">
+<meta name="keywords" content="Linux命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令篇之awk">
+<meta property="og:url" content="http://tit.ink/2018/09/12/Linux命令篇之awk/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk  awk中的记录，域，分割符读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在R">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-12T06:41:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux命令篇之awk">
+<meta name="twitter:description" content="awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk  awk中的记录，域，分割符读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在R">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2018/09/12/Linux命令篇之awk/"/>
+
+
+
+
+
+  <title>Linux命令篇之awk | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2018/09/12/Linux命令篇之awk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux命令篇之awk</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T16:37:29+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/12/Linux命令篇之awk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/12/Linux命令篇之awk/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk</p>
+</blockquote>
+<h4 id="awk中的记录，域，分割符"><a href="#awk中的记录，域，分割符" class="headerlink" title="awk中的记录，域，分割符"></a>awk中的记录，域，分割符</h4><p>读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在RS，ORS中。</p>
+<p>从记录中分割出需要单词或者词组时，行中的每个字符串定义为域，域分割符默认是空格和TAB符，保存在ORS中。</p>
+<p>举个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aaaa:bbbb:ccccccc</span><br><span class="line">1111:2343:5t43343</span><br></pre></td></tr></table></figure>
+<p>上面有二行，这二行就是二个记录，每行后面的回车呢，就是记录分割符，里面冒号呢，就是域分割符，分割出来的aaaa、1111这类东西就是域了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: <span class="string">'&#123;print $1&#125;'</span> testfile</span><br></pre></td></tr></table></figure>
+<h4 id="awk的内建变量和运算符"><a href="#awk的内建变量和运算符" class="headerlink" title="awk的内建变量和运算符"></a>awk的内建变量和运算符</h4><ol>
+<li>变量</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$n</td>
+<td>当前记录的第n个字段，字段间由 FS分隔</td>
+</tr>
+<tr>
+<td>$0</td>
+<td>完整的输入记录</td>
+</tr>
+<tr>
+<td>ARGC</td>
+<td>命令行参数的数目</td>
+</tr>
+<tr>
+<td>ARGIND</td>
+<td>命令行中当前文件的位置(从0开始算)</td>
+</tr>
+<tr>
+<td>ARGV</td>
+<td>包 含命令行参数的数组</td>
+</tr>
+<tr>
+<td>CONVFMT</td>
+<td>数字转换格式(默认值为%.6g)</td>
+</tr>
+<tr>
+<td>ENVIRON</td>
+<td>环境变量关联数组</td>
+</tr>
+<tr>
+<td>ERRNO</td>
+<td>最后一个系统错误的描述</td>
+</tr>
+<tr>
+<td>FIELDWIDTHS</td>
+<td>字 段宽度列表(用空格键分隔)</td>
+</tr>
+<tr>
+<td>FILENAME</td>
+<td>当前文件名</td>
+</tr>
+<tr>
+<td>FNR</td>
+<td>同<code>NR</code>但相对于当前文件</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>字段分隔符(默认是任何空格)</td>
+</tr>
+<tr>
+<td>IGNORECASE</td>
+<td>如果为真，则进行忽略大小写的匹配</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>当前记录中的字段数</td>
+</tr>
+<tr>
+<td>NR</td>
+<td>当前记录数</td>
+</tr>
+<tr>
+<td>OFMT</td>
+<td>数字的输出格式(默认值是%.6g)</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td>输出字段分隔符(默认值是一个空格)</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>输出记录分隔符(默认值是一个换行符)</td>
+</tr>
+<tr>
+<td>RLENGTH</td>
+<td>由<code>match</code>函数所匹配的字符串的长度</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>记录分隔符(默认是一个换行符)</td>
+</tr>
+<tr>
+<td>RSTART</td>
+<td>由<code>match</code>函数所匹配的字符串的第一个位置</td>
+</tr>
+<tr>
+<td>SUBSEP</td>
+<td>数组下标分隔符(默认值是\034)</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>运算符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>= += -= *= /= %= ^= **=</td>
+<td>赋值</td>
+</tr>
+<tr>
+<td>?:</td>
+<td>C条件表达式</td>
+</tr>
+<tr>
+<td>&#124;&#124;</td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>~ ~!</td>
+<td>匹配正则表达式和不匹配正则表达式</td>
+</tr>
+<tr>
+<td>&lt; &lt;= &gt; &gt;= != ==</td>
+<td>关系运算符</td>
+</tr>
+<tr>
+<td>空格</td>
+<td>连接</td>
+</tr>
+<tr>
+<td>+ -</td>
+<td>加 减</td>
+</tr>
+<tr>
+<td>* / &amp;</td>
+<td>乘，除与求余</td>
+</tr>
+<tr>
+<td>!</td>
+<td>逻辑非</td>
+</tr>
+<tr>
+<td>^ ***</td>
+<td>求幂</td>
+</tr>
+<tr>
+<td>++ –</td>
+<td>增加或减少，作为前缀或后缀</td>
+</tr>
+<tr>
+<td>$</td>
+<td>字段引用</td>
+</tr>
+<tr>
+<td>in</td>
+<td>数组成员</td>
+</tr>
+</tbody>
+</table>
+<h4 id="awk的正则"><a href="#awk的正则" class="headerlink" title="awk的正则"></a>awk的正则</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">匹配符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\Y</td>
+<td>匹配一个单词开头或者末尾的空字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td>匹配单词内的空字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">\&lt;</td>
+<td>匹配一个单词的开头的空字符串，锚定开始</td>
+</tr>
+<tr>
+<td style="text-align:center">></td>
+<td>匹配一个单词的末尾的空字符串，锚定末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td>匹配一个非字母数字组成的单词</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td>匹配一个字母数字组成的单词</td>
+</tr>
+<tr>
+<td style="text-align:center">\’</td>
+<td>匹配字符串末尾的一个空字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">\‘</td>
+<td>匹配字符串开头的一个空字符串</td>
+</tr>
+</tbody>
+</table>
+<h4 id="awk的函数"><a href="#awk的函数" class="headerlink" title="awk的函数"></a>awk的函数</h4><ol>
+<li>字符串函数</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sub</td>
+<td>匹配记录中最大、最靠左边的子字符串的正则表达式，并用替换字符串替换这些字符串。如果没有指定目标字符串就默认使用整个记录。替换只发生在第一次匹配的 时候</td>
+</tr>
+<tr>
+<td style="text-align:center">gsub</td>
+<td>整个文档中进行匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">index</td>
+<td>返回子字符串第一次被匹配的位置，偏移量从位置1开始</td>
+</tr>
+<tr>
+<td style="text-align:center">substr</td>
+<td>返回从位置1开始的子字符串，如果指定长度超过实际长度，就返回整个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">split</td>
+<td>可按给定的分隔符把字符串分割为一个数组。如果分隔符没提供，则按当前FS值进行分割</td>
+</tr>
+<tr>
+<td style="text-align:center">length</td>
+<td>返回记录的字符数</td>
+</tr>
+<tr>
+<td style="text-align:center">match</td>
+<td>返回在字符串中正则表达式位置的索引，如果找不到指定的正则表达式则返回0。match函数会设置内建变量RSTART为字符串中子字符串的开始位 置，RLENGTH为到子字符串末尾的字符个数。substr可利于这些变量来截取字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">toupper和tolower</td>
+<td>可用于字符串大小间的转换，该功能只在gawk中有效</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>数学函数</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数名</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">atan2(x,y)</td>
+<td>y,x 范围内的余切</td>
+</tr>
+<tr>
+<td style="text-align:center">cos(x)</td>
+<td>余弦函数</td>
+</tr>
+<tr>
+<td style="text-align:center">exp(x)</td>
+<td>求幂</td>
+</tr>
+<tr>
+<td style="text-align:center">int(x)</td>
+<td>取整</td>
+</tr>
+<tr>
+<td style="text-align:center">log(x)</td>
+<td>自然对数</td>
+</tr>
+<tr>
+<td style="text-align:center">rand()</td>
+<td>随机数</td>
+</tr>
+<tr>
+<td style="text-align:center">sin(x)</td>
+<td>正弦</td>
+</tr>
+<tr>
+<td style="text-align:center">sqrt(x)</td>
+<td>平方根</td>
+</tr>
+<tr>
+<td style="text-align:center">srand(x)</td>
+<td>x是rand()函数的种子</td>
+</tr>
+<tr>
+<td style="text-align:center">int(x)</td>
+<td>取整，过程没有舍入</td>
+</tr>
+<tr>
+<td style="text-align:center">rand()</td>
+<td>产生一个大于等于0而小于1的随机数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>学习awk的时候，做了一个例子，学东西，不要光看，光看是记不住东西的。光看的话，也许你知道怎么回事，真正实际操作，不是这儿有问题，就是那儿有问题。所以一定要动手亲自操作一下。</p>
+<ol>
+<li>测试文件test</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/bin/false</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/bin/false</span><br><span class="line">mail:x:8:12:mail:/var/spool/mail:/bin/false</span><br><span class="line">ftp:x:14:11:ftp:/home/ftp:/bin/false</span><br><span class="line">&amp;nobody:$:99:99:nobody:/:/bin/false</span><br><span class="line">zhangy:x:1000:100:,,,:/home/zhangy:/bin/bash</span><br><span class="line">http:x:33:33::/srv/http:/bin/false</span><br><span class="line">dbus:x:81:81:System message bus:/:/bin/false</span><br><span class="line">hal:x:82:82:HAL daemon:/:/bin/false</span><br><span class="line">mysql:x:89:89::/var/lib/mysql:/bin/false</span><br><span class="line">aaa:x:1001:1001::/home/aaa:/bin/bash</span><br><span class="line">ba:x:1002:1002::/home/zhangy:/bin/bash</span><br><span class="line">test:x:1003:1003::/home/test:/bin/bash</span><br><span class="line">@zhangying:*:1004:1004::/home/test:/bin/bash</span><br><span class="line">policykit:x:102:1005:Po</span><br></pre></td></tr></table></figure>
+<p>例1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="built_in">test</span> | awk -F: <span class="string">'&#123;\</span></span><br><span class="line"><span class="string">if ($1 == "root")&#123;\</span></span><br><span class="line"><span class="string">print $1;\</span></span><br><span class="line"><span class="string">&#125;else if($1 == "bin")&#123;\</span></span><br><span class="line"><span class="string">print $2;\</span></span><br><span class="line"><span class="string">&#125;else&#123;\</span></span><br><span class="line"><span class="string">print $3;\</span></span><br><span class="line"><span class="string">&#125; \</span></span><br><span class="line"><span class="string">&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>例2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;\</span></span><br><span class="line"><span class="string">for(i=0;i&lt;NF;i++)&#123;\</span></span><br><span class="line"><span class="string">if ($i ~/^root/)&#123;\</span></span><br><span class="line"><span class="string">print $i;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/zhangy/)&#123;\</span></span><br><span class="line"><span class="string">print $i;continue;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/mysql/)&#123;\</span></span><br><span class="line"><span class="string">print $i;next;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/^test/)&#123;\</span></span><br><span class="line"><span class="string">print $i;break;\</span></span><br><span class="line"><span class="string">&#125; \</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#125;'</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>例3：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail <span class="built_in">test</span> | awk <span class="string">'BEGIN&#123;while(getline d)&#123; split(d,test);for(i in test)&#123;\</span></span><br><span class="line"><span class="string">print test[i]\</span></span><br><span class="line"><span class="string">&#125;&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>例4:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/<span class="built_in">test</span> | awk <span class="string">'BEGIN&#123;while(getline d)&#123; split(d,test);\</span></span><br><span class="line"><span class="string">print test[9] ;&#125;</span></span><br><span class="line"><span class="string">&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>例5：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"32:34"</span> |awk -F: <span class="string">'&#123;print "max = ",max($1,$2)&#125;\</span></span><br><span class="line"><span class="string">function max(one,two)&#123;\</span></span><br><span class="line"><span class="string">if(one &gt; two)&#123;\</span></span><br><span class="line"><span class="string">return one;\</span></span><br><span class="line"><span class="string">&#125;else&#123;\</span></span><br><span class="line"><span class="string">return two;\</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">'</span></span><br></pre></td></tr></table></figure>
+<p>例6：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#awk 'BEGIN&#123;print "what is your name"; getline name &lt; "/dev/tty"&#125;$1 ~name&#123;print</span></span><br><span class="line"><span class="comment">#"found name on line" NR&#125;END&#123;print "see you" name&#125;' test</span></span><br><span class="line"><span class="comment">#awk '&#123;sub(/daemon/,"tankzhang");print&#125;' test</span></span><br><span class="line"><span class="comment">#awk '&#123; &#123;sub(/zhangy/,"tankzhang");$1&#125;;print&#125;' test</span></span><br><span class="line"><span class="comment">#awk '&#123; &#123;gsub(/zhangy/,"tankzhang");$1&#125;;print&#125;' test</span></span><br><span class="line"><span class="comment">#awk -F: '&#123;print index("zhangy",$1)&#125;' test</span></span><br><span class="line"><span class="comment">#awk -F: '&#123;print substr($1,1,2)&#125;' test</span></span><br><span class="line">awk -F: <span class="string">'&#123;mat=match($1,/^[a-zA-Z]+$/);print mat,RSTART,RLENGTH&#125;'</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>例7：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="built_in">test</span> |awk -F: <span class="string">'\</span></span><br><span class="line"><span class="string">NF != 7&#123;\</span></span><br><span class="line"><span class="string">printf("line %d,does not have 7 fields:%s\n",NR,$0)&#125;\</span></span><br><span class="line"><span class="string">$1 !~ /^[A-Za-z0-9]/&#123;printf("line %d,non alpha and numeric user id:%s: %s\n",NR,$1,$0)&#125;\</span></span><br><span class="line"><span class="string">$2 == "*" &#123;printf("lind %d,no password:%s\n",NR,$0)&#125;'</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/06/Linux命令篇之ln/" rel="next" title="Linux命令篇之ln">
+                <i class="fa fa-chevron-left"></i> Linux命令篇之ln
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/18/Linux命令篇之cat/" rel="prev" title="Linux命令篇之cat">
+                Linux命令篇之cat <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#awk中的记录，域，分割符"><span class="nav-number">1.</span> <span class="nav-text">awk中的记录，域，分割符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk的内建变量和运算符"><span class="nav-number">2.</span> <span class="nav-text">awk的内建变量和运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk的正则"><span class="nav-number">3.</span> <span class="nav-text">awk的正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk的函数"><span class="nav-number">4.</span> <span class="nav-text">awk的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

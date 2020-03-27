@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux命令," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="find命令是一个无处不在命令，是linux中最有用的命令之一。find命令用于：在一个目录（及子目录）中搜索文件，你可以指定一些匹配条件，如按文件名、文件类型、用户甚至是时间戳查找文件  用法12345678find [-H] [-L] [-P] [-D debugopts] [-Olevel] [path...] [expression]-path: find命令所查找的目录路径。例如用.来">
+<meta name="keywords" content="Linux命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令篇之find">
+<meta property="og:url" content="http://tit.ink/2018/10/05/Linux命令篇之find/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="find命令是一个无处不在命令，是linux中最有用的命令之一。find命令用于：在一个目录（及子目录）中搜索文件，你可以指定一些匹配条件，如按文件名、文件类型、用户甚至是时间戳查找文件  用法12345678find [-H] [-L] [-P] [-D debugopts] [-Olevel] [path...] [expression]-path: find命令所查找的目录路径。例如用.来">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-12T06:51:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux命令篇之find">
+<meta name="twitter:description" content="find命令是一个无处不在命令，是linux中最有用的命令之一。find命令用于：在一个目录（及子目录）中搜索文件，你可以指定一些匹配条件，如按文件名、文件类型、用户甚至是时间戳查找文件  用法12345678find [-H] [-L] [-P] [-D debugopts] [-Olevel] [path...] [expression]-path: find命令所查找的目录路径。例如用.来">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2018/10/05/Linux命令篇之find/"/>
+
+
+
+
+
+  <title>Linux命令篇之find | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2018/10/05/Linux命令篇之find/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux命令篇之find</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-05T16:32:49+08:00">
+                2018-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/05/Linux命令篇之find/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/05/Linux命令篇之find/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>find命令是一个无处不在命令，是linux中最有用的命令之一。find命令用于：在一个目录（及子目录）中搜索文件，你可以指定一些匹配条件，如按文件名、文件类型、用户甚至是时间戳查找文件</p>
+</blockquote>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find [-H] [-L] [-P] [-D debugopts] [-Olevel] [path...] [expression]</span><br><span class="line"></span><br><span class="line">-path: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录</span><br><span class="line">-expression: expression可以分为——“-options [-print -exec -ok ...]”</span><br><span class="line">-options: 指定find命令的常用选项，下节详细介绍</span><br><span class="line">-print: find命令将匹配的文件输出到标准输出。</span><br><span class="line">-exec: find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为&apos;command&apos; &#123; &#125; \;，注意&#123; &#125;和\；之间的空格。</span><br><span class="line">-ok: 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行</span><br></pre></td></tr></table></figure>
+<h4 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">-name   filename            #查找名为filename的文件</span><br><span class="line">-perm                       #按执行权限来查找</span><br><span class="line">-user    username           #按文件属主来查找</span><br><span class="line">-group groupname            #按组来查找</span><br><span class="line">-mtime   -n +n              #按文件更改时间来查找文件，-n指n天以内，+n指n天以前</span><br><span class="line">-atime    -n +n             #按文件访问时间来查GIN: 0px&quot;&gt;</span><br><span class="line">-ctime    -n +n             #按文件创建时间来查找文件，-n指n天以内，+n指n天以前</span><br><span class="line">-nogroup                    #查无有效属组的文件，即文件的属组在/etc/groups中不存在</span><br><span class="line">-nouser                     #查无有效属主的文件，即文件的属主在/etc/passwd中不存</span><br><span class="line">-newer   f1 !f2             #找文件，-n指n天以内，+n指n天以前 </span><br><span class="line">-ctime    -n +n             #按文件创建时间来查找文件，-n指n天以内，+n指n天以前 </span><br><span class="line">-nogroup                    #查无有效属组的文件，即文件的属组在/etc/groups中不存在</span><br><span class="line">-nouser                     #查无有效属主的文件，即文件的属主在/etc/passwd中不存</span><br><span class="line">-newer   f1 !f2             #查更改时间比f1新但比f2旧的文件</span><br><span class="line">-type    b/d/c/p/l/f        #查是块设备、目录、字符设备、管道、符号链接、普通文件</span><br><span class="line">-size      n[c]             #查长度为n块[或n字节]的文件</span><br><span class="line">-depth                      #使查找在进入子目录前先行查找完本目录</span><br><span class="line">-fstype                     #查更改时间比f1新但比f2旧的文件</span><br><span class="line">-type    b/d/c/p/l/f        #查是块设备、目录、字符设备、管道、符号链接、普通文件</span><br><span class="line">-size      n[c]             #查长度为n块[或n字节]的文件</span><br><span class="line">-depth                      #使查找在进入子目录前先行查找完本目录</span><br><span class="line">-fstype                     #查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到</span><br><span class="line">-mount                      #查文件时不跨越文件系统mount点</span><br><span class="line">-follow                     #如果遇到符号链接文件，就跟踪链接所指的文件</span><br><span class="line">-cpio                %;     #查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到</span><br><span class="line">-mount                      #查文件时不跨越文件系统mount点</span><br><span class="line">-follow                     #如果遇到符号链接文件，就跟踪链接所指的文件</span><br><span class="line">-cpio                       #对匹配的文件使用cpio命令，将他们备份到磁带设备中</span><br><span class="line">-prune                      #忽略某个目录</span><br></pre></td></tr></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">find ~ -name <span class="string">"*.txt"</span> -<span class="built_in">print</span> 			<span class="comment">#在HOME中查.txt文件并显示</span></span><br><span class="line">find / -name <span class="string">"*.txt"</span> -<span class="built_in">print</span> 			<span class="comment">#/HOME中查.txt文件并显示</span></span><br><span class="line">find / -name <span class="string">"[A-Z]*"</span> -<span class="built_in">print</span> 			<span class="comment">#查以大写字母开头的文件</span></span><br><span class="line">find /etc -name <span class="string">"host*"</span> -<span class="built_in">print</span> 			<span class="comment">#查以host开头的文件</span></span><br><span class="line">find / -name <span class="string">"[a-z][a-z][0–9][0–9].txt"</span> -<span class="built_in">print</span> 	<span class="comment">#查以两个小写字母和两个数字开头的txt文件</span></span><br><span class="line">find / -perm 755 -<span class="built_in">print</span> 			<span class="comment">#检查755权限的文件并显示</span></span><br><span class="line">find / -perm -007 -<span class="built_in">exec</span> ls -l &#123;&#125; \; 	        <span class="comment">#查所有用户都可读写执行的文件同-perm 777</span></span><br><span class="line">find / -<span class="built_in">type</span> d -<span class="built_in">print</span> 				<span class="comment">#查找类型为目录的文件，并打印</span></span><br><span class="line">find / ! -<span class="built_in">type</span> d -<span class="built_in">print</span> 			<span class="comment">#查找类型不为目录的文件，并打印</span></span><br><span class="line">find / -<span class="built_in">type</span> l -<span class="built_in">print</span> 				<span class="comment">#查找类型为链接的文件，并打印</span></span><br><span class="line">find / -size +1000000c -<span class="built_in">print</span> 		        <span class="comment">#查长度大于1Mb的文件</span></span><br><span class="line">find / -size 100c -<span class="built_in">print</span> 			<span class="comment">#查长度为100c的文件</span></span><br><span class="line">find / -size +10 -<span class="built_in">print</span> 			<span class="comment">#查长度超过期作废10块的文件（1块=512字节）</span></span><br><span class="line">find /etc home apps -depth -<span class="built_in">print</span> | cpio -ivcdC65536 -o /dev/rmt0</span><br><span class="line">find /etc -name <span class="string">"passwd*"</span> -<span class="built_in">exec</span> grep <span class="string">"cnscn"</span> &#123;&#125; \; 	<span class="comment">#看是否存在cnscn用户</span></span><br><span class="line">find / -name <span class="string">"yao*"</span> | xargs file</span><br><span class="line">find / -name <span class="string">"yao*"</span> | xargs <span class="built_in">echo</span> <span class="string">""</span> &gt; /tmp/core.log</span><br><span class="line">find / -name <span class="string">"yao*"</span> | xargs chmod o-w</span><br><span class="line">find -name april* 				<span class="comment">#在当前目录下查找以april开始的文件</span></span><br><span class="line">find -name april* fprint file 			<span class="comment">#在当前目录下查找以april开始的文件，并把结果输出到file中</span></span><br><span class="line">find -name ap* -o -name may* 			<span class="comment">#查找以ap或may开头的文件</span></span><br><span class="line">find /mnt -name tom.txt -ftype vfat 		<span class="comment">#在/mnt下查找名称为tom.txt且文件系统类型为vfat的文件</span></span><br><span class="line">find /mnt -name t.txt ! -ftype vfat 		<span class="comment">#在/mnt下查找名称为tom.txt且文件系统类型不为vfat的文件</span></span><br><span class="line">find /tmp -name wa* -<span class="built_in">type</span> l 		        <span class="comment">#在/tmp下查找名为wa开头且类型为符号链接的文件</span></span><br><span class="line">find /home -mtime -2 				<span class="comment">#在/home下查最近两天内改动过的文件</span></span><br><span class="line">find /home -atime -1 				<span class="comment">#查1天之内被存取过的文件</span></span><br><span class="line">find /home -mmin +60 				<span class="comment">#在/home下查60分钟前改动过的文件</span></span><br><span class="line">find /home -amin +30 				<span class="comment">#查最近30分钟前被存取过的文件</span></span><br><span class="line">find /home -newer tmp.txt 			<span class="comment">#在/home下查更新时间比tmp.txt近的文件或目录</span></span><br><span class="line">find /home -anewer tmp.txt 			<span class="comment">#在/home下查存取时间比tmp.txt近的文件或目录</span></span><br><span class="line">find /home -used -2 				<span class="comment">#列出文件或目录被改动过之后，在2日内被存取过的文件或目录</span></span><br><span class="line">find /home -user cnscn 				<span class="comment">#列出/home目录内属于用户cnscn的文件或目录</span></span><br><span class="line">find /home -uid +501 				<span class="comment">#列出/home目录内用户的识别码大于501的文件或目录</span></span><br><span class="line">find /home -group cnscn 		        <span class="comment">#列出/home内组为cnscn的文件或目录</span></span><br><span class="line">find /home -gid 501 				<span class="comment">#列出/home内组id为501的文件或目录</span></span><br><span class="line">find /home -nouser 				<span class="comment">#列出/home内不属于本地用户的文件或目录</span></span><br><span class="line">find /home -nogroup 				<span class="comment">#列出/home内不属于本地组的文件或目录</span></span><br><span class="line">find /home -name tmp.txt -maxdepth 4 		<span class="comment">#列出/home内的tmp.txt 查时深度最多为3层</span></span><br><span class="line">find /home -name tmp.txt -mindepth 3 		<span class="comment">#从第2层开始查</span></span><br><span class="line">find /home -empty 				<span class="comment">#查找大小为0的文件或空目录</span></span><br><span class="line">find /home -size +512k 				<span class="comment">#查大于512k的文件</span></span><br><span class="line">find /home -size -512k 				<span class="comment">#查小于512k的文件</span></span><br><span class="line">find /home -links +2 				<span class="comment">#查硬连接数大于2的文件或目录</span></span><br><span class="line">find /home -perm 0700 				<span class="comment">#查权限为700的文件或目录</span></span><br><span class="line">find /tmp -name tmp.txt -<span class="built_in">exec</span> cat &#123;&#125; \;</span><br><span class="line">find /tmp -name tmp.txt -ok rm &#123;&#125; \;</span><br><span class="line">find / -amin -10 				<span class="comment">#查找在系统中最后10分钟访问的文件</span></span><br><span class="line">find / -atime -2 				<span class="comment">#查找在系统中最后48小时访问的文件</span></span><br><span class="line">find / -empty 					<span class="comment">#查找在系统中为空的文件或者文件夹</span></span><br><span class="line">find / -group cat 				<span class="comment">#查找在系统中属于 groupcat的文件</span></span><br><span class="line">find / -mmin -5 				<span class="comment">#查找在系统中最后5分钟里修改过的文件</span></span><br><span class="line">find / -mtime -1 				<span class="comment">#查找在系统中最后24小时里修改过的文件</span></span><br><span class="line">find / -nouser 					<span class="comment">#查找在系统中属于作废用户的文件</span></span><br><span class="line">find / -user fred 				<span class="comment">#查找在系统中属于FRED这个用户的文件</span></span><br></pre></td></tr></table></figure>
+<h4 id="find与xargs"><a href="#find与xargs" class="headerlink" title="find与xargs"></a>find与xargs</h4><p>在使用find命令的-exec选项处理匹配到的文件时， find命令将所有匹配到的文件一起传递给exec执行。但有些系统对能够传递给exec的命令长度有限制，这样在find命令运行几分钟之后，就会出现溢出错误。错误信息通常是“参数列太长”或“参数列溢出”。这就是xargs命令的用处所在，特别是与find命令一起使用。</p>
+<p>find命令把匹配到的文件传递给xargs命令，而xargs命令每次只获取一部分文件而不是全部，不像-exec选项那样。这样它可以先处理最先获取的一部分文件，然后是下一批，并如此继续下去。</p>
+<p>在有些系统中，使用-exec选项会为处理每一个匹配到的文件而发起一个相应的进程，并非将匹配到的文件全部作为参数一次执行；这样在有些情况下就会出现进程过多，系统性能下降的问题，因而效率不高；</p>
+<p>而使用xargs命令则只有一个进程。另外，在使用xargs命令时，究竟是一次获取所有的参数，还是分批取得参数，以及每一次获取参数的数目都会根据该命令的选项及系统内核中相应的可调参数来确定。</p>
+<p>来看看xargs命令是如何同find命令一起使用的，并给出一些例子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -<span class="built_in">print</span> | xargs file 		<span class="comment">#查找系统中的每一个普通文件，然后使用xargs命令来测试它们分别属于哪类文件</span></span><br><span class="line">find / -name <span class="string">"core"</span> -<span class="built_in">print</span> | xargs <span class="built_in">echo</span> <span class="string">""</span> &gt;/tmp/core.log 	<span class="comment">#在整个系统中查找内存信息转储文件(core dump) ，然后把结果保存到/tmp/core.log 文件中</span></span><br><span class="line">find . -<span class="built_in">type</span> f -<span class="built_in">print</span> | xargs grep <span class="string">"hostname"</span> 	<span class="comment">#用grep命令在所有的普通文件中搜索hostname这个词</span></span><br><span class="line">find ./ -mtime +3 -<span class="built_in">print</span>|xargs rm -f –r 	<span class="comment">#删除3天以前的所有东西 （find . -ctime +3 -exec rm -rf &#123;&#125; \;）</span></span><br><span class="line">find ./ -size 0 | xargs rm -f &amp; 	<span class="comment">#删除文件大小为零的文件</span></span><br></pre></td></tr></table></figure></p>
+<p>find命令配合使用exec和xargs可以使用户对所匹配到的文件执行几乎所有的命令</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/04/修复Nginx-502错误：upstream-sent-too-big-header-while-reading-response-header-from-upstream/" rel="next" title="修复Nginx 502错误：upstream sent too big header while reading response header from upstream">
+                <i class="fa fa-chevron-left"></i> 修复Nginx 502错误：upstream sent too big header while reading response header from upstream
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/06/MAC破解程序出现“程序已损坏”解决方式/" rel="prev" title="MAC破解程序出现“程序已损坏”解决方式">
+                MAC破解程序出现“程序已损坏”解决方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#用法"><span class="nav-number">1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用选项"><span class="nav-number">2.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find与xargs"><span class="nav-number">4.</span> <span class="nav-text">find与xargs</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
