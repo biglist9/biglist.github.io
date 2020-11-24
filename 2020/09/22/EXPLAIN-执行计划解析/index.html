@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mysql," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="执行计划 执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生 使用explain可以模拟优化器执行sql查询语句  关键字idid 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id  id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行 id 值相同：从上往下依次执行 id">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EXPLAIN 执行计划解析">
+<meta property="og:url" content="http://tit.ink/2020/09/22/EXPLAIN-执行计划解析/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="执行计划 执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生 使用explain可以模拟优化器执行sql查询语句  关键字idid 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id  id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行 id 值相同：从上往下依次执行 id">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-11-24T08:13:54.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EXPLAIN 执行计划解析">
+<meta name="twitter:description" content="执行计划 执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生 使用explain可以模拟优化器执行sql查询语句  关键字idid 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id  id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行 id 值相同：从上往下依次执行 id">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2020/09/22/EXPLAIN-执行计划解析/"/>
+
+
+
+
+
+  <title>EXPLAIN 执行计划解析 | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/09/22/EXPLAIN-执行计划解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">EXPLAIN 执行计划解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-22T15:09:59+08:00">
+                2020-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/22/EXPLAIN-执行计划解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/22/EXPLAIN-执行计划解析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h3><ul>
+<li>执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生</li>
+<li>使用<code>explain</code>可以模拟优化器执行sql查询语句</li>
+</ul>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>id 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id</p>
+<ul>
+<li>id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行</li>
+<li>id 值相同：从上往下依次执行</li>
+<li>id 列为 null：表示这是一个结果集，不需要使用它来进行查询</li>
+</ul>
+<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p>查询的类型，主要用于区分普通查询、联合查询、子查询等复杂的查询</p>
+<ul>
+<li>simple 表示查询中不包括 union 操作或者子查询，位于最外层的查询的 select_type 即为 simple</li>
+<li>primary 需要 union 操作或者含有子查询的 select，位于最外层的查询的 select_type 即为 primary</li>
+<li>derived：from 列表中出现的子查询，也叫做衍生表；mysql 或者递归执行这些子查询，把结果放在临时表里</li>
+<li>subquery：除了 from 子句中包含的子查询外，其他地方出现的子查询都可能是 subquery</li>
+<li>union：若第二个 select 出现在 union 之后，则被标记为 union；若 union 包含在 from 子句的子查询中，外层 select 将被标记为 derived</li>
+<li>union result：从 union 表获取结果的 select ，因为它不需要参与查询，所以 id 字段为 null</li>
+<li>dependent union：与 union 一样，出现在 union 或 union all 语句中，但是这个查询要受到外部查询的影响</li>
+<li>dependent subquery：与 dependent union 类似，子查询中的第一个 SELECT，这个 subquery 的查询要受到外部表查询的影响</li>
+</ul>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>表示 explain 的一行正在访问哪个表</p>
+<ul>
+<li>如果查询使用了别名，那么这里显示的是别名</li>
+<li>如果不涉及对数据表的操作，那么这显示为 null</li>
+<li>如果显示为尖括号括起来的就表示这个是临时表，后边的 N 就是执行计划中的 id，表示结果来自于这个查询产生</li>
+<li>如果是尖括号括起来的<union m,n="">，与类似，也是一个临时表，表示这个结果来自于 union 查询的 id 为 M,N 的结果集</union></li>
+</ul>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>访问类型，即 MySQL 决定如何查找表中的行<br>依次从好到差：system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL，除了 all 之外，其他的 type 都可以使用到索引，除了 index_merge 之外，其他的 type 只可以用到一个索引。一般来说，得保证查询至少达到 range 级别，最好能达到 ref</p>
+<ul>
+<li>system 表中只有一行数据（等于系统表），这是 const 类型的特例，平时不会出现，可以忽略不计</li>
+<li>const 使用唯一索引或者主键，表示通过索引一次就找到了，const 用于比较 primary key 或者 unique 索引。因为只需匹配一行数据，所有很快。如果将主键置于 where 列表中，mysql 就能将该查询转换为一个 const</li>
+<li>eq_ref 唯一性索引扫描，对于每个索引键，表中只有一行数据与之匹配。常见于主键或唯一索引扫描</li>
+<li>ref 非唯一性索引扫描，返回匹配某个单独值的所有行。本质也是一种索引</li>
+<li>fulltext 全文索引检索，全文索引的优先级很高，若全文索引和普通索引同时存在时，mysql 不管代价，优先选择使用全文索引</li>
+<li>ref_or_null  与 ref 方法类似，只是增加了 null 值的比较</li>
+<li>index_merge 表示查询使用了两个以上的索引，索引合并的优化方法，最后取交集或者并集，常见 and，or 的条件使用了不同的索引</li>
+<li>unique_subquery 用于 where 中的 in 形式子查询，子查询返回不重复值唯一值</li>
+<li>index_subquery 用于 in 形式子查询使用到了辅助索引或者 in 常数列表，子查询可能返回重复值，可以使用索引将子查询去重</li>
+<li>range 索引范围扫描，常见于使用<code>&gt;</code>,<code>&lt;</code>,<code>between</code>,<code>in</code>,<code>like</code>等运算符的查询中</li>
+<li>index 索引全表扫描，把索引树从头到尾扫一遍</li>
+<li>all 遍历全表以找到匹配的行（Index 与 ALL 虽然都是读全表，但 index 是从索引中读取，而 ALL 是从硬盘读取）</li>
+<li>NULL MySQL 在优化过程中分解语句，执行时甚至不用访问表或索引</li>
+</ul>
+<h4 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h4><p>显示查询可能使用到的索引</p>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>显示查询实际使用哪个索引来优化对该表的访问<br>select_type 为 index_merge 时，这里可能出现两个以上的索引，其他的 select_type 这里只会出现一个</p>
+<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>用于处理查询的索引长度，表示索引中使用的字节数。通过这个值，可以得出一个多列索引里实际使用了哪一部分<br>注：key_len 显示的值为索引字段的最大可能长度，并非实际使用长度，即 key_len 是根据表定义计算而得，不是通过表内检索出的。另外，key_len 只计算 where 条件用到的索引长度，而排序和分组就算用到了索引，也不会计算到 key_len 中</p>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>显示哪个字段或者常数与 key 一起被使用</p>
+<ul>
+<li>如果是使用的常数等值查询，这里会显示 const</li>
+<li>如果是连接查询，被驱动表的执行计划这里会显示驱动表的关联字段</li>
+<li>如果是条件使用了表达式或者函数，或者条件列发生了内部<code>隐式转换</code>，这里可能显示为 func</li>
+</ul>
+<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>表示 MySQL 根据表统计信息及索引选用情况，大致估算的找到所需的目标记录所需要读取的行数，不是精确值</p>
+<h4 id="extra"><a href="#extra" class="headerlink" title="extra"></a>extra</h4><p>不适合在其他列中显示但十分重要的额外信息，这个列可以显示的信息非常多，有几十种，常用的有</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Using filesort</td>
+<td>MySQL 有两种方式可以生成有序的结果，通过排序操作或者使用索引，当 Extra 中出现了 Using filesort 说明 MySQL 使用了后者，但注意虽然叫 filesort 但并不是说明就是用了文件来进行排序，只要可能排序都是在内存里完成的。大部分情况下利用索引排序更快，所以一般这时也要考虑优化查询了。使用文件完成排序操作，这是可能是 ordery by，group by 语句的结果，这可能是一个 CPU 密集型的过程，可以通过选择合适的索引来改进性能，用索引来为查询结果排序</td>
+</tr>
+<tr>
+<td>Using temporary</td>
+<td>用临时表保存中间结果，常用于 GROUP BY 和 ORDER BY 操作中，一般看到它说明查询需要优化了，就算避免不了临时表的使用也要尽量避免硬盘临时表的使用</td>
+</tr>
+<tr>
+<td>Not exists</td>
+<td>MYSQL 优化了 LEFT JOIN，一旦它找到了匹配 LEFT JOIN 标准的行， 就不再搜索了</td>
+</tr>
+<tr>
+<td>Using index</td>
+<td>说明查询是覆盖了索引的，不需要读取数据文件，从索引树（索引文件）中即可获得信息。如果同时出现 using where，表明索引被用来执行索引键值的查找，没有 using where，表明索引用来读取数据而非执行查找动作。这是 MySQL 服务层完成的，但无需再回表查询记录</td>
+</tr>
+<tr>
+<td>Using index condition</td>
+<td>这是 MySQL 5.6 出来的新特性，叫做“索引条件推送”。简单说一点就是 MySQL 原来在索引上是不能执行如 like 这样的操作的，但是现在可以了，这样减少了不必要的 IO 操作，但是只能用在二级索引上</td>
+</tr>
+<tr>
+<td>Using where</td>
+<td>使用了 WHERE 从句来限制哪些行将与下一张表匹配或者是返回给用户。注意：Extra 列出现 Using where 表示 MySQL 服务器将存储引擎返回服务层以后再应用 WHERE 条件过滤</td>
+</tr>
+<tr>
+<td>Using join buffer</td>
+<td>使用了连接缓存：Block Nested Loop，连接算法是块嵌套循环连接;Batched Key Access，连接算法是批量索引连接</td>
+</tr>
+<tr>
+<td>impossible where</td>
+<td>where 子句的值总是 false，不能用来获取任何元组</td>
+</tr>
+<tr>
+<td>select tables optimized away</td>
+<td>在没有 GROUP BY 子句的情况下，基于索引优化 MIN/MAX 操作，或者对于 MyISAM 存储引擎优化 COUNT(*)操作，不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化</td>
+</tr>
+<tr>
+<td>distinct</td>
+<td>优化 distinct 操作，在找到第一匹配的元组后即停止找同样值的动作</td>
+</tr>
+</tbody>
+</table>
+<h4 id="filtered"><a href="#filtered" class="headerlink" title="filtered"></a>filtered</h4><p>这个字段表示存储引擎返回的数据在 server 层过滤后，剩下多少满足查询的记录数量的比例，注意是百分比，不是具体记录数</p>
+<h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><ol>
+<li>EXPLAIN 不会告诉你关于触发器、存储过程的信息或用户自定义函数对查询的影响情况</li>
+<li>不会考虑Cache</li>
+<li>EXPLAIN 不能显示 MySQL 在执行查询时所作的优化工作</li>
+<li>部分统计信息是估算的，并非精确值</li>
+<li>EXPALIN 只能解释 SELECT 操作，其他操作要重写为 SELECT 后查看</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/14/TCP-三次握手和四次挥手简单理解/" rel="next" title="TCP-三次握手和四次挥手简单理解">
+                <i class="fa fa-chevron-left"></i> TCP-三次握手和四次挥手简单理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/13/https工作原理/" rel="prev" title="https工作原理">
+                https工作原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行计划"><span class="nav-number">1.</span> <span class="nav-text">执行计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字"><span class="nav-number">2.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-number">2.1.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-type"><span class="nav-number">2.2.</span> <span class="nav-text">select_type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#table"><span class="nav-number">2.3.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-number">2.4.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#possible-keys"><span class="nav-number">2.5.</span> <span class="nav-text">possible_keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key"><span class="nav-number">2.6.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-len"><span class="nav-number">2.7.</span> <span class="nav-text">key_len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">2.8.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rows"><span class="nav-number">2.9.</span> <span class="nav-text">rows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra"><span class="nav-number">2.10.</span> <span class="nav-text">extra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filtered"><span class="nav-number">2.11.</span> <span class="nav-text">filtered</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局限性"><span class="nav-number">3.</span> <span class="nav-text">局限性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
