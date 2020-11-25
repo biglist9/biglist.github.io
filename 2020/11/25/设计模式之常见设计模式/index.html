@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="设计模式," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="单例模式 定义确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 优点：单例模式在内存中只有一个实例，减少了内存开支，特别是一个频繁操作，性能又无法优化的对象。减少性能开销，如读取配置、产生其他依赖对象时，启动一个对象，永久驻留内存。可以避免一个对象的多重占用，例如一个写文件动作。可以设置系统全局访问点，优化和共享资源访问。 缺点：单例模式一般没有接口，无法扩展。无法测试，如果代码">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之常见设计模式">
+<meta property="og:url" content="http://tit.ink/2020/11/25/设计模式之常见设计模式/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="单例模式 定义确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 优点：单例模式在内存中只有一个实例，减少了内存开支，特别是一个频繁操作，性能又无法优化的对象。减少性能开销，如读取配置、产生其他依赖对象时，启动一个对象，永久驻留内存。可以避免一个对象的多重占用，例如一个写文件动作。可以设置系统全局访问点，优化和共享资源访问。 缺点：单例模式一般没有接口，无法扩展。无法测试，如果代码">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-11-25T02:51:19.008Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之常见设计模式">
+<meta name="twitter:description" content="单例模式 定义确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 优点：单例模式在内存中只有一个实例，减少了内存开支，特别是一个频繁操作，性能又无法优化的对象。减少性能开销，如读取配置、产生其他依赖对象时，启动一个对象，永久驻留内存。可以避免一个对象的多重占用，例如一个写文件动作。可以设置系统全局访问点，优化和共享资源访问。 缺点：单例模式一般没有接口，无法扩展。无法测试，如果代码">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2020/11/25/设计模式之常见设计模式/"/>
+
+
+
+
+
+  <title>设计模式之常见设计模式 | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/11/25/设计模式之常见设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计模式之常见设计模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-25T10:43:24+08:00">
+                2020-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/11/25/设计模式之常见设计模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/11/25/设计模式之常见设计模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><hr>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>单例模式在内存中只有一个实例，减少了内存开支，特别是一个频繁操作，性能又无法优化的对象。<br>减少性能开销，如读取配置、产生其他依赖对象时，启动一个对象，永久驻留内存。<br>可以避免一个对象的多重占用，例如一个写文件动作。<br>可以设置系统全局访问点，优化和共享资源访问。</p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><p>单例模式一般没有接口，无法扩展。<br>无法测试，如果代码未完成则无法测试，且因没有接口所以无法mock。<br>单例模式与单一职责原则有冲突，类应只关心内部实现，而不关心外部如何调用。</p>
+<h4 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h4><p>要求生成唯一序列号的环境。<br>整个项目中需要一个共享访问点或共享数据，如页面访问计数器。<br>创建消耗资源过多的对象。<br>需要定义大量静态常量和静态方法的环境。</p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>有上限的多例模式，可以定义内部列表存储实例，然后根据条件返回某实例。</p>
+<h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><hr>
+<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂方法使一个类的实例化延迟到其子类。<br>在工厂方法模式中，抽象产品类Product负责定义产品的共性，实现对事物最抽象的定义；<br>Creator为抽象创建类， 也就是抽象工厂， 具体如何创建产品类是由具体的实现工厂ConcreteCreator完成的。</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>良好的封装性，代码接口清晰，调用者只需要知道产品约束字符串就可以。<br>扩展性高，增加产品时，只需要修改工厂类或扩展一个工厂类。<br>屏蔽产品类，例如切换数据库。<br>典型的解耦框架，只知道抽象类，符合迪米特法则；只依赖产品抽象，符合依赖倒置原则；使用子类替换父类，符合里氏替换原则。</p>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>在new一个对象的地方都可以使用，尤其是复杂对象时。<br>需要灵活、可扩展框架时可使用，如邮件，支持POP3、IMAP、HTTP。<br>可用在异构项目中。<br>测试驱动开发的框架下，模拟一个类。</p>
+<h4 id="扩展-1"><a href="#扩展-1" class="headerlink" title="扩展"></a>扩展</h4><p>简单工厂模式：去掉继承抽象类，并在工厂创建对象方法前增加static关键字；<br>多工厂模式：每个产品对应一个创建工厂，好处是职责清洗符合单一职责原则，但不宜扩展和维护，一般新增一个协调类，来封装子工厂。<br>替代单例模式：工厂内设置静态对象。<br>延迟加载：保存特定对象在工厂，需要时直接返回，如数据库最大连接数对象。</p>
+<h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><hr>
+<p>定义：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定他们的具体类。在场景类中，没有任何一个方法与实现类有关系。<br>产品族：指由同一个工厂生产的，位于不同产品等级结构中的一组产品，例如不同品牌的电视机。<br>产品等级结构：产品的继承结构，如抽象类是电视机，其子类有海尔电视机、海信电视机。</p>
+<p>有N个产品族，在抽象工厂类中就应该有N个创建方法。<br>有M个产品等级就应该有M个实现工厂类，在每个实现工厂中，实现不同产品族的生产任务。</p>
+<h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><p>封装性，每个产品的实现类不需要高层模块关心，只需关心接口抽象。<br>产品族内的约束为非公开状态，具体约束实在工厂内实现，高层无须关心。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>产品族扩展非常困难，例如新增一个品牌产品，要在所有工厂方法中新增创建产品方法。</p>
+<h4 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h4><p>一个对象族或是一组没有任何关系的对象都有相同的约束，则可以使用抽象工厂模式。在很多软件系统中需要更换界面主题，要求界面中的按钮、文本框、背景色等一起发生改变时，涉及不同操作系统，可以使用抽象工厂模式进行设计。</p>
+<h3 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h3><hr>
+<h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。<br>基本方法：就是基本操作，是有子类实现的方法，并且在模板方法中被调用。<br>模板方法：可以有一个或几个，实现对基本方法的调度，完成固定逻辑。</p>
+<h4 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a>优点：</h4><p>封装不变部分，扩展可变部分<br>提取公共部分代码，便于维护<br>行为有父类控制，子类实现</p>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><p>如果具体实现过多，需要开发人员话时间去理清关系。</p>
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><p>多个子类有公有方法，并且逻辑基本相同<br>重要、复杂的算法，可以把核心算法设计为模板方法，周边则有子类实现<br>.NET中重写控件事件就是模板方法模式</p>
+<h4 id="扩展-2"><a href="#扩展-2" class="headerlink" title="扩展"></a>扩展</h4><p>可以设置一个钩子方法，从而使子类控制流程走向。</p>
+<h3 id="建造者模式（创建型模式）"><a href="#建造者模式（创建型模式）" class="headerlink" title="建造者模式（创建型模式）"></a>建造者模式（创建型模式）</h3><hr>
+<h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><p>也叫生成器模式，将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示，如制造汽车需要发动机、轮胎。<br>构成角色：<br>Product产品类：通常是实现了模板方法模式，有模板方法和基本方法。<br>Builder抽象建造者：规范产品的组建，一般是由子类实现。<br>ConcreteBuilder具体建造者：实现抽象类定义的所有方法，并且返回一个组建好的对象。<br>Director导演类：负责安排已有模块的顺序，然后告诉Builder开始建造。</p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><p>封装性，客户端不用关心产品内部组成的细节。<br>建造者独立，容易扩展。<br>便于控制细节风险，因为建造者是独立的，因此可对建造过程细化。</p>
+<h4 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h4><p>相同方法，不同执行顺序，产生不同的事件结果。<br>多个部件，都可以装配到一个对象，但产生结果不同时。<br>产品类非常复杂，或者产品类中的调用顺序不同产生了不同的效能。<br>建造者模式关注的是零件类型和装配顺序，这是与工厂方法模式的最大不同地方。</p>
+<h3 id="代理模式（结构型模式）"><a href="#代理模式（结构型模式）" class="headerlink" title="代理模式（结构型模式）"></a>代理模式（结构型模式）</h3><hr>
+<h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><p>为其他对象提供一种代理以控制这个对象的访问，并由代理对象控制对原对象的引用。</p>
+<h4 id="优点：-3"><a href="#优点：-3" class="headerlink" title="优点："></a>优点：</h4><p>职责清晰，降低耦合，真实角色只关心自己业务逻辑，不用关心相关但非本职的事务，都通过后期代理完成。<br>高扩展性，保护目标对象，真实角色可随时发生变化，但依赖接口，所以代理类可不做任何修改。</p>
+<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><p>造成请求速度变慢。<br>代理类需要额外工作，增加系统复杂度。</p>
+<h4 id="应用场景：-1"><a href="#应用场景：-1" class="headerlink" title="应用场景："></a>应用场景：</h4><p>动态代理：AOP面向切面编程就是通过动态代理模式实现的。<br>远程代理：远程调用操作。<br>保护代理：保护一个对象的访问，可以给不同用户提供不同权限。<br>缓冲代理，为莫以目标操作的结果提供临时存储空间，多个客户端共享。<br>防火墙代理：保护目标不让恶意用户接近。<br>同步代理：同步化，使几个用户能同时使用一个对象而没有冲突。<br>智能引用代理，当一个对象被引用时，提供额外的操作。<br>虚拟代理，如果要创建一个资源消耗大的对象，可以先创建一个代理表示，等需要时才真正创建。</p>
+<h3 id="原型模式（结构型模式）"><a href="#原型模式（结构型模式）" class="headerlink" title="原型模式（结构型模式）"></a>原型模式（结构型模式）</h3><hr>
+<h4 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h4><p>用原型实例指定创建对象的种类(自身类型)，并且通过拷贝这些原型创建新的对象。</p>
+<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><p>性能优良，是在内存中二进制流的拷贝，比直接new一个对象性能好很多。<br>逃避构造函数约束，这是优点也是缺点。</p>
+<h4 id="应用场景-3"><a href="#应用场景-3" class="headerlink" title="应用场景"></a>应用场景</h4><p>资源优化场景，如类初始化需要消化非常多的资源。<br>性能和安全要求的场景，通过new创建需要非常繁琐的数据准备或访问权限。<br>一个对象多个修改者的场景。<br>注意：原型模式，构造函数是不会执行的。</p>
+<h3 id="中介者模式（行为型模式）"><a href="#中介者模式（行为型模式）" class="headerlink" title="中介者模式（行为型模式）"></a>中介者模式（行为型模式）</h3><hr>
+<h4 id="定义-6"><a href="#定义-6" class="headerlink" title="定义"></a>定义</h4><p>用一个中介对象封装一系列的对象交互，中介者使各对象不需要显示地相互作用，起到中转和协调作用，从而使其耦合松散，而且可独立改变他们之间的交互。<br>组成角色：<br>Mediator抽象中介者角色，定义统一的接口，用于各同事角色之间的通信。<br>Concrete Mediator具体中介者角色，通过协调各同事角色实现协作行为，必须依赖各个同事角色。<br>Colleague同事角色，都知道中介者角色，通过中介者协作。</p>
+<h4 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h4><p>减少类间依赖，把原本一对多的依赖变成一对一的依赖。</p>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><p>中介者会膨胀的很大，而且逻辑复杂，同事类越多，中介者就越复杂。</p>
+<h4 id="应用场景-4"><a href="#应用场景-4" class="headerlink" title="应用场景"></a>应用场景</h4><p>类图中出现了蜘蛛网状接口，使用中介者模式变成星型结构。<br>MVC框架，Controller就是一个中介者。<br>聊天室</p>
+<h4 id="最佳实践："><a href="#最佳实践：" class="headerlink" title="最佳实践："></a>最佳实践：</h4><p>N个对象之间产生了相互依赖关系。<br>多个对象有依赖关系，但是需求不确定，采用中介者模式，可降低变更引起的风险。</p>
+<h3 id="命令模式（行为型模式）"><a href="#命令模式（行为型模式）" class="headerlink" title="命令模式（行为型模式）"></a>命令模式（行为型模式）</h3><hr>
+<h4 id="定义-7"><a href="#定义-7" class="headerlink" title="定义"></a>定义</h4><p>将一个请求封装成一个对象，从而让你使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能。<br>组成角色：<br>Receive接收者角色，最终执行的方法。<br>Command抽象命令角色，需要执行的所有命令都在这里生命。<br>Invoker调用者角色，接收到命令，并执行命令。<br>Client客户角色，发出一个具体的命令并确定其接受者。<br>ConcreteCommand具体命令角色，定义一个接受者和行为的弱耦合，负责调用接受者相应方法。</p>
+<h4 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h4><p>新的命令可以很容易的加入到系统中。<br>类间解耦，调用者和接收者之间没有任何依赖关系，调用者只需要调用Command抽象类的execute方法就可以，不需要知道具体执行者。<br>可扩展性，Command的子类可以非常容易的扩展，高层不产生要种的代码耦合。<br>可以比较容易的设计一个命令队列和组合命令，命令模式可以结合责任链模式，实现命令族解析任务；可以结合模板方法模式，则可减少Command子类的膨胀问题。</p>
+<h4 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h4><p>如果有N个命令，则需要创建N个Command子类。</p>
+<h4 id="应用场景-5"><a href="#应用场景-5" class="headerlink" title="应用场景"></a>应用场景</h4><p>系统需要支持命令的撤销。<br>系统需要在不同的时间指定请求、将请求排队。<br>如果系统需要将所有操作记录日志，以便崩溃时从日志恢复。<br>如果需要执行回调。</p>
+<h3 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h3><hr>
+<h4 id="定义-8"><a href="#定义-8" class="headerlink" title="定义"></a>定义</h4><p>使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，知道有对象处理它为止。<br>涉及角色：<br>Handler抽象处理者角色，定义一个处理请求的接口。<br>ConcreteHandler具体处理者角色，具体处理者接受到请求后，可以选择处理，或传给下一个处理者。<br>抽象处理者二个职责：<br>定义一个请求的处理方法handleMessage，是唯一对外开放的方法；<br>定义一个链的编排属性setNext，设置下一个处理者；<br>具体处理者涉及两个类：Request类负责封装请求，Response负责封装链中返回的结果。</p>
+<h4 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h4><p>将请求和处理分开，双方可互不相识，两者解耦，提高系统灵活性。</p>
+<h4 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h4><p>性能问题，每个请求都是从链头遍历到链尾。<br>调试不方便，采用了类似递归的方式，调试的时候逻辑可能比较复杂。</p>
+<h4 id="应用场景-6"><a href="#应用场景-6" class="headerlink" title="应用场景"></a>应用场景</h4><p>一个系统的审批需要多个对象才能完成处理的情况下，例如请假系统。<br>代码中存在多个if-else语句的情况下，可以考虑使用责任链模式来对代码进行重构。</p>
+<h3 id="装饰模式（结构型模式）"><a href="#装饰模式（结构型模式）" class="headerlink" title="装饰模式（结构型模式）"></a>装饰模式（结构型模式）</h3><hr>
+<h4 id="定义-9"><a href="#定义-9" class="headerlink" title="定义"></a>定义</h4><p>动态的给一个对象添加一些额外的职责，就增加功能来说，装饰模式相比生成子类更加灵活。<br>涉及角色：<br>Component抽象构件，是一个接口或抽象类，定义最核心的对象，也就是最原始的对象。<br>ConcreteComponent具体构件，要装饰的对象。<br>Decorator抽象装饰角色，有一个执行抽象构件的属性，若只有一个装饰类则无需此类。<br>ConcreteDecorator具体装饰角色，负责对原始对象进行装饰。</p>
+<h4 id="优点-6"><a href="#优点-6" class="headerlink" title="优点"></a>优点</h4><p>装饰类和被装饰类可以独立发展，而不会互相耦合。<br>装饰模式是继承关系的一个替代方案。<br>装饰模式可以动态地扩展一个实现类的功能。<br>可以通过不同装饰类，创建出不同的组合。</p>
+<h4 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h4><p>多层装饰提高了系统的复杂度。</p>
+<h4 id="应用场景-7"><a href="#应用场景-7" class="headerlink" title="应用场景"></a>应用场景</h4><p>需要扩展一个类的功能，或者给一个类增加附加功能。<br>需要动态给一个对象增加功能，这些功能可以再动态地撤销。<br>需要为一批的兄弟类进行改装或加装功能，首选装饰模式。</p>
+<h3 id="策略模式（行为型模式）"><a href="#策略模式（行为型模式）" class="headerlink" title="策略模式（行为型模式）"></a>策略模式（行为型模式）</h3><hr>
+<h4 id="定义-10"><a href="#定义-10" class="headerlink" title="定义"></a>定义</h4><p>也叫政策模式，定义一组算法，将每个算法都封装起来，并且使它们之间可以互换。<br>涉及角色：<br>Context封装角色，也叫上下文角色，承上启下，屏蔽高层模块对策略、算法的直接访问，封装可能存在的变化。<br>Strategy抽象策略角色，定义每个策略或算法必须具有的方法和属性的接口。<br>ConcreteStrategy具体策略角色，实现抽象策略的操作，含有具体算法。<br>和代理模式区别，在于Context封装角色和被封装的策略类不是用的同一个接口。</p>
+<h4 id="优点-7"><a href="#优点-7" class="headerlink" title="优点"></a>优点</h4><p>算法可以自由切换。<br>避免使用多重条件判断。<br>扩展性良好，如List中IComparer实现排序一样，可轻松增加一个策略，其他都不用修改。</p>
+<h4 id="缺点-6"><a href="#缺点-6" class="headerlink" title="缺点"></a>缺点</h4><p>策略类数量增多。<br>所有的策略类都需要对外暴露。</p>
+<h4 id="应用场景-8"><a href="#应用场景-8" class="headerlink" title="应用场景"></a>应用场景</h4><p>多个类只有在算法或行为上稍有不同的场景。<br>算法需要自由切换的场景，如经常变化的业务场景。<br>需要屏蔽算法规则的场景。</p>
+<h3 id="适配器模式（结构型模式）"><a href="#适配器模式（结构型模式）" class="headerlink" title="适配器模式（结构型模式）"></a>适配器模式（结构型模式）</h3><hr>
+<h4 id="定义-11"><a href="#定义-11" class="headerlink" title="定义"></a>定义</h4><p>将一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作。<br>又叫做变压器模式，也叫做包装模式。<br>涉及角色：<br>Target目标角色，该角色定义把其他类转换为何种接口，也就是我们期望接口。<br>Adaptee源角色，被转换的类。<br>Adapter适配器角色，通过继承或类关联的方式，把源角色转换为目标角色。</p>
+<h4 id="优点-8"><a href="#优点-8" class="headerlink" title="优点"></a>优点</h4><p>可以让两个没有任何关系的类在一起运行。<br>增加了类的透明性<br>提高了类的复用度<br>灵活性好，想用就用不想用就卸载。</p>
+<h4 id="缺点-7"><a href="#缺点-7" class="headerlink" title="缺点"></a>缺点</h4><p>采用了多继承，带来了高耦合。</p>
+<h4 id="应用场景-9"><a href="#应用场景-9" class="headerlink" title="应用场景"></a>应用场景</h4><p>有动机修改一个已经投产中的接口时，适配器模式可能就是最合适的。<br>适配器模式是提供给正在运行的项目使用，项目设计时不要考虑。<br>对象是适配器，和类适配器的区别是，类适配器是类间继承，对象适配器是对象的合成关系，也就是关联关系。</p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><hr>
+<h4 id="定义-12"><a href="#定义-12" class="headerlink" title="定义"></a>定义</h4><p>它提供一种方法访问一个容器对象中各个元素，而又不需暴露该对象的内部细节。<br>组成角色<br>Iterator抽象迭代器：负责定义访问和遍历元素的接口。<br>ConcreteIterator具体迭代器：实现迭代器接口，完成元素遍历。<br>Aggregate抽象容器：容器角色负责提供创建具体迭代器角色的接口。<br>ConcreteAggregate具体容器：实现容器接口，创建出容纳迭代器的对象。</p>
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><hr>
+<h4 id="定义-13"><a href="#定义-13" class="headerlink" title="定义"></a>定义</h4><p>合成模式，部分整体模式，将对象组合成树形结构表示部分整体的层次结构，使得用户对单个对象和组合对象的使用具有一致性。<br>组成角色：<br>Component抽象构件角色，定义参加组合对象的共有方法和属性，可以定义一些默认的行为或属性。<br>Leaf叶子构件，叶子对象，其下再也没有其他的分支，也就是遍历的最小单位。<br>Composite树枝构件，它的作用是组合树枝节点和叶子节点形成一个树形结构。</p>
+<h4 id="优点-9"><a href="#优点-9" class="headerlink" title="优点"></a>优点</h4><p>高层模块调用简单，节点自由增加。</p>
+<h4 id="缺点-8"><a href="#缺点-8" class="headerlink" title="缺点"></a>缺点</h4><p>直接使用实现类，违法依赖倒置原则。</p>
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p>维护和展示部分-整体关系的场景，如树形菜单、文件和文件夹管理。<br>从一个整体中能够独立出部分模块或功能的场景。<br>注意，只要是树形结构，就可以考虑组合模式。</p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><hr>
+<h4 id="定义-14"><a href="#定义-14" class="headerlink" title="定义"></a>定义</h4><p>也叫发布订阅模式，定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。<br>组成角色：<br>Subject抽象被观察者，定义必须实现的职责，必须能够动态增加、取消观察者。并通知观察者。<br>Observer抽象观察者，观察者收到消息后，进行update操作，对接收到的信息进行处理。<br>ConcreteSubject具体被观察者，定义自己的业务逻辑，同时定义对哪些事件进行通知。<br>ConcreteObserver具体观察者，每个观察者在接收到消息后的处理反应是不同的，有各自处理方法。</p>
+<h4 id="优点-10"><a href="#优点-10" class="headerlink" title="优点"></a>优点</h4><p>观察者和被观察者之间是抽象耦合<br>建立一套触发机制，符合单一职责原则。</p>
+<h4 id="缺点-9"><a href="#缺点-9" class="headerlink" title="缺点"></a>缺点</h4><p>多个观察者，开发和调试负责，一个卡壳会影响整体执行效率。</p>
+<h4 id="应用场景-10"><a href="#应用场景-10" class="headerlink" title="应用场景"></a>应用场景</h4><p>关联行为场景，关联行为是可拆分的。<br>事件多级触发场景。<br>跨系统的消息交换场景，如消息队列的处理机制。<br>注意：<br>广播链问题，多级关联<br>异步处理，如果处理时间较长，可以使用异步</p>
+<h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><p>文件系统，新增文件通知目录管理器增加该目录<br>广播收音机，电台是被观察者，收音机是观察者。</p>
+<h3 id="门面模式"><a href="#门面模式" class="headerlink" title="门面模式"></a>门面模式</h3><hr>
+<h4 id="定义-15"><a href="#定义-15" class="headerlink" title="定义"></a>定义</h4><p>也叫外观模式，要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行，门面模式提供一个高层次的接口，使得子系统更易于使用。<br>组成角色：</p>
+<p>Facade门面角色，客户端调用这个角色，此角色知晓子系统所有的功能和责任。无实际业务逻辑，只做跳板。<br>SubSystem子系统角色，可以同时又一个或者多个子系统，对于子系统门面角色只是另外一个客户端而已。</p>
+<h4 id="优点-11"><a href="#优点-11" class="headerlink" title="优点"></a>优点</h4><p>减少系统的相互依赖，所有的依赖都是对门面对象的依赖，与子系统无关。<br>提高了灵活性，不管内部如何变化，只要不影响门面对象，任你自由活动。<br>提高安全性，只能访问门面角色内的方法。</p>
+<h4 id="缺点-10"><a href="#缺点-10" class="headerlink" title="缺点"></a>缺点</h4><p>不符合开闭原则</p>
+<h4 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h4><p>为一个复杂的模块或子系统提供一个供外界访问的接口<br>子系统相对独立的情况，外界对子系统的访问只要黑箱操作即可<br>一般一个系统只需要一个门面，如果超过200行建议拆成多个门面<br>门面角色中不能有任何分支逻辑、顺寻执行逻辑否则会引子系统必须依赖门面才能被访问的问题。</p>
+<h3 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h3><hr>
+<h4 id="定义-16"><a href="#定义-16" class="headerlink" title="定义"></a>定义</h4><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存，使对象可恢复到原来保存的状态。<br>组成角色：<br>Originator发起人角色，负责创建和恢复备忘录数据。<br>Memento备忘录角色，负责存储Originator发起人角色内部状态。<br>Caretaker备忘录管理员角色，对备忘录进行保存、管理和提供备忘录。</p>
+<h4 id="使用场景：-1"><a href="#使用场景：-1" class="headerlink" title="使用场景："></a>使用场景：</h4><p>需要保存和恢复数据的相关状态场景。<br>提供一个可回滚的操作，如CTRL+Z。</p>
+<h4 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h4><p>可以使用clone实现对自身状态的管理。<br>可以使用反射实现类下所有属性的状态管理。<br>使用列表管理备忘录，可实现多备份。</p>
+<h3 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h3><hr>
+<h4 id="定义-17"><a href="#定义-17" class="headerlink" title="定义"></a>定义</h4><p>封装一些作用于某种数据结构中的各元素的操作，它可以在不改变数据结构的前提下定义作用于这些元素的新的操作。<br>组成角色：<br>Visitor抽象访问者，抽象类或接口，声明访问者可以访问哪些元素，就是方法接收的参数。<br>ConcreteVisitor具体访问者，实现访问者访问到一个类后干什么。<br>Element抽象元素，声明接受哪一类访问者访问，程序上是通过accept方法中的参数来定义的。<br>ObectStruture结构对象，元素产生者，一般容纳在多个不同类、不同接口，如List、Set、Map，项目中一般很少抽象出这个角色。</p>
+<h4 id="优点-12"><a href="#优点-12" class="headerlink" title="优点"></a>优点</h4><p>符合单一职责原则<br>优秀扩展性<br>灵活性高，比如针对不同对象，不同处理，可以不适用if</p>
+<h4 id="缺点-11"><a href="#缺点-11" class="headerlink" title="缺点"></a>缺点</h4><p>具体元素对访问者公布细节<br>具体元素变更比较困难<br>违背了依赖倒置原则，访问者依赖的是具体元素，而不是抽象元素。</p>
+<h4 id="应用场景-11"><a href="#应用场景-11" class="headerlink" title="应用场景"></a>应用场景</h4><p>需要对一个对象结构中的对象进行很多不同并且不相关的操作。</p>
+<h3 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h3><hr>
+<h4 id="定义-18"><a href="#定义-18" class="headerlink" title="定义"></a>定义</h4><p>当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了它的类。<br>组成角色：<br>State抽象状态角色：负责对状态定义，并且封装环境角色以实现状态切换。<br>ConcreteState具体状态角色：必须有2个职责，本状态下要做的事，和本状态如何过渡到其他状态。<br>Context环境角色：定义客户端需要的接口，并且负责具体状态的切换。</p>
+<h4 id="优点-13"><a href="#优点-13" class="headerlink" title="优点"></a>优点</h4><p>结构清晰、遵循设计原则、封装性好</p>
+<h4 id="缺点-12"><a href="#缺点-12" class="headerlink" title="缺点"></a>缺点</h4><p>子类会很多。</p>
+<h4 id="应用场景-12"><a href="#应用场景-12" class="headerlink" title="应用场景"></a>应用场景</h4><p>行为随状态改变而改变的场景，如权限设计，不同人，不同结果。<br>条件、分支判断语句的替代者。</p>
+<h3 id="解析器模式"><a href="#解析器模式" class="headerlink" title="解析器模式"></a>解析器模式</h3><hr>
+<h4 id="定义-19"><a href="#定义-19" class="headerlink" title="定义"></a>定义</h4><p>给定一门语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。</p>
+<h4 id="使用场景-2"><a href="#使用场景-2" class="headerlink" title="使用场景"></a>使用场景</h4><p>重复发生的问题可以使用解释器模式，如收集不同格式日志。</p>
+<h3 id="亨元模式"><a href="#亨元模式" class="headerlink" title="亨元模式"></a>亨元模式</h3><hr>
+<h4 id="定义-20"><a href="#定义-20" class="headerlink" title="定义"></a>定义</h4><p>使用共享对象可有效地支持大量的细粒度的对象。建立对象池。<br>组成角色：</p>
+<p>Flyweight抽象亨元角色，一个产品的抽象类，定义出对象的外部状态和内部状态的接口或实现。<br>ConcreteFlyweight具体亨元角色，产品类，不能同时修改内部状态，外部状态。<br>unsharedConcreteFlyweight不可共享的亨元角色，一般不会出现在亨元工厂中。<br>FlyweightFactory亨元工厂，构造一个池容器，同时提供从池中获得对象的方法。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>大大减少应用程序创建的对象，降低内存占用，增强性能，同时提高了系统复杂性，需要分离外部内部状态，且外部状态固化。</p>
+<h4 id="应用场景-13"><a href="#应用场景-13" class="headerlink" title="应用场景"></a>应用场景</h4><p>系统中存在大量相似对象<br>需要缓冲池的场景</p>
+<h3 id="桥梁模式"><a href="#桥梁模式" class="headerlink" title="桥梁模式"></a>桥梁模式</h3><hr>
+<h4 id="定义-21"><a href="#定义-21" class="headerlink" title="定义"></a>定义</h4><p>也叫桥接模式，将抽象和实现解耦，使得两者可以独立地变化。<br>组成角色：<br>Abstraction抽象化角色，定义出该角色的行为，同时保存一个实现化角色的引用，一般是抽象类。<br>Implementor实现化角色，它是接口或者抽象类，定义角色必须的行为和属性。<br>RefinedAbstraction修正抽象化角色，引用实现化角色对抽象化角色进行修正。<br>ConcreteImplementor具体实现化角色，它实现接口或抽象类定义的方法和属性。<br>抽象角色引用实现角色，或者说抽象角色的部分实现是由实现角色完成的<br>尽量把最可能的变化封装到最小的逻辑单元，如果有多层继承，则考虑桥梁模式。<br>就像遥控器不包含开机、换台功能，只包含对电视机功能描述的接口引用，实现是有电视机完成。</p>
+<h4 id="优点-14"><a href="#优点-14" class="headerlink" title="优点"></a>优点</h4><p>抽象实现分离，为了解决继承的缺点而提出的设计模式，该模式下实现可以不受抽象的约束。<br>优秀的扩充能力。<br>实现细节对客户透明，客户不用关心实现细节。</p>
+<h4 id="应用场景-14"><a href="#应用场景-14" class="headerlink" title="应用场景"></a>应用场景</h4><p>不希望或不适用使用继承的场景<br>接口或抽象类不稳定的场景<br>重用性要求较高的场景</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/24/redis知识点整理/" rel="next" title="redis知识点整理">
+                <i class="fa fa-chevron-left"></i> redis知识点整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">1.2.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">1.3.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景："><span class="nav-number">1.4.</span> <span class="nav-text">使用场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">1.5.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">2.</span> <span class="nav-text">工厂方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景"><span class="nav-number">2.3.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展-1"><span class="nav-number">2.4.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">3.</span> <span class="nav-text">抽象工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-1"><span class="nav-number">3.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-1"><span class="nav-number">3.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板方法模式"><span class="nav-number">4.</span> <span class="nav-text">模板方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-2"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-2"><span class="nav-number">4.2.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">4.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景："><span class="nav-number">4.4.</span> <span class="nav-text">应用场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展-2"><span class="nav-number">4.5.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建造者模式（创建型模式）"><span class="nav-number">5.</span> <span class="nav-text">建造者模式（创建型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-3"><span class="nav-number">5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">5.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-2"><span class="nav-number">5.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理模式（结构型模式）"><span class="nav-number">6.</span> <span class="nav-text">代理模式（结构型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-4"><span class="nav-number">6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-3"><span class="nav-number">6.2.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-1"><span class="nav-number">6.3.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景：-1"><span class="nav-number">6.4.</span> <span class="nav-text">应用场景：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式（结构型模式）"><span class="nav-number">7.</span> <span class="nav-text">原型模式（结构型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-5"><span class="nav-number">7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-2"><span class="nav-number">7.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-3"><span class="nav-number">7.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中介者模式（行为型模式）"><span class="nav-number">8.</span> <span class="nav-text">中介者模式（行为型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-6"><span class="nav-number">8.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-3"><span class="nav-number">8.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-2"><span class="nav-number">8.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-4"><span class="nav-number">8.4.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最佳实践："><span class="nav-number">8.5.</span> <span class="nav-text">最佳实践：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式（行为型模式）"><span class="nav-number">9.</span> <span class="nav-text">命令模式（行为型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-7"><span class="nav-number">9.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-4"><span class="nav-number">9.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-3"><span class="nav-number">9.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-5"><span class="nav-number">9.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#责任链模式"><span class="nav-number">10.</span> <span class="nav-text">责任链模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-8"><span class="nav-number">10.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-5"><span class="nav-number">10.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-4"><span class="nav-number">10.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-6"><span class="nav-number">10.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装饰模式（结构型模式）"><span class="nav-number">11.</span> <span class="nav-text">装饰模式（结构型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-9"><span class="nav-number">11.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-6"><span class="nav-number">11.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-5"><span class="nav-number">11.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-7"><span class="nav-number">11.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式（行为型模式）"><span class="nav-number">12.</span> <span class="nav-text">策略模式（行为型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-10"><span class="nav-number">12.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-7"><span class="nav-number">12.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-6"><span class="nav-number">12.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-8"><span class="nav-number">12.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适配器模式（结构型模式）"><span class="nav-number">13.</span> <span class="nav-text">适配器模式（结构型模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-11"><span class="nav-number">13.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-8"><span class="nav-number">13.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-7"><span class="nav-number">13.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-9"><span class="nav-number">13.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器模式"><span class="nav-number">14.</span> <span class="nav-text">迭代器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-12"><span class="nav-number">14.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合模式"><span class="nav-number">15.</span> <span class="nav-text">组合模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-13"><span class="nav-number">15.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-9"><span class="nav-number">15.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-8"><span class="nav-number">15.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景"><span class="nav-number">15.4.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式"><span class="nav-number">16.</span> <span class="nav-text">观察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-14"><span class="nav-number">16.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-10"><span class="nav-number">16.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-9"><span class="nav-number">16.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-10"><span class="nav-number">16.4.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最佳实践"><span class="nav-number">16.5.</span> <span class="nav-text">最佳实践</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#门面模式"><span class="nav-number">17.</span> <span class="nav-text">门面模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-15"><span class="nav-number">17.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-11"><span class="nav-number">17.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-10"><span class="nav-number">17.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景-1"><span class="nav-number">17.4.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备忘录模式"><span class="nav-number">18.</span> <span class="nav-text">备忘录模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-16"><span class="nav-number">18.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景：-1"><span class="nav-number">18.2.</span> <span class="nav-text">使用场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展："><span class="nav-number">18.3.</span> <span class="nav-text">扩展：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问者模式"><span class="nav-number">19.</span> <span class="nav-text">访问者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-17"><span class="nav-number">19.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-12"><span class="nav-number">19.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-11"><span class="nav-number">19.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-11"><span class="nav-number">19.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态模式"><span class="nav-number">20.</span> <span class="nav-text">状态模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-18"><span class="nav-number">20.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-13"><span class="nav-number">20.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-12"><span class="nav-number">20.3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-12"><span class="nav-number">20.4.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析器模式"><span class="nav-number">21.</span> <span class="nav-text">解析器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-19"><span class="nav-number">21.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景-2"><span class="nav-number">21.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#亨元模式"><span class="nav-number">22.</span> <span class="nav-text">亨元模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-20"><span class="nav-number">22.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">22.2.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-13"><span class="nav-number">22.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桥梁模式"><span class="nav-number">23.</span> <span class="nav-text">桥梁模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-21"><span class="nav-number">23.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-14"><span class="nav-number">23.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景-14"><span class="nav-number">23.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
