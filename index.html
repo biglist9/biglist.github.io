@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/12/02/归并排序与快速排序的PHP实现/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/12/02/如何实现一个通用的高性能的排序函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kaizen">
@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/12/02/归并排序与快速排序的PHP实现/" itemprop="url">归并排序与快速排序的PHP实现</a></h1>
+                <a class="post-title-link" href="/2020/12/02/如何实现一个通用的高性能的排序函数/" itemprop="url">如何实现一个通用的高性能的排序函数</a></h1>
         
 
         <div class="post-meta">
@@ -293,7 +293,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-02T20:20:07+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-02T20:50:54+08:00">
                 2020-12-02
               </time>
             
@@ -334,8 +334,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/12/02/归并排序与快速排序的PHP实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/02/归并排序与快速排序的PHP实现/" itemprop="commentCount"></span>
+                <a href="/2020/12/02/如何实现一个通用的高性能的排序函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/02/如何实现一个通用的高性能的排序函数/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,16 +365,53 @@
       
         
           
-          一、分治思想
-分治思想：分治，顾明思意，就是分而治之，将一个大问题分解成小的子问题来解决，小的子问题解决了，大问题也就解决了。
-分治与递归的区别：分治算法一般都用递归来实现的。分治是一种解决问题的处理思想，递归是一种编程技巧。
+          一、如何选择合适的排序算法？排序算法一览表
 
-二、归并排序
-算法原理先把数组从中间分成前后两部分，然后对前后两部分分
+
+
+排序名称
+时间复杂度
+是稳定排序？
+是原地排序？
+
+
+
+
+冒泡排序
+O(n^2)
+是
+是
+
+
+插入排序
+O(n^2)
+是
+是
+
+
+选择排序
+O(n^2)
+否
+是
+
+
+快速排序
+O(nlogn)
+否
+是
+
+
+归并排序
+O(nlogn)
+是
+否
+
+
+桶排
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/12/02/归并排序与快速排序的PHP实现/#more" rel="contents">
+            <a class="btn" href="/2020/12/02/如何实现一个通用的高性能的排序函数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1912,7 +1949,7 @@ Red
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
