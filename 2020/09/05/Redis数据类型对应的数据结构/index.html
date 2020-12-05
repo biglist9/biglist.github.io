@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Redis,数据结构," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Redis 中，键的数据类型是字符串，但是值的数据类型有很多，常用的数据类型是：字符串、列表、字典、集合、有序集合 列表（list） 列表这种数据类型支持存储一组数据 两种实现方法：（1）压缩列表（ziplist）（2）双向循环链表 当列表中存储的数据量比较小时，可以采用压缩列表的方式实现。 具体需要同时满足下面两个条件：（1）列表中保存的单个数据（可能是字符串类型的）小于 64 字节；（2）列表">
+<meta name="keywords" content="Redis,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis数据类型对应的数据结构">
+<meta property="og:url" content="http://tit.ink/2020/09/05/Redis数据类型对应的数据结构/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="Redis 中，键的数据类型是字符串，但是值的数据类型有很多，常用的数据类型是：字符串、列表、字典、集合、有序集合 列表（list） 列表这种数据类型支持存储一组数据 两种实现方法：（1）压缩列表（ziplist）（2）双向循环链表 当列表中存储的数据量比较小时，可以采用压缩列表的方式实现。 具体需要同时满足下面两个条件：（1）列表中保存的单个数据（可能是字符串类型的）小于 64 字节；（2）列表">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-05T09:10:54.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis数据类型对应的数据结构">
+<meta name="twitter:description" content="Redis 中，键的数据类型是字符串，但是值的数据类型有很多，常用的数据类型是：字符串、列表、字典、集合、有序集合 列表（list） 列表这种数据类型支持存储一组数据 两种实现方法：（1）压缩列表（ziplist）（2）双向循环链表 当列表中存储的数据量比较小时，可以采用压缩列表的方式实现。 具体需要同时满足下面两个条件：（1）列表中保存的单个数据（可能是字符串类型的）小于 64 字节；（2）列表">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2020/09/05/Redis数据类型对应的数据结构/"/>
+
+
+
+
+
+  <title>Redis数据类型对应的数据结构 | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/09/05/Redis数据类型对应的数据结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Redis数据类型对应的数据结构</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-05T17:09:39+08:00">
+                2020-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/05/Redis数据类型对应的数据结构/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/05/Redis数据类型对应的数据结构/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Redis 中，键的数据类型是字符串，但是值的数据类型有很多，常用的数据类型是：字符串、列表、字典、集合、有序集合</p>
+<h3 id="列表（list）"><a href="#列表（list）" class="headerlink" title="列表（list）"></a>列表（list）</h3><ol>
+<li>列表这种数据类型支持存储一组数据</li>
+<li>两种实现方法：（1）压缩列表（ziplist）（2）双向循环链表<ul>
+<li>当列表中存储的数据量比较小时，可以采用压缩列表的方式实现。</li>
+<li>具体需要同时满足下面两个条件：<br>（1）列表中保存的单个数据（可能是字符串类型的）小于 64 字节；<br>（2）列表中数据个数少于 512 个</li>
+</ul>
+</li>
+<li>关于压缩列表<ul>
+<li>它并不是基础数据结构，而是 Redis 自己设计的一种数据存储结构</li>
+<li>类似数组，通过一片连续的内存空间来存储数据</li>
+<li>跟数组不同的是它允许存储的数据大小不同</li>
+</ul>
+</li>
+<li>压缩列表中的“压缩”如何理解？<ul>
+<li>“压缩”：就是节省内存，之所以说节省内存，是相较于数组的存储思路而言的。数组要求每个元素的大小相同，如果要存储不同长度的字符串，就需要用最大长度的字符串大小作为元素的大小。但压缩数组允许不同的存储空间。</li>
+<li>压缩列表这种存储结构，另一方面可以支持不同类型数据的存储</li>
+<li>数据存储在一片连续的内存空间，通过键来获取值为列表类型的数据，读取的效率也非常高。</li>
+</ul>
+</li>
+<li>不能同时满足压缩列表的两个条件时，列表就要通过双向循环链表来实现</li>
+</ol>
+<h3 id="字典（hash）"><a href="#字典（hash）" class="headerlink" title="字典（hash）"></a>字典（hash）</h3><ol>
+<li>字典类型用来存储一组数据对。</li>
+<li>每个数据对又包含键值两部分，也有两种实现方式：（1）压缩列表（2）散列表</li>
+<li>同样，只有当存储的数据量比较小的情况下，Redis 才使用压缩列表来实现字典类型。具体需要满足两个条件：<ul>
+<li>字典中保存的键和值的大小都要小于 64 字节</li>
+<li>字典中键值对的个数要小于 512 个</li>
+</ul>
+</li>
+<li>当不能同时满足上面两个条件的时候，Redis 就使用散列表来实现字典类型<ul>
+<li>Redis 使用MurmurHash2这种运行速度快、随机性好的哈希算法作为哈希函数</li>
+<li>对于哈希冲突问题，Redis 使用链表法来解决</li>
+<li>除此之外，Redis 还支持散列表的动态扩容、缩容。</li>
+</ul>
+</li>
+<li>扩容：当数据动态增加，装载因子会不停地变大。为了避免散列表性能的下降，当装载因子大于 1 的时候，Redis 会触发扩容，将散列表扩大为原来大小的 2 倍左右（具体值需要计算才能得到）。</li>
+<li>缩容：当数据动态减少之后，为了节省内存，当装载因子小于 0.1 的时候，Redis 就会触发缩容，缩小为字典中数据个数的大约 2 倍大小（这个值也是计算得到的）<br>扩容缩容要做大量的数据搬移和哈希值的重新计算，比较耗时。针对这个问题，Redis 使用渐进式扩容缩容策略：将数据的搬移分批进行，避免了大量数据一次性搬移导致的服务停顿。</li>
+</ol>
+<h3 id="集合（set）"><a href="#集合（set）" class="headerlink" title="集合（set）"></a>集合（set）</h3><ol>
+<li>集合这种数据类型用来存储一组不重复的数据</li>
+<li>这种数据类型也有两种实现方法：（1）有序数组（2）散列表</li>
+<li>Redis 若采用有序数组，要同时满足下面这样两个条件：<ul>
+<li>存储的数据都是整数；</li>
+<li>存储的数据元素个数不超过 512 个。</li>
+<li>当不能同时满足这两个条件的时候，Redis 就使用散列表来存储集合中的数据。</li>
+</ul>
+</li>
+</ol>
+<h3 id="有序集合（sortedset）"><a href="#有序集合（sortedset）" class="headerlink" title="有序集合（sortedset）"></a>有序集合（sortedset）</h3><ol>
+<li>它用来存储一组数据，并且每个数据会附带一个得分。通过得分的大小，将数据组织成跳表这样的数据结构，以支持快速地按照得分值、得分区间获取数据。</li>
+<li>当数据量比较小的时候，Redis 可用压缩列表来实现有序集合。使用的前提有两个：<ul>
+<li>所有数据的大小都要小于 64 字节；</li>
+<li>元素个数要小于 128 个</li>
+</ul>
+</li>
+</ol>
+<h3 id="数据结构持久化"><a href="#数据结构持久化" class="headerlink" title="数据结构持久化"></a>数据结构持久化</h3><p>尽管 Redis 经常会被用作内存数据库，但它也支持将内存中的数据存储到硬盘中。当机器断电的时，存储在 Redis 中的数据不会丢失。Redis 的数据格式由“键”和“值”两部分组成。而“值”又支持很多数据类型，像字典、集合等类型，底层用到了散列表，散列表中有指针的概念，而指针指向的是内存中的存储地址。</p>
+<h4 id="Redis-是如何将一个跟具体内存地址有关的数据结构存储到磁盘中的？"><a href="#Redis-是如何将一个跟具体内存地址有关的数据结构存储到磁盘中的？" class="headerlink" title="Redis 是如何将一个跟具体内存地址有关的数据结构存储到磁盘中的？"></a>Redis 是如何将一个跟具体内存地址有关的数据结构存储到磁盘中的？</h4><ol>
+<li>Redis 遇到的这个问题被称为数据结构的持久化问题，或者对象的持久化问题</li>
+<li>将数据结构持久化到硬盘主要有两种解决思路：<ul>
+<li>第一种是清除原有的存储结构，只将数据存储到磁盘中。<ol>
+<li>当需要从磁盘还原数据到内存时，再重新将数据组织成原来的数据结构。Redis 采用的就是这种持久化思路。</li>
+<li>这种方式有一定的弊端：数据从硬盘还原到内存的过程，会耗用比较多的时间</li>
+</ol>
+</li>
+<li>第二种方式是保留原来的存储格式，将数据按照原有的格式存储在磁盘中</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/01/如何实现一个通用的高性能的排序函数/" rel="next" title="如何实现一个通用的高性能的排序函数">
+                <i class="fa fa-chevron-left"></i> 如何实现一个通用的高性能的排序函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/10/MySQL-count/" rel="prev" title="MySQL count">
+                MySQL count <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表（list）"><span class="nav-number">1.</span> <span class="nav-text">列表（list）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典（hash）"><span class="nav-number">2.</span> <span class="nav-text">字典（hash）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合（set）"><span class="nav-number">3.</span> <span class="nav-text">集合（set）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序集合（sortedset）"><span class="nav-number">4.</span> <span class="nav-text">有序集合（sortedset）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构持久化"><span class="nav-number">5.</span> <span class="nav-text">数据结构持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-是如何将一个跟具体内存地址有关的数据结构存储到磁盘中的？"><span class="nav-number">5.1.</span> <span class="nav-text">Redis 是如何将一个跟具体内存地址有关的数据结构存储到磁盘中的？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

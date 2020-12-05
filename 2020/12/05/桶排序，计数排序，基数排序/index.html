@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、线性排序算法介绍 线性排序算法包括桶排序、计数排序、基数排序。 线性排序算法的时间复杂度为O(n)。 此3种排序算法都不涉及元素之间的比较操作，是非基于比较的排序算法。 对排序数据的要求很苛刻，重点掌握此3种排序算法的适用场景。  二、桶排序（Bucket sort） 算法原理： 将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行快速排序。 桶内排完序之后，再把每个桶里的数据按照顺序依">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="桶排序，计数排序，基数排序">
+<meta property="og:url" content="http://tit.ink/2020/12/05/桶排序，计数排序，基数排序/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="一、线性排序算法介绍 线性排序算法包括桶排序、计数排序、基数排序。 线性排序算法的时间复杂度为O(n)。 此3种排序算法都不涉及元素之间的比较操作，是非基于比较的排序算法。 对排序数据的要求很苛刻，重点掌握此3种排序算法的适用场景。  二、桶排序（Bucket sort） 算法原理： 将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行快速排序。 桶内排完序之后，再把每个桶里的数据按照顺序依">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-05T09:23:45.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="桶排序，计数排序，基数排序">
+<meta name="twitter:description" content="一、线性排序算法介绍 线性排序算法包括桶排序、计数排序、基数排序。 线性排序算法的时间复杂度为O(n)。 此3种排序算法都不涉及元素之间的比较操作，是非基于比较的排序算法。 对排序数据的要求很苛刻，重点掌握此3种排序算法的适用场景。  二、桶排序（Bucket sort） 算法原理： 将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行快速排序。 桶内排完序之后，再把每个桶里的数据按照顺序依">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2020/12/05/桶排序，计数排序，基数排序/"/>
+
+
+
+
+
+  <title>桶排序，计数排序，基数排序 | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/12/05/桶排序，计数排序，基数排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">桶排序，计数排序，基数排序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-05T17:20:23+08:00">
+                2020-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/12/05/桶排序，计数排序，基数排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/05/桶排序，计数排序，基数排序/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、线性排序算法介绍"><a href="#一、线性排序算法介绍" class="headerlink" title="一、线性排序算法介绍"></a>一、线性排序算法介绍</h3><ol>
+<li>线性排序算法包括桶排序、计数排序、基数排序。</li>
+<li>线性排序算法的时间复杂度为O(n)。</li>
+<li>此3种排序算法都不涉及元素之间的比较操作，是非基于比较的排序算法。</li>
+<li>对排序数据的要求很苛刻，重点掌握此3种排序算法的适用场景。</li>
+</ol>
+<h3 id="二、桶排序（Bucket-sort）"><a href="#二、桶排序（Bucket-sort）" class="headerlink" title="二、桶排序（Bucket sort）"></a>二、桶排序（Bucket sort）</h3><ol>
+<li>算法原理：<ol>
+<li>将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行快速排序。</li>
+<li>桶内排完序之后，再把每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。</li>
+</ol>
+</li>
+<li>使用条件<ol>
+<li>要排序的数据需要很容易就能划分成m个桶，并且桶与桶之间有着天然的大小顺序。</li>
+<li>数据在各个桶之间分布是均匀的。</li>
+</ol>
+</li>
+<li>适用场景<ol>
+<li>桶排序比较适合用在外部排序中。</li>
+<li>外部排序就是数据存储在外部磁盘且数据量大，但内存有限无法将整个数据全部加载到内存中。</li>
+</ol>
+</li>
+<li>应用案例<ol>
+<li>需求描述：<br>有10GB的订单数据，需按订单金额（假设金额都是正整数）进行排序但内存有限，仅几百MB</li>
+<li>解决思路：<ul>
+<li>扫描一遍文件，看订单金额所处数据范围，比如1元-10万元，那么就分100个桶。</li>
+<li>第一个桶存储金额1-1000元之内的订单，第二个桶存1001-2000元之内的订单，依次类推。</li>
+<li>每个桶对应一个文件，并按照金额范围的大小顺序编号命名（00，01，02，…，99）。</li>
+<li>将100个小文件依次放入内存并用快排排序。</li>
+<li>所有文件排好序后，只需按照文件编号从小到大依次读取每个小文件并写到大文件中即可。</li>
+</ul>
+</li>
+<li>注意点：若单个文件无法全部载入内存，则针对该文件继续按照前面的思路进行处理即可。</li>
+</ol>
+</li>
+</ol>
+<h3 id="三、计数排序（Counting-sort）"><a href="#三、计数排序（Counting-sort）" class="headerlink" title="三、计数排序（Counting sort）"></a>三、计数排序（Counting sort）</h3><ol>
+<li>算法原理<ol>
+<li>计数其实就是桶排序的一种特殊情况。</li>
+<li>当要排序的n个数据所处范围并不大时，比如最大值为k，则分成k个桶</li>
+<li>每个桶内的数据值都是相同的，就省掉了桶内排序的时间。</li>
+</ol>
+</li>
+<li>案例分析：<br>假设只有8个考生分数在0-5分之间，成绩存于数组A[8] = [2，5，3，0，2，3，0，3]。<br>使用大小为6的数组C[6]表示桶，下标对应分数，即0，1，2，3，4，5。<br>C[6]存储的是考生人数，只需遍历一边考生分数，就可以得到C[6] = [2，0，2，3，0，1]。<br>对C[6]数组顺序求和则C[6]=[2，2，4，7，7，8]，c[k]存储的是小于等于分数k的考生个数。<br>数组R[8] = [0，0，2，2，3，3，3，5]存储考生名次。那么如何得到R[8]的呢？<br>从后到前依次扫描数组A，比如扫描到3时，可以从数组C中取出下标为3的值7，也就是说，到目前为止，包括自己在内，分数小于等于3的考生有7个，也就是说3是数组R的第7个元素（也就是数组R中下标为6的位置）。当3放入数组R后，小于等于3的元素就剩下6个了，相应的C[3]要减1变成6。<br>以此类推，当扫描到第二个分数为3的考生时，就会把它放入数组R中第6个元素的位置（也就是下标为5的位置）。当扫描完数组A后，数组R内的数据就是按照分数从小到大排列的了。</li>
+<li>使用条件<ol>
+<li>只能用在数据范围不大的场景中，若数据范围k比要排序的数据n大很多，就不适合用计数排序；</li>
+<li>计数排序只能给非负整数排序，其他类型需要在不改变相对大小情况下，转换为非负整数；</li>
+<li>比如如果考试成绩精确到小数后一位，就需要将所有分数乘以10，转换为整数。</li>
+</ol>
+</li>
+</ol>
+<h3 id="四、基数排序（Radix-sort）"><a href="#四、基数排序（Radix-sort）" class="headerlink" title="四、基数排序（Radix sort）"></a>四、基数排序（Radix sort）</h3><ol>
+<li>算法原理（以排序10万个手机号为例来说明）<ol>
+<li>比较两个手机号码a，b的大小，如果在前面几位中a已经比b大了，那后面几位就不用看了。</li>
+<li>借助稳定排序算法的思想，可以先按照最后一位来排序手机号码，然后再按照倒数第二位来重新排序，以此类推，最后按照第一个位重新排序。</li>
+<li>经过11次排序后，手机号码就变为有序的了。</li>
+<li>每次排序有序数据范围较小，可以使用桶排序或计数排序来完成。</li>
+</ol>
+</li>
+<li>使用条件<ol>
+<li>要求数据可以分割独立的“位”来比较；</li>
+<li>位之间由递进关系，如果a数据的高位比b数据大，那么剩下的地位就不用比较了；</li>
+<li>每一位的数据范围不能太大，要可以用线性排序，否则基数排序的时间复杂度无法做到O(n)。</li>
+</ol>
+</li>
+</ol>
+<h3 id="五、思考"><a href="#五、思考" class="headerlink" title="五、思考"></a>五、思考</h3><p>1.如何根据年龄给100万用户数据排序？<br>    建1到120个桶，把数据放到桶内。<br>2.对D，a，F，B，c，A，z这几个字符串进行排序，要求将其中所有小写字母都排在大写字母前面，但是小写字母内部和大写字母内部不要求有序。比如经过排序后为a，c，z，D，F，B，A，这个如何实现呢？如果字符串中处理大小写，还有数字，将数字放在最前面，又该如何解决呢？<br>    建数字-小写字母-大写字母三个桶</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/05/算法思想/" rel="next" title="算法思想">
+                <i class="fa fa-chevron-left"></i> 算法思想
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、线性排序算法介绍"><span class="nav-number">1.</span> <span class="nav-text">一、线性排序算法介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、桶排序（Bucket-sort）"><span class="nav-number">2.</span> <span class="nav-text">二、桶排序（Bucket sort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、计数排序（Counting-sort）"><span class="nav-number">3.</span> <span class="nav-text">三、计数排序（Counting sort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、基数排序（Radix-sort）"><span class="nav-number">4.</span> <span class="nav-text">四、基数排序（Radix sort）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、思考"><span class="nav-number">5.</span> <span class="nav-text">五、思考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
