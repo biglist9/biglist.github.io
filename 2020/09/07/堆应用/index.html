@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="应用一：优先级队列 优先级队列，数据的出队顺序不是先进先出，而是而是按照优先级来，优先级最高的，最先出队。 实现一个优先级队列方法很多，但是用堆来实现是最直接，最高效的，这是因为堆和优先级队列非常相似。一个堆可以看作一个优先级队列，很多时候，他们只是概念上的区分。往优先级队列中插入一个元素，就相当于往堆中插入一个元素；从优先级队列中取出优先级最高的元素，就相当于取出堆顶元素。 优先级队列的应用广泛">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆应用">
+<meta property="og:url" content="http://tit.ink/2020/09/07/堆应用/index.html">
+<meta property="og:site_name" content="学习小札">
+<meta property="og:description" content="应用一：优先级队列 优先级队列，数据的出队顺序不是先进先出，而是而是按照优先级来，优先级最高的，最先出队。 实现一个优先级队列方法很多，但是用堆来实现是最直接，最高效的，这是因为堆和优先级队列非常相似。一个堆可以看作一个优先级队列，很多时候，他们只是概念上的区分。往优先级队列中插入一个元素，就相当于往堆中插入一个元素；从优先级队列中取出优先级最高的元素，就相当于取出堆顶元素。 优先级队列的应用广泛">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-05T11:00:17.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="堆应用">
+<meta name="twitter:description" content="应用一：优先级队列 优先级队列，数据的出队顺序不是先进先出，而是而是按照优先级来，优先级最高的，最先出队。 实现一个优先级队列方法很多，但是用堆来实现是最直接，最高效的，这是因为堆和优先级队列非常相似。一个堆可以看作一个优先级队列，很多时候，他们只是概念上的区分。往优先级队列中插入一个元素，就相当于往堆中插入一个元素；从优先级队列中取出优先级最高的元素，就相当于取出堆顶元素。 优先级队列的应用广泛">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tit.ink/2020/09/07/堆应用/"/>
+
+
+
+
+
+  <title>堆应用 | 学习小札</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习小札</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">走卓越之路，一起加油</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/09/07/堆应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习小札">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">堆应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-07T18:52:34+08:00">
+                2020-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/07/堆应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/07/堆应用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="应用一：优先级队列"><a href="#应用一：优先级队列" class="headerlink" title="应用一：优先级队列"></a>应用一：优先级队列</h3><ol>
+<li>优先级队列，数据的出队顺序不是先进先出，而是而是按照优先级来，优先级最高的，最先出队。</li>
+<li>实现一个优先级队列方法很多，但是用堆来实现是最直接，最高效的，这是因为堆和优先级队列非常相似。一个堆可以看作一个优先级队列，很多时候，他们只是概念上的区分。往优先级队列中插入一个元素，就相当于往堆中插入一个元素；从优先级队列中取出优先级最高的元素，就相当于取出堆顶元素。</li>
+<li>优先级队列的应用广泛，如赫夫曼编码，图的最短路径，做小生成树的算法等等</li>
+</ol>
+<h4 id="优先级队列应用一：合并有序小文件"><a href="#优先级队列应用一：合并有序小文件" class="headerlink" title="优先级队列应用一：合并有序小文件"></a>优先级队列应用一：合并有序小文件</h4><p>假设：有100个小文件，每个文件大小为100MB，每个文件中储存的都是有序的字符串。现需要将这100个小文件合并成一个有序的大文件。<br>思路：</p>
+<ol>
+<li>整体思路有点像归并排序中的合并函数，从100个文件中，各取第一个字符串，放入数组中，然后比较大小，把最小的那个字符串合并后的大文件中，并从数组中删除。</li>
+<li>假设，最小的字符串来自于13.txt这个文件，就再次从这个文件找那个取下一个字符串，放到数组中，重新比较大小，并且选择最小的放入合并后的大文件，将它从数组中删除。依次类推，直到所有的文件中的数据都放入到大文件为止。</li>
+<li>使用数组来存储从小文件中取出来的字符串，每次从数组中取最小字符串，都需要循环遍历整个数组，效率不高。</li>
+<li>可以用到优先级队列，也可以说是堆。将从小文件中取出的字符串放入到小顶堆中，堆顶的元素就是优先级队列队首的元素，就是最小的字符串。</li>
+<li>依次从小文件中取出下一个字符串，放入到堆中，循环这过程。</li>
+</ol>
+<p>删除堆顶数据和往堆中插入数据的时间复杂度都是O(logn)，n表示堆中的数据个数，这里就是100</p>
+<h4 id="优先队列应用二：高性能定时器"><a href="#优先队列应用二：高性能定时器" class="headerlink" title="优先队列应用二：高性能定时器"></a>优先队列应用二：高性能定时器</h4><p>假设：有一个定时器，定时器中维护了很多定时任务</p>
+<ol>
+<li>每过1秒就扫描一遍任务列表做法太低效。原因1：任务的约定执行时间离当前时间可能还有很久，大量的扫描徒劳无功。原因2：每次都要扫描整个任务列表，若列表较大，会比较耗时。</li>
+<li>针对这种文件，可用优先队列来解决。按照任务设定的执行时间，将这些任务存储在优先级队列中，队列首部（最小顶堆）存储的是最先执行的任务。</li>
+<li>这样定时器就不用每隔一秒就扫描一遍任务列表了。它拿队首任务的执行时间点，与当前时间点相减，即可得到一个时间间隔T。</li>
+<li>当T秒时间过去后，定时器取优先级队列中队首的任务执行，然后在计算新的队首任务的执行时间点和当前时间点的差值。</li>
+<li>这样定时器就不用间隔1秒就轮询一次，也不用遍历整个任务列表，性能就提高了。</li>
+</ol>
+<h3 id="应用二：利用堆求Top-K"><a href="#应用二：利用堆求Top-K" class="headerlink" title="应用二：利用堆求Top K"></a>应用二：利用堆求Top K</h3><p>求Topk的问题可抽象成两类：</p>
+<ol>
+<li><p>针对静态数据<br>可以维护一个大小为k的小顶堆，顺序遍历数组，从数组中取出数据与堆顶元素比较。如果堆顶元素大，就将堆顶元素删除，并且将这个元素插入到堆中；如果比堆顶元素小则不做处理，继续遍历数组。这样等数组中的数据都遍历完之后，堆中的数据就是前k大数据了。<br>遍历数据需要O(n)的时间复杂度，一次堆化操作需要O(logk)的时间复杂度，最坏情况下，n个元素都入堆一次，时间复杂度就是O(nlogk)。</p>
+</li>
+<li><p>针对动态数据求得Topk就是实时Topk。<br>一个数据集合有两个操作，一个是添加数据，另一个询问当前的前k大数据。<br>可以维护一直都维护一个k大小的小顶堆，当有数据被添加到集合时，就那它与堆顶的元素对对比。如果比堆顶元素大，就把堆顶元素删除，并将这个元素插入到堆中，如果比堆顶元素小，这不处理。这样，无论任何时候需要查询当前的前k大数据，就都可以 立刻返回给他。</p>
+</li>
+</ol>
+<h3 id="应用三：利用堆求中位数"><a href="#应用三：利用堆求中位数" class="headerlink" title="应用三：利用堆求中位数"></a>应用三：利用堆求中位数</h3><ol>
+<li>对于一组静态数据，中位数是固定的，可以先排序，第n/2个数据就是中位数。</li>
+<li>对于动态数据集合，就无法先排序了，需要借助堆这种数据结构，我们不用排序，就可以非常高效的实现求中位数操作。</li>
+</ol>
+<p>实现思路：</p>
+<ol>
+<li>需要维护两个堆，大顶堆中存储前半部分数据，小顶堆中存储后半部分数据，且小顶堆中的数据都大于大顶堆中的数据。</li>
+<li>即：如果有n个数据，n是偶数，从小到大排序，那前n/2个数据存储在大顶堆中，后n/2个数据存储在小顶堆中。这样，大顶堆中堆顶元素就是要找的中位数。</li>
+<li>如果新加入的数据小于等于大顶堆的堆顶元素，就将这个数据插入到大顶堆；否则就插入小顶堆</li>
+<li>当两个堆中的数据量不服和中位数的约定时，就从一个堆中不停的将堆顶的元素移动到另一个堆，重新让两个堆中数据满足上面的约定。</li>
+</ol>
+<p>于是，可以利用两个堆实现动态数据集合中求中位数的操作，插入数据因为涉及堆化，所以时间复杂度变成了O(logn)，但求中位数只需要返回大顶堆的堆顶元素就可以了，所以时间复杂度就是O(1)。</p>
+<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><p>有一个访问量非常大的新闻网站，我们希望将点击量排名 Top 10 的新闻摘要，滚动显示在网站首页 banner 上，并且每隔 1 小时更新一次。如果你是负责开发这个功能的工程师，你会如何来实现呢？</p>
+<ol>
+<li>对每篇新闻摘要计算一个hashcode，并建立摘要与hashcode的关联关系，使用map存储，以hashCode为key，新闻摘要为值；</li>
+<li>按每小时一个文件的方式记录下被点击的摘要的hashCode；</li>
+<li>当一个小时结果后，上一个小时的文件被关闭，开始计算上一个小时的点击top10；</li>
+<li>将hashcode分片到多个文件中，通过对hashCode取模运算，即可将相同的hashCode分片到相同的文件中；</li>
+<li>针对每个文件取top10的hashCode，使用Map&lt;hashCode,int&gt;的方式，统计出所有的摘要点击次数，然后再使用小顶堆（大小为10）计算top10；</li>
+<li>再针对所有分片计算一个总的top10,最后合并的逻辑也是使用小顶堆，计算top10；</li>
+<li>如果仅展示前一个小时的top10,计算结束；</li>
+<li>如果需要展示全天，需要与上一次的计算按hashCode进行合并，然后在这合并的数据中取top10；</li>
+<li>在展示时，将计算得到的top10的hashcode，转化为新闻摘要显示即可。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/05/堆与堆排序/" rel="next" title="堆与堆排序">
+                <i class="fa fa-chevron-left"></i> 堆与堆排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/10/MySQL-count/" rel="prev" title="MySQL count">
+                MySQL count <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/18437572"
+                alt="Kaizen" />
+            
+              <p class="site-author-name" itemprop="name">Kaizen</p>
+              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用一：优先级队列"><span class="nav-number">1.</span> <span class="nav-text">应用一：优先级队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优先级队列应用一：合并有序小文件"><span class="nav-number">1.1.</span> <span class="nav-text">优先级队列应用一：合并有序小文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优先队列应用二：高性能定时器"><span class="nav-number">1.2.</span> <span class="nav-text">优先队列应用二：高性能定时器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用二：利用堆求Top-K"><span class="nav-number">2.</span> <span class="nav-text">应用二：利用堆求Top K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用三：利用堆求中位数"><span class="nav-number">3.</span> <span class="nav-text">应用三：利用堆求中位数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考题"><span class="nav-number">4.</span> <span class="nav-text">思考题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaizen</span>
+
+  
+  <span class="post-meta-divider"></span>
+</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tEHkxW1uL1KhFLthvhvNRMz2-gzGzoHsz',
+        appKey: 'GRt9oYqKzIwUbndAjp7ALYbN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "vertical";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
