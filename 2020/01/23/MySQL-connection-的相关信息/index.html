@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="查看mysql连接数的语句 mysql 中有12345一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。2. ```show variables like &amp;apos;%max_connections%&amp;apos;;```可以查看当前数据库实例设置的最大连接数。实际MySQL服务器允许的最大连接数16384。3. ```sho">
-<meta name="keywords" content="MySQL">
+<meta name="description" content="查看mysql连接数的语句 mysql 中有Max_connection，这个值是对应于一个mysql实例。一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。 show variables like &#39;%max_connections%&#39;;可以查看当前数据库实例设置的最大连接数。实际MySQL服务器允许的最大连">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL connection 的相关信息">
-<meta property="og:url" content="http://tit.ink/2020/01/23/MySQL-connection-的相关信息/index.html">
+<meta property="og:url" content="http://tit.ink/2020/01/23/MySQL-connection-%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/index.html">
 <meta property="og:site_name" content="学习小札">
-<meta property="og:description" content="查看mysql连接数的语句 mysql 中有12345一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。2. ```show variables like &amp;apos;%max_connections%&amp;apos;;```可以查看当前数据库实例设置的最大连接数。实际MySQL服务器允许的最大连接数16384。3. ```sho">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-02T12:12:32.619Z">
+<meta property="og:description" content="查看mysql连接数的语句 mysql 中有Max_connection，这个值是对应于一个mysql实例。一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。 show variables like &#39;%max_connections%&#39;;可以查看当前数据库实例设置的最大连接数。实际MySQL服务器允许的最大连">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-01-23T12:11:40.000Z">
+<meta property="article:modified_time" content="2020-12-02T12:12:32.619Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL connection 的相关信息">
-<meta name="twitter:description" content="查看mysql连接数的语句 mysql 中有12345一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。2. ```show variables like &amp;apos;%max_connections%&amp;apos;;```可以查看当前数据库实例设置的最大连接数。实际MySQL服务器允许的最大连接数16384。3. ```sho">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/01/23/MySQL-connection-的相关信息/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/01/23/MySQL-connection-%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/23/MySQL-connection-的相关信息/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/23/MySQL-connection-的相关信息/" itemprop="commentCount"></span>
+                <a href="/2020/01/23/MySQL-connection-%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/23/MySQL-connection-%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,17 +401,101 @@
 
       
         <h3 id="查看mysql连接数的语句"><a href="#查看mysql连接数的语句" class="headerlink" title="查看mysql连接数的语句"></a>查看mysql连接数的语句</h3><ol>
-<li>mysql 中有<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。</span><br><span class="line">2. ```show variables like &apos;%max_connections%&apos;;```可以查看当前数据库实例设置的最大连接数。</span><br><span class="line">实际MySQL服务器允许的最大连接数16384。</span><br><span class="line">3. ```show variables;``` 可以查看当前数据库实例配置的所有变量，即my.ini 文件中的配置信息。</span><br><span class="line">4. ```show processlist;</span><br></pre></td></tr></table></figure></li>
+<li>mysql 中有<code>Max_connection</code>，这个值是对应于一个mysql实例。<br>一个mysql 实例中 ，可以有多个database、movie_log、movie_order、movie_pay 等。</li>
+<li><code>show variables like &#39;%max_connections%&#39;;</code>可以查看当前数据库实例设置的最大连接数。<br>实际MySQL服务器允许的最大连接数16384。</li>
+<li><code>show variables;</code> 可以查看当前数据库实例配置的所有变量，即my.ini 文件中的配置信息。</li>
+<li><code>show processlist;</code><br>如果是root帐号，你能看到所有用户的当前连接。如果是其它普通帐号，只能看到自己占用的连接。<br>注：<code>show processlist;</code>只列出前100条，如果想全列出请使用<code>show full processlist;</code></li>
+<li><code>show status;</code> 查看当前数据库的状态。</li>
+<li><code>show status like &#39;%Threads%&#39;;</code>查看当前数据库线程变量的状态。</li>
 </ol>
-<p>如果是root帐号，你能看到所有用户的当前连接。如果是其它普通帐号，只能看到自己占用的连接。<br>注：<figure class="highlight plain"><figcaption><span>processlist;```只列出前100条，如果想全列出请使用```show full processlist;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5. ```show status;``` 查看当前数据库的状态。</span><br><span class="line">6. ```show status like &apos;%Threads%&apos;;```查看当前数据库线程变量的状态。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">结果：</span><br></pre></td></tr></table></figure></p>
-<p>+——————-+——-+<br>| Variable_name     | Value |<br>+——————-+——-+<br>| Threads_cached    | 58    |<br>| Threads_connected | 57    |   ###这个数值指的是打开的连接数<br>| Threads_created   | 3676  |<br>| Threads_running   | 4     |   ###这个数值指的是激活的连接数，这个数值一般远低于connected数值<br>+——————-+——-+<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">Threads_connected 跟show processlist结果相同，表示当前连接数。准确的来说，Threads_running是代表当前并发数（当前连接正在使用中对数量。）</span><br><span class="line">当前连接数（包括使用中对连接，也包括闲置的连接（sleep状态），也包括阻塞的连接（waiting for …...））</span><br><span class="line">java 中有数据库连接池，连接池中有最小连接数，</span><br><span class="line">因此：mysql 会有最小连接数 个连接 ，可能这些连接都是 sleep 状态的，</span><br><span class="line"></span><br><span class="line">7. ```show status like &apos;%connect%&apos;;```Connections，试图连接到（不管是否成功）MySQL服务器的连接数。其中Max_used_connections表示服务器启动后已经同时使用的连接的最大数量。Threads_connected表示当前的连接数。</span><br><span class="line"></span><br><span class="line">### 关于sleep与lock的问题</span><br><span class="line"></span><br><span class="line">1. 造成sleep的原因有三个</span><br><span class="line">* 下面是mysql手册给出的解释:</span><br><span class="line">    1. 客户端程序在退出之前没有调用```mysql_close()```。</span><br><span class="line">    2. 客户端sleep的时间在 wait_timeout 或 interactive_timeout 规定的秒内没有发出任何请求到服务器。</span><br><span class="line">    3. 客户端程序在结束之前向服务器发送了请求还没得到返回结果就结束掉了.</span><br><span class="line"></span><br><span class="line">* 解决办法：</span><br><span class="line">避免大量 sleep的连接的方法，数据库连接池设置min_idle设置小一些。</span><br><span class="line"></span><br><span class="line">2. waiting for metadata lock 的原因 ？</span><br><span class="line">    1. metadata lock 机制是为了保证数据一致性存在的。在有事务的操作时候，需要首先获得metadata lock，然后操作。如果这个时候，又来了一个事务也要ddl操作 同一个表，就会出现 metadata lock。</span><br><span class="line">    2. 自动提交模式下，单语句就是一个事务，执行完了事务也就结束了。</span><br><span class="line">    3. preparestatement会获得 metalock，一旦prepare 完毕， metalock 就释放了。</span><br><span class="line">    4. online DDL应该是指在alter table进行的时候，插入/修改/删除数据的sql语句不会Waiting for table metadata lock. 一旦alter table TableA的操作停滞在Waiting for table metadata lock的状态，后续对TableA的任何操作（包括读）都无法进行，也会在Opening tables的阶段进入Waiting for table metadata lock的队列</span><br><span class="line"></span><br><span class="line">3. ```alter table```什么情况下会发生锁？(主要针对于myisam 引擎（锁表）)     </span><br><span class="line">    1. 通过show processlist看到TableA上有正在进行的操作（包括读），此时alter table语句无法获取到metadata 独占锁，会进行等待。</span><br><span class="line">    2. 通过show processlist看不到TableA上有任何操作，但实际上存在有未提交的事务，可以在information_schema.innodb_trx中查看到。在事务没有完成之前，TableA上的锁不会释放，alter table同样获取不到metadata的独占锁</span><br><span class="line">    3. 通过show processlist看不到TableA上有任何操作，在information_schema.innodb_trx中也没有任何进行中的事务。这很可能是因为在一个显式的事务中，对TableA进行了一个失败的操作（比如查询了一个不存在的字段），这时事务没有开始，但是失败语句获取到的锁依然有效。从performance_schema.events_statements_current表中可以查到失败的语句</span><br><span class="line">    </span><br><span class="line">    也就是说除了语法错误，其他错误语句获取到的锁在这个事务提交或回滚之前，仍然不会释放掉。because the failed statement is written to the binary log and the locks protect log consistency 但是解释这一行为的原因很难理解，因为错误的语句根本不会被记录到二进制日志</span><br><span class="line">    总之，alter table的语句是很危险的，在操作之前最好确认对要操作的表没有任何进行中的操作、没有未提交事务、也没有显式事务中的报错语句。如果有alter table的维护任务，在无人监管的时候运行，最好通过lock_wait_timeout设置好超时时间，避免长时间的metedata锁等待。</span><br><span class="line"></span><br><span class="line">### MySQL的锁机制</span><br></pre></td></tr></table></figure></p>
-<p>MyISAM和MEMORY存储引擎采用的是表级锁（table-level-locking）<br>BDB存储引擎采用的是页面锁（page-level-locking），同时也支持表级锁；<br>InnoDB存储引擎既支持行级锁，也支持表级锁，默认情况下是采用行级锁。<br>所有表类型都支持表级锁，但是 MyISAM 只支持表级锁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 名词解释</span><br><span class="line">    表级：直接锁定整张表，在你锁定期间，其它进程无法对该表进行写操作。如果你是写锁，则其它进程则读也不允许</span><br><span class="line">    行级：仅对指定的记录进行加锁，这样其它进程还是可以对同一个表中的其它记录进行操作。</span><br><span class="line">    页级：表级锁速度快，但冲突多，行级冲突少，但速度慢。所以取了折衷的页级，一次锁定相邻的一组记录</span><br><span class="line">##### 三种锁的特性归纳</span><br><span class="line">1. 表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</span><br><span class="line">2. 行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</span><br><span class="line">3. 页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</span><br><span class="line">4. 三种锁各有各的特点，若仅从锁的角度来说，表级锁更适合于以查询为主，只有少量按索引条件更新数据的应用，如WEB应用；行级锁更适合于有大量按索引条件并发更新少量不同数据，同时又有并发查询的应用，如一些在线事务处理（OLTP）系统。</span><br><span class="line"></span><br><span class="line">##### 知识点</span><br><span class="line"></span><br><span class="line">1. innodb 虽然是行级别锁，但是在执行update 操作时候，如果where 查询条件 不存在索引，一样会扫描整个表，锁住整张表，解决办法就是需要添加索引。这样锁住的就是某些行了。</span><br><span class="line"></span><br><span class="line">2. 对于读写</span><br><span class="line">    1. 对WRITE，MySQL使用的表锁定方法原理如下：如果在表上没有锁，在它上面放一个写锁。否则，把锁定请求放在写锁定队列中。</span><br><span class="line">    2. 对READ，MySQL使用的锁定方法原理如下：如果在表上没有写锁定，把一个读锁定放在它上面  否则，把锁请求放在读锁定队列中。</span><br><span class="line"></span><br><span class="line">3. InnoDB使用行锁定，BDB使用页锁定。对于这两种存储引擎，都可能存在死锁。这是因为，在SQL语句处理期间，InnoDB自动获得行锁定和BDB获得页锁定，而不是在事务启动时获得。</span><br><span class="line">4. 行锁优缺点</span><br><span class="line">    1. 行级锁定的优点：</span><br><span class="line">        1. 当在许多线程中访问不同的行时只存在少量锁定冲突。</span><br><span class="line">        2. 回滚时只有少量的更改。</span><br><span class="line">        3. 可以长时间锁定单一的行。</span><br><span class="line">    2. 行级锁定的缺点：</span><br><span class="line">        1. 比页级或表级锁定占用更多的内存。</span><br><span class="line">        2. 当在表的大部分中使用时，比页级或表级锁定速度慢，因为你必须获取更多的锁。</span><br><span class="line">        3. 如果你在大部分数据上经常进行```GROUP BY```操作或者必须经常扫描整个表，比其它锁定明显慢很多。用高级别锁定，通过支持不同的类型锁定，你也可以很容易地调节应用程序，因为其锁成本小于行级锁定。</span><br><span class="line"></span><br><span class="line">5. 在以下情况下，表锁定优先于页级或行级锁定：</span><br><span class="line">    1. 表的大部分语句用于读取。</span><br><span class="line">    2. 对严格的关键字进行读取和更新，你可以更新或删除可以用单一的读取的关键字来提取的一行：</span><br><span class="line">    ```sql</span><br><span class="line">        UPDATE tbl_name SET column=value WHERE unique_key_col=key_value;</span><br><span class="line">    DELETE FROM tbl_name WHERE unique_key_col=key_value;</span><br></pre></td></tr></table></figure></p>
-<pre><code>3. SELECT 结合并行的INSERT语句，并且只有很少的UPDATE或DELETE语句。
-</code></pre><p>·         在整个表上有许多扫描或GROUP BY操作，没有任何写操作。</p>
-<ol start="6">
-<li><p>如果想要在一个表上做大量的 INSERT 和 SELECT操作，但是并行的插入却不可能时，可以将记录插入到临时表中，然后定期将临时表中的数据更新到实际的表里。可以用以下命令实现：</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; LOCK TABLES real_table WRITE, insert_table WRITE;</span><br><span class="line">mysql&gt; INSERT INTO real_table SELECT * FROM insert_table;</span><br><span class="line">mysql&gt; TRUNCATE TABLE insert_table;</span><br><span class="line">mysql&gt; UNLOCK TABLES;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+-------------------+-------+</span><br><span class="line">| Variable_name     | Value |</span><br><span class="line">+-------------------+-------+</span><br><span class="line">| Threads_cached    | 58    |</span><br><span class="line">| Threads_connected | 57    |   ###这个数值指的是打开的连接数</span><br><span class="line">| Threads_created   | 3676  |</span><br><span class="line">| Threads_running   | 4     |   ###这个数值指的是激活的连接数，这个数值一般远低于connected数值</span><br><span class="line">+-------------------+-------+</span><br></pre></td></tr></table></figure>
+
+<p>Threads_connected 跟show processlist结果相同，表示当前连接数。准确的来说，Threads_running是代表当前并发数（当前连接正在使用中对数量。）<br>当前连接数（包括使用中对连接，也包括闲置的连接（sleep状态），也包括阻塞的连接（waiting for ……））<br>java 中有数据库连接池，连接池中有最小连接数，<br>因此：mysql 会有最小连接数 个连接 ，可能这些连接都是 sleep 状态的，</p>
+<ol start="7">
+<li><code>show status like &#39;%connect%&#39;;</code>Connections，试图连接到（不管是否成功）MySQL服务器的连接数。其中Max_used_connections表示服务器启动后已经同时使用的连接的最大数量。Threads_connected表示当前的连接数。</li>
+</ol>
+<h3 id="关于sleep与lock的问题"><a href="#关于sleep与lock的问题" class="headerlink" title="关于sleep与lock的问题"></a>关于sleep与lock的问题</h3><ol>
+<li>造成sleep的原因有三个</li>
+</ol>
+<ul>
+<li><p>下面是mysql手册给出的解释:</p>
+<ol>
+<li>客户端程序在退出之前没有调用<code>mysql_close()</code>。</li>
+<li>客户端sleep的时间在 wait_timeout 或 interactive_timeout 规定的秒内没有发出任何请求到服务器。</li>
+<li>客户端程序在结束之前向服务器发送了请求还没得到返回结果就结束掉了.</li>
+</ol>
 </li>
+<li><p>解决办法：<br>避免大量 sleep的连接的方法，数据库连接池设置min_idle设置小一些。</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>waiting for metadata lock 的原因 ？</p>
+<ol>
+<li>metadata lock 机制是为了保证数据一致性存在的。在有事务的操作时候，需要首先获得metadata lock，然后操作。如果这个时候，又来了一个事务也要ddl操作 同一个表，就会出现 metadata lock。</li>
+<li>自动提交模式下，单语句就是一个事务，执行完了事务也就结束了。</li>
+<li>preparestatement会获得 metalock，一旦prepare 完毕， metalock 就释放了。</li>
+<li>online DDL应该是指在alter table进行的时候，插入/修改/删除数据的sql语句不会Waiting for table metadata lock. 一旦alter table TableA的操作停滞在Waiting for table metadata lock的状态，后续对TableA的任何操作（包括读）都无法进行，也会在Opening tables的阶段进入Waiting for table metadata lock的队列</li>
+</ol>
+</li>
+<li><p><code>alter table</code>什么情况下会发生锁？(主要针对于myisam 引擎（锁表）)     </p>
+<ol>
+<li><p>通过show processlist看到TableA上有正在进行的操作（包括读），此时alter table语句无法获取到metadata 独占锁，会进行等待。</p>
+</li>
+<li><p>通过show processlist看不到TableA上有任何操作，但实际上存在有未提交的事务，可以在information_schema.innodb_trx中查看到。在事务没有完成之前，TableA上的锁不会释放，alter table同样获取不到metadata的独占锁</p>
+</li>
+<li><p>通过show processlist看不到TableA上有任何操作，在information_schema.innodb_trx中也没有任何进行中的事务。这很可能是因为在一个显式的事务中，对TableA进行了一个失败的操作（比如查询了一个不存在的字段），这时事务没有开始，但是失败语句获取到的锁依然有效。从performance_schema.events_statements_current表中可以查到失败的语句</p>
+<p>也就是说除了语法错误，其他错误语句获取到的锁在这个事务提交或回滚之前，仍然不会释放掉。because the failed statement is written to the binary log and the locks protect log consistency 但是解释这一行为的原因很难理解，因为错误的语句根本不会被记录到二进制日志<br>总之，alter table的语句是很危险的，在操作之前最好确认对要操作的表没有任何进行中的操作、没有未提交事务、也没有显式事务中的报错语句。如果有alter table的维护任务，在无人监管的时候运行，最好通过lock_wait_timeout设置好超时时间，避免长时间的metedata锁等待。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="MySQL的锁机制"><a href="#MySQL的锁机制" class="headerlink" title="MySQL的锁机制"></a>MySQL的锁机制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MyISAM和MEMORY存储引擎采用的是表级锁（table-level-locking）</span><br><span class="line">BDB存储引擎采用的是页面锁（page-level-locking），同时也支持表级锁；</span><br><span class="line">InnoDB存储引擎既支持行级锁，也支持表级锁，默认情况下是采用行级锁。</span><br><span class="line">所有表类型都支持表级锁，但是 MyISAM 只支持表级锁</span><br></pre></td></tr></table></figure>
+<h5 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h5><pre><code>表级：直接锁定整张表，在你锁定期间，其它进程无法对该表进行写操作。如果你是写锁，则其它进程则读也不允许
+行级：仅对指定的记录进行加锁，这样其它进程还是可以对同一个表中的其它记录进行操作。
+页级：表级锁速度快，但冲突多，行级冲突少，但速度慢。所以取了折衷的页级，一次锁定相邻的一组记录</code></pre>
+<h5 id="三种锁的特性归纳"><a href="#三种锁的特性归纳" class="headerlink" title="三种锁的特性归纳"></a>三种锁的特性归纳</h5><ol>
+<li>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</li>
+<li>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</li>
+<li>页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</li>
+<li>三种锁各有各的特点，若仅从锁的角度来说，表级锁更适合于以查询为主，只有少量按索引条件更新数据的应用，如WEB应用；行级锁更适合于有大量按索引条件并发更新少量不同数据，同时又有并发查询的应用，如一些在线事务处理（OLTP）系统。</li>
+</ol>
+<h5 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h5><ol>
+<li><p>innodb 虽然是行级别锁，但是在执行update 操作时候，如果where 查询条件 不存在索引，一样会扫描整个表，锁住整张表，解决办法就是需要添加索引。这样锁住的就是某些行了。</p>
+</li>
+<li><p>对于读写</p>
+<ol>
+<li>对WRITE，MySQL使用的表锁定方法原理如下：如果在表上没有锁，在它上面放一个写锁。否则，把锁定请求放在写锁定队列中。</li>
+<li>对READ，MySQL使用的锁定方法原理如下：如果在表上没有写锁定，把一个读锁定放在它上面  否则，把锁请求放在读锁定队列中。</li>
+</ol>
+</li>
+<li><p>InnoDB使用行锁定，BDB使用页锁定。对于这两种存储引擎，都可能存在死锁。这是因为，在SQL语句处理期间，InnoDB自动获得行锁定和BDB获得页锁定，而不是在事务启动时获得。</p>
+</li>
+<li><p>行锁优缺点</p>
+<ol>
+<li>行级锁定的优点：<ol>
+<li>当在许多线程中访问不同的行时只存在少量锁定冲突。</li>
+<li>回滚时只有少量的更改。</li>
+<li>可以长时间锁定单一的行。</li>
+</ol>
+</li>
+<li>行级锁定的缺点：<ol>
+<li>比页级或表级锁定占用更多的内存。</li>
+<li>当在表的大部分中使用时，比页级或表级锁定速度慢，因为你必须获取更多的锁。</li>
+<li>如果你在大部分数据上经常进行<code>GROUP BY</code>操作或者必须经常扫描整个表，比其它锁定明显慢很多。用高级别锁定，通过支持不同的类型锁定，你也可以很容易地调节应用程序，因为其锁成本小于行级锁定。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>在以下情况下，表锁定优先于页级或行级锁定：</p>
+<ol>
+<li>表的大部分语句用于读取。</li>
+<li>对严格的关键字进行读取和更新，你可以更新或删除可以用单一的读取的关键字来提取的一行：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">UPDATE</span> tbl_name <span class="keyword">SET</span> <span class="keyword">column</span>=<span class="keyword">value</span> <span class="keyword">WHERE</span> unique_key_col=key_value;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tbl_name <span class="keyword">WHERE</span> unique_key_col=key_value;</span><br></pre></td></tr></table></figure></li>
+<li>SELECT 结合并行的INSERT语句，并且只有很少的UPDATE或DELETE语句。<br>·         在整个表上有许多扫描或GROUP BY操作，没有任何写操作。</li>
+</ol>
+</li>
+<li><p>如果想要在一个表上做大量的 INSERT 和 SELECT操作，但是并行的插入却不可能时，可以将记录插入到临时表中，然后定期将临时表中的数据更新到实际的表里。可以用以下命令实现：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; LOCK TABLES real_table WRITE, insert_table WRITE;</span><br><span class="line">mysql&gt; INSERT INTO real_table SELECT * FROM insert_table;</span><br><span class="line">mysql&gt; TRUNCATE TABLE insert_table;</span><br><span class="line">mysql&gt; UNLOCK TABLES;</span><br></pre></td></tr></table></figure></li>
 <li><p>MySQL表级锁的两种模式</p>
 </li>
 </ol>
@@ -441,28 +525,67 @@
 <li>MySQL 的表级锁都是写锁优先，而且是采用排队机制，这样不会出现死锁的情况。对于 InnoDB 和 BDB 存储引擎来说，是可能产生死锁的。这是因为 InnoDB 会自动捕获行锁， BDB 会在执行 SQL 语句时捕获页锁的，而不是在事务的开始就这么做。</li>
 </ol>
 <h3 id="插入、更新性能优化的几个重要参数"><a href="#插入、更新性能优化的几个重要参数" class="headerlink" title="插入、更新性能优化的几个重要参数"></a>插入、更新性能优化的几个重要参数</h3><ol>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 这个参数是针对MyISAM存储引擎来说的.适用于在一次性插入100-1000+条记录时, 提高效率.默认值是8M.可以针对数据量的大小,翻倍增加.</span><br><span class="line"></span><br><span class="line">2. ```concurrent_insert```并发插入</span><br><span class="line"></span><br><span class="line">&gt; 当表没有空洞(删除过记录),在某进程获取读锁的情况下,其他进程可以在表尾部进行插入。</span><br><span class="line"></span><br><span class="line">|值|意义| 是否默认 |</span><br><span class="line">| -- |:-----------:|:--------:|</span><br><span class="line">|0|不允许并发插 | |</span><br><span class="line">|1|当表没有空洞时, 执行并发插入 |默认|</span><br><span class="line">|2|不管是否有空洞都执行并发插入 | |</span><br><span class="line"></span><br><span class="line">3. ```delay_key_write```针对MyISAM的延迟更新索引</span><br><span class="line"></span><br><span class="line">&gt; 针对MyISAM存储引擎,延迟更新索引.意思是说,update记录时,先将数据up到磁盘,但不up索引,将索引存在内存里,当表关闭时,将内存索引,写到磁盘. 值为 0不开启, 1开启. 默认开启.</span><br><span class="line"></span><br><span class="line">4. ```delayed_insert_limit,delayed_insert_timeout,delayed_queue_size</span><br></pre></td></tr></table></figure>
-</li>
+<li><code>bulk_insert_buffer_size</code>批量插入缓存大小</li>
 </ol>
-<p>延迟插入 </p>
 <blockquote>
+<p>这个参数是针对MyISAM存储引擎来说的.适用于在一次性插入100-1000+条记录时, 提高效率.默认值是8M.可以针对数据量的大小,翻倍增加.</p>
+</blockquote>
+<ol start="2">
+<li><code>concurrent_insert</code>并发插入</li>
+</ol>
+<blockquote>
+<p>当表没有空洞(删除过记录),在某进程获取读锁的情况下,其他进程可以在表尾部进行插入。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th align="center">意义</th>
+<th align="center">是否默认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td align="center">不允许并发插</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>1</td>
+<td align="center">当表没有空洞时, 执行并发插入</td>
+<td align="center">默认</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">不管是否有空洞都执行并发插入</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li><code>delay_key_write</code>针对MyISAM的延迟更新索引</li>
+</ol>
+<blockquote>
+<p>针对MyISAM存储引擎,延迟更新索引.意思是说,update记录时,先将数据up到磁盘,但不up索引,将索引存在内存里,当表关闭时,将内存索引,写到磁盘. 值为 0不开启, 1开启. 默认开启.</p>
+</blockquote>
+<ol start="4">
+<li><code>delayed_insert_limit,delayed_insert_timeout,delayed_queue_size</code><br>延迟插入 <blockquote>
 <p>将数据先交给内存队列,然后慢慢地插入。</p>
 </blockquote>
+</li>
+</ol>
 <h5 id="锁表锁行案例"><a href="#锁表锁行案例" class="headerlink" title="锁表锁行案例"></a>锁表锁行案例</h5><blockquote>
 <p>注1: FOR UPDATE仅适用于InnoDB，且必须在交易区块(BEGIN/COMMIT)中才能生效。注2: 要测试锁定的状况，可以利用MySQL的Command Mode ，开二个视窗来做测试。</p>
-<ol>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM products WHERE id=&apos;3&apos; FOR UPDATE;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 </blockquote>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM products WHERE id&#x3D;&#39;3&#39; FOR UPDATE;  </span><br></pre></td></tr></table></figure>
 <p>主键明确，锁住的是行。如果没有记录，不锁定行。</p>
-<ol start="2">
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM products WHERE name=&apos;Mouse&apos; FOR UPDATE;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM products WHERE name&#x3D;&#39;Mouse&#39; FOR UPDATE;</span><br></pre></td></tr></table></figure>
+<p>主键不明确，锁住的是表。</p>
 </li>
 </ol>
-<p>主键不明确，锁住的是表。</p>
 <h3 id="事务来一波"><a href="#事务来一波" class="headerlink" title="事务来一波"></a>事务来一波</h3><ol>
-<li>事务的使用<ol>
+<li><p>事务的使用</p>
+<ol>
 <li>全部的表类型都可以使用锁，但是只有 InnoDB 和 BDB 才有内置的事务功能。</li>
 <li>使用 begin 开始事务，使用 commit 结束事务，中间可以使用 rollback 回滚事务。</li>
 <li>在默认情况下， InnoDB 表支持一致读。</li>
@@ -479,25 +602,43 @@
 <li>其他： 隔离性 (isolation)通过锁来实现，其他3个原子性(atomicity)，一致性(consistency)，持久性(durability)通过数据库的redo和undo来完成。</li>
 </ol>
 </li>
-<li><p>事务隔离级别：SQL标准中定义了 4 个隔离级别： read uncommited，read commited, repeatable read, serializable 。MySQL 允许利用 <figure class="highlight plain"><figcaption><span>transaction``` 来设置隔离级别</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    1. read uncommited 即脏读，一个事务修改了一行,ha，另一个事务也可以读到该行。如果第一个事务执行了回滚，那么第二个事务读取的就是从来没有正式出现过的值。 ?</span><br><span class="line">    2. read commited 即一致读，试图通过只读取提交的值的方式来解决脏读的问题，但是这又引起了不可重复读取的问题。一个事务执行一个查询，读取了大量的数据行。在它结束读取之前，另一个事务可能完成了对数据行的更改。当第一个事务试图再次执行同一个查询，服务器就会返回不同的结果。</span><br><span class="line">    3. repeatable read 即可重复读，在一个事务对数据行执行读取或写入操作时锁定了这些数据行。但是这种方式又引发了幻想读的问题。因为只能锁定读取或写入的行，不能阻止另一个事务插入数据，后期执行同样的查询会产生更多的结果。</span><br><span class="line">    4. serializable 模式中，事务被强制为依次执行。这是 SQL 标准建议的默认行为。</span><br><span class="line"></span><br><span class="line">4. 如果多个事务更新了同一行，就可以通过回滚其中一个事务来解除死锁。</span><br><span class="line"></span><br><span class="line">5. 事务一致性</span><br><span class="line"></span><br><span class="line">&gt;在事务开始和完成时，数据都必须保持一致状态。事务一致性 ，是由 原子性，隔离性，持久性，共同保持的。</span><br><span class="line"></span><br><span class="line">例子：事务1需要将100元转入帐号A：先读取帐号A的值，然后在这个值上加上100。但是，在这两个操作之间，另一个事务2修改了帐号A的值，为它增加了100元。那么最后的结果应该是A增加了200元。但事实上，事务1最终完成后，帐号A只增加了100元，因为事务2的修改结果被事务1覆盖掉了。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### mysql 配置信息</span><br><span class="line"></span><br><span class="line">1. 错误日志</span><br><span class="line"></span><br><span class="line">``` --log-error[=file_name] ``` 指定mysqld（mysql服务器）保存错误日志文件的位置。</span><br><span class="line"></span><br><span class="line">2. 二进制日志</span><br><span class="line">``` --log-bin[=file_name]</span><br></pre></td></tr></table></figure></p>
+<li><p>事务隔离级别：SQL标准中定义了 4 个隔离级别： read uncommited，read commited, repeatable read, serializable 。MySQL 允许利用 <code>set transaction</code> 来设置隔离级别</p>
+<ol>
+<li>read uncommited 即脏读，一个事务修改了一行,ha，另一个事务也可以读到该行。如果第一个事务执行了回滚，那么第二个事务读取的就是从来没有正式出现过的值。 ?</li>
+<li>read commited 即一致读，试图通过只读取提交的值的方式来解决脏读的问题，但是这又引起了不可重复读取的问题。一个事务执行一个查询，读取了大量的数据行。在它结束读取之前，另一个事务可能完成了对数据行的更改。当第一个事务试图再次执行同一个查询，服务器就会返回不同的结果。</li>
+<li>repeatable read 即可重复读，在一个事务对数据行执行读取或写入操作时锁定了这些数据行。但是这种方式又引发了幻想读的问题。因为只能锁定读取或写入的行，不能阻止另一个事务插入数据，后期执行同样的查询会产生更多的结果。</li>
+<li>serializable 模式中，事务被强制为依次执行。这是 SQL 标准建议的默认行为。</li>
+</ol>
+</li>
+<li><p>如果多个事务更新了同一行，就可以通过回滚其中一个事务来解除死锁。</p>
+</li>
+<li><p>事务一致性</p>
 </li>
 </ol>
-<p>mysqld将包含所有更新数据的SQL命令写入日志文件。</p>
-<p>二进制日志需要用mysqlbinlog工具来查看，语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#mysqlbinlog log_file</span><br><span class="line">--binlog-do-db=db_name #如果当前的数据库是db_name，应该更新记录到二进制日志中</span><br><span class="line">--binlog-ignore-db=db_name #如果当前的数据库是db_name，不应该更新记录到二进制日志中</span><br></pre></td></tr></table></figure></p>
-<p>如果多个数据库，可如下写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--binlog-do-db=db1</span><br><span class="line">--binlog-do-db=db2</span><br></pre></td></tr></table></figure></p>
-<p>单个库的主从同步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">replicate_do_db=test</span><br><span class="line">replicate_wild_do_table=test.%</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replicate_ignore_db=mysql</span><br><span class="line">replicate_wild_ignore_table=mysql.%</span><br><span class="line">log-slave-updates = 1 #这个参数用来配置从服务器的更新是否写入二进制日志，这个选项默认是不打开的。</span><br></pre></td></tr></table></figure></p>
-<ol start="3">
-<li>查询日志<blockquote>
-<p>记录了客户端所有的语句，而二进制日志不包含只查询数据库的语句</p>
+<blockquote>
+<p>在事务开始和完成时，数据都必须保持一致状态。事务一致性 ，是由 原子性，隔离性，持久性，共同保持的。</p>
 </blockquote>
-</li>
+<p>例子：事务1需要将100元转入帐号A：先读取帐号A的值，然后在这个值上加上100。但是，在这两个操作之间，另一个事务2修改了帐号A的值，为它增加了100元。那么最后的结果应该是A增加了200元。但事实上，事务1最终完成后，帐号A只增加了100元，因为事务2的修改结果被事务1覆盖掉了。</p>
+<h3 id="mysql-配置信息"><a href="#mysql-配置信息" class="headerlink" title="mysql 配置信息"></a>mysql 配置信息</h3><ol>
+<li>错误日志</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">启动mysqld时，查询日志开始被记录，默认文件名是host_name.log</span><br><span class="line"></span><br><span class="line">4，慢查询日志</span><br></pre></td></tr></table></figure>
-<p>slow_query_log = 1<br>slow_query_log_file = /opt/logs/mysql5/mysql-slow.log<br>long_query_time = 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果慢查询日志中记录内容很多，可以使用mysqldumpslow工具来对慢查询日志进行分类汇总</span><br></pre></td></tr></table></figure></p>
-<p>#mysqldumpslow <em>**</em>-slow.log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5，配置文件详解：</span><br></pre></td></tr></table></figure></p>
-<p>wget <a href="http://cdn.mysql.com/archives/mysql-5.6/mysql-5.6.10.tar.gz" target="_blank" rel="noopener">http://cdn.mysql.com/archives/mysql-5.6/mysql-5.6.10.tar.gz</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>vi /etc/my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">以下只列出my.cnf文件中[mysqld]段落中的内容,其他段落内容对MySQL运行性能影响甚微,因而姑且忽略。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 二进制日志</span><br><span class="line">&#96;&#96;&#96; --log-bin[&#x3D;file_name] &#96;&#96;&#96;</span><br><span class="line">mysqld将包含所有更新数据的SQL命令写入日志文件。</span><br><span class="line"></span><br><span class="line">二进制日志需要用mysqlbinlog工具来查看，语法如下：</span><br></pre></td></tr></table></figure>
+<p>#mysqlbinlog log_file<br>–binlog-do-db=db_name #如果当前的数据库是db_name，应该更新记录到二进制日志中<br>–binlog-ignore-db=db_name #如果当前的数据库是db_name，不应该更新记录到二进制日志中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果多个数据库，可如下写法：</span><br></pre></td></tr></table></figure>
+<p>–binlog-do-db=db1<br>–binlog-do-db=db2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">单个库的主从同步：</span><br></pre></td></tr></table></figure>
+<p>replicate_do_db=test<br>replicate_wild_do_table=test.%</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">或</span><br></pre></td></tr></table></figure>
+<p>replicate_ignore_db=mysql<br>replicate_wild_ignore_table=mysql.%<br>log-slave-updates = 1 #这个参数用来配置从服务器的更新是否写入二进制日志，这个选项默认是不打开的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3. 查询日志</span><br><span class="line">&gt;记录了客户端所有的语句，而二进制日志不包含只查询数据库的语句</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96; --log[&#x3D;file_name] &#96;&#96;&#96;</span><br><span class="line">启动mysqld时，查询日志开始被记录，默认文件名是host_name.log</span><br><span class="line"></span><br><span class="line">4，慢查询日志</span><br></pre></td></tr></table></figure>
+<p>slow_query_log = 1<br>slow_query_log_file = /opt/logs/mysql5/mysql-slow.log<br>long_query_time = 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果慢查询日志中记录内容很多，可以使用mysqldumpslow工具来对慢查询日志进行分类汇总</span><br></pre></td></tr></table></figure>
+<p>#mysqldumpslow ****-slow.log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5，配置文件详解：</span><br></pre></td></tr></table></figure>
+<p>wget <a target="_blank" rel="noopener" href="http://cdn.mysql.com/archives/mysql-5.6/mysql-5.6.10.tar.gz">http://cdn.mysql.com/archives/mysql-5.6/mysql-5.6.10.tar.gz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>vi /etc/my.cnf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">以下只列出my.cnf文件中[mysqld]段落中的内容,其他段落内容对MySQL运行性能影响甚微,因而姑且忽略。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>[mysqld]<br>character-set-server = utf8<br>user    = mysql<br>port    = 3306<br>socket  = /data/mysql/3306/mysql.sock<br>basedir = /usr/local/webserver/mysql<br>datadir = /data/mysql/3306/data<br>log-error = /data/mysql/3306/mysql_error.log<br>pid-file = /data/mysql/3306/mysql.pid<br>default-storage-engine = MyISAM/InnoDB #设置默认存储引擎<br>skip-locking #避免MySQL的外部锁定,减少出错几率增强稳定性</p>
 <p>#禁止MySQL对外部连接进行DNS解析,使用这一选项可以消除MySQL进行DNS解析的时间。但需要注意,如果开启该选项,则所有远程主机连接授权都要使用IP地址方式,否则MySQL将无法正常处理连接请求!<br>skip-name-resolve</p>
 <h1 id="开启该选项可以彻底关闭MySQL的TCP-IP连接方式-如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项-否则将无法正常连接"><a href="#开启该选项可以彻底关闭MySQL的TCP-IP连接方式-如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项-否则将无法正常连接" class="headerlink" title="开启该选项可以彻底关闭MySQL的TCP/IP连接方式,如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项!否则将无法正常连接!"></a>开启该选项可以彻底关闭MySQL的TCP/IP连接方式,如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项!否则将无法正常连接!</h1><p>skip-networking</p>
@@ -517,11 +658,14 @@
 <h1 id="如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush-hosts-命令；防止黑客"><a href="#如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush-hosts-命令；防止黑客" class="headerlink" title="如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush hosts ; 命令；防止黑客"></a>如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush hosts ; 命令；防止黑客</h1><p>max_connect_errors = 10000</p>
 <h1 id="指定一个请求的最大连接时间-对于4GB左右内存的服务器可以设置为5-10。"><a href="#指定一个请求的最大连接时间-对于4GB左右内存的服务器可以设置为5-10。" class="headerlink" title="指定一个请求的最大连接时间,对于4GB左右内存的服务器可以设置为5-10。"></a>指定一个请求的最大连接时间,对于4GB左右内存的服务器可以设置为5-10。</h1><p>wait_timeout = 10</p>
 <h1 id="开启了Innodb的innodb-file-per-table这个参数之后-innodb-file-per-table-1-，也就是启用InnoDB的独立表空间模式，便于管理"><a href="#开启了Innodb的innodb-file-per-table这个参数之后-innodb-file-per-table-1-，也就是启用InnoDB的独立表空间模式，便于管理" class="headerlink" title="开启了Innodb的innodb_file_per_table这个参数之后[innodb_file_per_table = 1]，也就是启用InnoDB的独立表空间模式，便于管理"></a>开启了Innodb的innodb_file_per_table这个参数之后[innodb_file_per_table = 1]，也就是启用InnoDB的独立表空间模式，便于管理</h1><p>innodb_file_per_table</p>
-<h1 id="首先需要大致了解一下mysql日志操作步骤："><a href="#首先需要大致了解一下mysql日志操作步骤：" class="headerlink" title="首先需要大致了解一下mysql日志操作步骤："></a>首先需要大致了解一下mysql日志操作步骤：</h1><h1 id="log-buff-–mysql写-write-–-gt-log-file-–OS刷新-flush-gt-disk"><a href="#log-buff-–mysql写-write-–-gt-log-file-–OS刷新-flush-gt-disk" class="headerlink" title="log_buff –mysql写 (write) –&gt; log_file –OS刷新 (flush)-&gt; disk"></a>log_buff –mysql写 (write) –&gt; log_file –OS刷新 (flush)-&gt; disk</h1><h1 id="参数解释："><a href="#参数解释：" class="headerlink" title="参数解释："></a>参数解释：</h1><h1 id="0（延迟写）：-log-buff-–每隔1秒–-gt-log-file-–实时-gt-disk"><a href="#0（延迟写）：-log-buff-–每隔1秒–-gt-log-file-–实时-gt-disk" class="headerlink" title="0（延迟写）： log_buff –每隔1秒–&gt; log_file –实时-&gt; disk"></a>0（延迟写）： log_buff –每隔1秒–&gt; log_file –实时-&gt; disk</h1><h1 id="1（实时写，实时刷）：-log-buff-–实时—-gt-log-file-–实时—-gt-disk"><a href="#1（实时写，实时刷）：-log-buff-–实时—-gt-log-file-–实时—-gt-disk" class="headerlink" title="1（实时写，实时刷）： log_buff –实时—&gt; log_file –实时—&gt; disk"></a>1（实时写，实时刷）： log_buff –实时—&gt; log_file –实时—&gt; disk</h1><h1 id="2（实时写，延迟刷）：-log-buff-–实时—-gt-log-file-–每隔1秒-gt-disk"><a href="#2（实时写，延迟刷）：-log-buff-–实时—-gt-log-file-–每隔1秒-gt-disk" class="headerlink" title="2（实时写，延迟刷）： log_buff –实时—&gt; log_file –每隔1秒-&gt; disk"></a>2（实时写，延迟刷）： log_buff –实时—&gt; log_file –每隔1秒-&gt; disk</h1><p>innodb_flush_log_at_trx_commit = 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">### 主从同步配置以及延迟备份</span><br><span class="line">1. 数据库的主主同步时需要设置自增长的两个相关配置：</span><br><span class="line"></span><br><span class="line">```auto_increment_offset</span><br></pre></td></tr></table></figure></p>
-<p>表示自增长字段从那个数开始，其默认值是1，取值范围是1..65535<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">表示自增长字段每次递增的量，其默认值是1，取值范围是1..65535</span><br><span class="line"></span><br><span class="line">&gt;在主主同步配置时，需要将两台服务器的auto_increment_increment=2，而要把auto_increment_offset分别配置为1和2，这样才可以避免两台服务器同时做更新时自增长字段的值之间发生冲突。</span><br><span class="line"></span><br><span class="line">2. 延迟备份</span><br><span class="line"></span><br><span class="line">Mysql （需5.6以上版本）延迟复制配置，通过设置Slave上的MASTER TO MASTER_DELAY参数实现：</span><br></pre></td></tr></table></figure></p>
-<p>CHANGE MASTER TO MASTER_DELAY = N；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">N为多少秒，该语句设置从数据库延时N秒后，再与主数据库进行数据同步复制</span><br><span class="line"></span><br><span class="line">具体操作：</span><br><span class="line"></span><br><span class="line">登陆到Slave数据库服务器</span><br></pre></td></tr></table></figure></p>
-<p>mysql&gt;stop slave;<br>mysql&gt;CHANGE MASTER TO MASTER_DELAY = 600；<br>mysql&gt;start slave;<br>mysql&gt;show slave status \G;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">查看SQL_Delay的值为600，表示设置成功。</span><br><span class="line"></span><br><span class="line">注释：</span><br><span class="line"></span><br><span class="line">SQL_Delay：一个非负整数，表示秒数，Slave滞后多少秒于master。</span><br><span class="line"></span><br><span class="line">SQL_Remaining_Delay：当Slave_SQL_Running_State等待，直到MASTER_DELAY秒后，Master执行的事件，此字段包含一个整数，表示有多少秒左右的延迟。在其他时候，这个字段是NULL。</span><br><span class="line"></span><br><span class="line">同步到指定位置：</span><br></pre></td></tr></table></figure></p>
-<p>mysql&gt;STOP SLAVE;<br>mysql&gt;CHANGE MASTER TO MASTER_DELAY = 0, RELAY_LOG_FILE = ‘xxxxx-relay-bin.######’, RELAY_LOG_POS = ######;<br>mysql&gt;START SLAVE;<br><code>`</code></p>
+<h1 id="首先需要大致了解一下mysql日志操作步骤："><a href="#首先需要大致了解一下mysql日志操作步骤：" class="headerlink" title="首先需要大致了解一下mysql日志操作步骤："></a>首先需要大致了解一下mysql日志操作步骤：</h1><h1 id="log-buff-–mysql写-write-–-gt-log-file-–OS刷新-flush-gt-disk"><a href="#log-buff-–mysql写-write-–-gt-log-file-–OS刷新-flush-gt-disk" class="headerlink" title="log_buff –mysql写 (write) –&gt; log_file –OS刷新 (flush)-&gt; disk"></a>log_buff –mysql写 (write) –&gt; log_file –OS刷新 (flush)-&gt; disk</h1><h1 id="参数解释："><a href="#参数解释：" class="headerlink" title="参数解释："></a>参数解释：</h1><h1 id="0（延迟写）：-log-buff-–每隔1秒–-gt-log-file-–实时-gt-disk"><a href="#0（延迟写）：-log-buff-–每隔1秒–-gt-log-file-–实时-gt-disk" class="headerlink" title="0（延迟写）： log_buff –每隔1秒–&gt; log_file –实时-&gt; disk"></a>0（延迟写）： log_buff –每隔1秒–&gt; log_file –实时-&gt; disk</h1><h1 id="1（实时写，实时刷）：-log-buff-–实时—-gt-log-file-–实时—-gt-disk"><a href="#1（实时写，实时刷）：-log-buff-–实时—-gt-log-file-–实时—-gt-disk" class="headerlink" title="1（实时写，实时刷）： log_buff –实时—&gt; log_file –实时—&gt; disk"></a>1（实时写，实时刷）： log_buff –实时—&gt; log_file –实时—&gt; disk</h1><h1 id="2（实时写，延迟刷）：-log-buff-–实时—-gt-log-file-–每隔1秒-gt-disk"><a href="#2（实时写，延迟刷）：-log-buff-–实时—-gt-log-file-–每隔1秒-gt-disk" class="headerlink" title="2（实时写，延迟刷）： log_buff –实时—&gt; log_file –每隔1秒-&gt; disk"></a>2（实时写，延迟刷）： log_buff –实时—&gt; log_file –每隔1秒-&gt; disk</h1><p>innodb_flush_log_at_trx_commit = 2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">### 主从同步配置以及延迟备份</span><br><span class="line">1. 数据库的主主同步时需要设置自增长的两个相关配置：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;auto_increment_offset&#96;&#96;&#96;</span><br><span class="line">表示自增长字段从那个数开始，其默认值是1，取值范围是1..65535</span><br><span class="line">&#96;&#96;&#96;auto_increment_increment&#96;&#96;&#96;</span><br><span class="line">表示自增长字段每次递增的量，其默认值是1，取值范围是1..65535</span><br><span class="line"></span><br><span class="line">&gt;在主主同步配置时，需要将两台服务器的auto_increment_increment&#x3D;2，而要把auto_increment_offset分别配置为1和2，这样才可以避免两台服务器同时做更新时自增长字段的值之间发生冲突。</span><br><span class="line"></span><br><span class="line">2. 延迟备份</span><br><span class="line"></span><br><span class="line">Mysql （需5.6以上版本）延迟复制配置，通过设置Slave上的MASTER TO MASTER_DELAY参数实现：</span><br></pre></td></tr></table></figure>
+<p>CHANGE MASTER TO MASTER_DELAY = N；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">N为多少秒，该语句设置从数据库延时N秒后，再与主数据库进行数据同步复制</span><br><span class="line"></span><br><span class="line">具体操作：</span><br><span class="line"></span><br><span class="line">登陆到Slave数据库服务器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>mysql&gt;stop slave;<br>mysql&gt;CHANGE MASTER TO MASTER_DELAY = 600；<br>mysql&gt;start slave;<br>mysql&gt;show slave status \G;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">查看SQL_Delay的值为600，表示设置成功。</span><br><span class="line"></span><br><span class="line">注释：</span><br><span class="line"></span><br><span class="line">SQL_Delay：一个非负整数，表示秒数，Slave滞后多少秒于master。</span><br><span class="line"></span><br><span class="line">SQL_Remaining_Delay：当Slave_SQL_Running_State等待，直到MASTER_DELAY秒后，Master执行的事件，此字段包含一个整数，表示有多少秒左右的延迟。在其他时候，这个字段是NULL。</span><br><span class="line"></span><br><span class="line">同步到指定位置：</span><br></pre></td></tr></table></figure>
+<p>mysql&gt;STOP SLAVE;<br>mysql&gt;CHANGE MASTER TO MASTER_DELAY = 0, RELAY_LOG_FILE = ‘xxxxx-relay-bin.######’, RELAY_LOG_POS = ######;<br>mysql&gt;START SLAVE;</p>
+<p>```</p>
 <ol start="3">
 <li>数据库状态类型<ul>
 <li>Aborted_clients 由于客户没有正确关闭连接已经死掉，已经放弃的连接数量。 </li>
@@ -604,7 +748,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/13/Zookeeper知识点整理/" rel="next" title="Zookeeper知识点整理">
+              <a href="/2019/12/13/Zookeeper%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="next" title="Zookeeper知识点整理">
                 <i class="fa fa-chevron-left"></i> Zookeeper知识点整理
               </a>
             
@@ -614,7 +758,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/10/myisam与innoDB的主要区别和应用场景/" rel="prev" title="myisam与innoDB的主要区别和应用场景">
+              <a href="/2020/03/10/myisam%E4%B8%8EinnoDB%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB%E5%92%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" rel="prev" title="myisam与innoDB的主要区别和应用场景">
                 myisam与innoDB的主要区别和应用场景 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -687,10 +831,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -698,7 +842,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -755,7 +899,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看mysql连接数的语句"><span class="nav-number">1.</span> <span class="nav-text">查看mysql连接数的语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入、更新性能优化的几个重要参数"><span class="nav-number">2.</span> <span class="nav-text">插入、更新性能优化的几个重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#锁表锁行案例"><span class="nav-number">2.0.1.</span> <span class="nav-text">锁表锁行案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务来一波"><span class="nav-number">3.</span> <span class="nav-text">事务来一波</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启该选项可以彻底关闭MySQL的TCP-IP连接方式-如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项-否则将无法正常连接"><span class="nav-number"></span> <span class="nav-text">开启该选项可以彻底关闭MySQL的TCP/IP连接方式,如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项!否则将无法正常连接!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动mysql-不启动复制"><span class="nav-number"></span> <span class="nav-text">启动mysql,不启动复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定MySQL可能的连接数量。当MySQL主线程在很短的时间内接收到非常多的连接请求-该参数生效-主线程花费很短的时间检查连接并且启动一个新线程。back-log参数的值指出在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中。默认值为50。对于Linux系统推荐设置为小于512的整数"><span class="nav-number"></span> <span class="nav-text">指定MySQL可能的连接数量。当MySQL主线程在很短的时间内接收到非常多的连接请求,该参数生效,主线程花费很短的时间检查连接并且启动一个新线程。back_log参数的值指出在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中。默认值为50。对于Linux系统推荐设置为小于512的整数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置最大包-限制server接受的数据包大小，避免超长SQL的执行有问题，默认值为16M，当MySQL客户端或mysqld服务器收到大于max-allowed-packet字节的信息包时，将发出“信息包过大”错误，并关闭连接。对于某些客户端，如果通信信息包过大，在执行查询期间，可能会遇到“丢失与MySQL服务器的连接”错误"><span class="nav-number"></span> <span class="nav-text">设置最大包,限制server接受的数据包大小，避免超长SQL的执行有问题，默认值为16M，当MySQL客户端或mysqld服务器收到大于max_allowed_packet字节的信息包时，将发出“信息包过大”错误，并关闭连接。对于某些客户端，如果通信信息包过大，在执行查询期间，可能会遇到“丢失与MySQL服务器的连接”错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定用于索引的缓冲区大小-增加它可得到更好的索引处理性能。对于内存在4GB左右的服务器该参数可设置为256M或384M。注意-该参数值设置的过大反而会是服务器整体效率降低"><span class="nav-number"></span> <span class="nav-text">指定用于索引的缓冲区大小,增加它可得到更好的索引处理性能。对于内存在4GB左右的服务器该参数可设置为256M或384M。注意:该参数值设置的过大反而会是服务器整体效率降低!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询排序时所能使用的缓冲区大小。注意-该参数对应的分配内存是每连接独占-如果有100个连接-那么实际分配的总共排序缓冲区大小为100×6-600MB。所以-对于内存在4GB左右的服务器推荐设置为6-8M。"><span class="nav-number"></span> <span class="nav-text">查询排序时所能使用的缓冲区大小。注意:该参数对应的分配内存是每连接独占!如果有100个连接,那么实际分配的总共排序缓冲区大小为100×6=600MB。所以,对于内存在4GB左右的服务器推荐设置为6-8M。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读查询操作所能使用的缓冲区大小。和sort-buffer-size一样-该参数对应的分配内存也是每连接独享"><span class="nav-number"></span> <span class="nav-text">读查询操作所能使用的缓冲区大小。和sort_buffer_size一样,该参数对应的分配内存也是每连接独享!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是一个重要变量。可以把这个值设为内存的70-80-。和key-buffer相同，如果数据量比较小也不怎么增加，那么不要把这个值设太高也可以提高内存的使用率"><span class="nav-number"></span> <span class="nav-text">这是一个重要变量。可以把这个值设为内存的70%-80%。和key_buffer相同，如果数据量比较小也不怎么增加，那么不要把这个值设太高也可以提高内存的使用率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这个的效果不是很明显，至少是当操作系统能合理分配内存时。但你可能仍需要设成20M或更多一点以看Innodb会分配多少内存做其他用途"><span class="nav-number"></span> <span class="nav-text">这个的效果不是很明显，至少是当操作系统能合理分配内存时。但你可能仍需要设成20M或更多一点以看Innodb会分配多少内存做其他用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对于写很多尤其是大数据量时非常重要。要注意，大的文件提供更高的性能，但数据库恢复时会用更多的时间。我一般用64M-512M，具体取决于服务器的空间。"><span class="nav-number"></span> <span class="nav-text">对于写很多尤其是大数据量时非常重要。要注意，大的文件提供更高的性能，但数据库恢复时会用更多的时间。我一般用64M-512M，具体取决于服务器的空间。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是InnoDB存储引擎的事务日志所使用的缓冲区。类似于BinlogBuffer，在写事务日志的时候，为了提高性能，也是先将信息写入Buffer中，当满足相应条件才会写入。"><span class="nav-number"></span> <span class="nav-text">这是InnoDB存储引擎的事务日志所使用的缓冲区。类似于BinlogBuffer，在写事务日志的时候，为了提高性能，也是先将信息写入Buffer中，当满足相应条件才会写入。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数设置表高速缓存的数目。每个连接进来，都会至少打开一个表缓存。因此，-table-cache-的大小应与-max-connections-的设置有关"><span class="nav-number"></span> <span class="nav-text">参数设置表高速缓存的数目。每个连接进来，都会至少打开一个表缓存。因此， table_cache 的大小应与 max_connections 的设置有关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#默认大小是-32M。如果一张临时表超出该大小，MySQL产生一个-The-table-tbl-name-is-full-形式的错误，如果你做很多高级-GROUP-BY查询，增加tmp-table-size-值"><span class="nav-number"></span> <span class="nav-text">默认大小是 32M。如果一张临时表超出该大小，MySQL产生一个 The table tbl_name is full 形式的错误，如果你做很多高级 GROUP BY查询，增加tmp_table_size 值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定MySQL允许的最大连接进程数。如果在访问论坛时经常出现Too-Many-Connections的错误提示-则需要增大该参数值"><span class="nav-number"></span> <span class="nav-text">指定MySQL允许的最大连接进程数。如果在访问论坛时经常出现Too Many Connections的错误提示,则需要增大该参数值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush-hosts-命令；防止黑客"><span class="nav-number"></span> <span class="nav-text">如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush hosts ; 命令；防止黑客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定一个请求的最大连接时间-对于4GB左右内存的服务器可以设置为5-10。"><span class="nav-number"></span> <span class="nav-text">指定一个请求的最大连接时间,对于4GB左右内存的服务器可以设置为5-10。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启了Innodb的innodb-file-per-table这个参数之后-innodb-file-per-table-1-，也就是启用InnoDB的独立表空间模式，便于管理"><span class="nav-number"></span> <span class="nav-text">开启了Innodb的innodb_file_per_table这个参数之后[innodb_file_per_table = 1]，也就是启用InnoDB的独立表空间模式，便于管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先需要大致了解一下mysql日志操作步骤："><span class="nav-number"></span> <span class="nav-text">首先需要大致了解一下mysql日志操作步骤：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#log-buff-–mysql写-write-–-gt-log-file-–OS刷新-flush-gt-disk"><span class="nav-number"></span> <span class="nav-text">log_buff –mysql写 (write) –&gt; log_file –OS刷新 (flush)-&gt; disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数解释："><span class="nav-number"></span> <span class="nav-text">参数解释：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0（延迟写）：-log-buff-–每隔1秒–-gt-log-file-–实时-gt-disk"><span class="nav-number"></span> <span class="nav-text">0（延迟写）： log_buff –每隔1秒–&gt; log_file –实时-&gt; disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1（实时写，实时刷）：-log-buff-–实时—-gt-log-file-–实时—-gt-disk"><span class="nav-number"></span> <span class="nav-text">1（实时写，实时刷）： log_buff –实时—&gt; log_file –实时—&gt; disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2（实时写，延迟刷）：-log-buff-–实时—-gt-log-file-–每隔1秒-gt-disk"><span class="nav-number"></span> <span class="nav-text">2（实时写，延迟刷）： log_buff –实时—&gt; log_file –每隔1秒-&gt; disk</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bmysql%E8%BF%9E%E6%8E%A5%E6%95%B0%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">查看mysql连接数的语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Esleep%E4%B8%8Elock%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">关于sleep与lock的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">MySQL的锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="nav-number">3.0.1.</span> <span class="nav-text">名词解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E9%94%81%E7%9A%84%E7%89%B9%E6%80%A7%E5%BD%92%E7%BA%B3"><span class="nav-number">3.0.2.</span> <span class="nav-text">三种锁的特性归纳</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">3.0.3.</span> <span class="nav-text">知识点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%B4%E6%96%B0%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%82%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">插入、更新性能优化的几个重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%81%E8%A1%A8%E9%94%81%E8%A1%8C%E6%A1%88%E4%BE%8B"><span class="nav-number">4.0.1.</span> <span class="nav-text">锁表锁行案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%9D%A5%E4%B8%80%E6%B3%A2"><span class="nav-number">5.</span> <span class="nav-text">事务来一波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">6.</span> <span class="nav-text">mysql 配置信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E8%AF%A5%E9%80%89%E9%A1%B9%E5%8F%AF%E4%BB%A5%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%ADMySQL%E7%9A%84TCP-IP%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F-%E5%A6%82%E6%9E%9CCentOS%E7%B3%BB%E7%BB%9FWEB%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E4%BB%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%99%E4%B8%8D%E8%A6%81%E5%BC%80%E5%90%AF%E8%AF%A5%E9%80%89%E9%A1%B9-%E5%90%A6%E5%88%99%E5%B0%86%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%BF%9E%E6%8E%A5"><span class="nav-number"></span> <span class="nav-text">开启该选项可以彻底关闭MySQL的TCP&#x2F;IP连接方式,如果CentOS系统WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项!否则将无法正常连接!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8mysql-%E4%B8%8D%E5%90%AF%E5%8A%A8%E5%A4%8D%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">启动mysql,不启动复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AE%9AMySQL%E5%8F%AF%E8%83%BD%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E3%80%82%E5%BD%93MySQL%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%9C%A8%E5%BE%88%E7%9F%AD%E7%9A%84%E6%97%B6%E9%97%B4%E5%86%85%E6%8E%A5%E6%94%B6%E5%88%B0%E9%9D%9E%E5%B8%B8%E5%A4%9A%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%AF%B7%E6%B1%82-%E8%AF%A5%E5%8F%82%E6%95%B0%E7%94%9F%E6%95%88-%E4%B8%BB%E7%BA%BF%E7%A8%8B%E8%8A%B1%E8%B4%B9%E5%BE%88%E7%9F%AD%E7%9A%84%E6%97%B6%E9%97%B4%E6%A3%80%E6%9F%A5%E8%BF%9E%E6%8E%A5%E5%B9%B6%E4%B8%94%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E6%96%B0%E7%BA%BF%E7%A8%8B%E3%80%82back-log%E5%8F%82%E6%95%B0%E7%9A%84%E5%80%BC%E6%8C%87%E5%87%BA%E5%9C%A8MySQL%E6%9A%82%E6%97%B6%E5%81%9C%E6%AD%A2%E5%93%8D%E5%BA%94%E6%96%B0%E8%AF%B7%E6%B1%82%E4%B9%8B%E5%89%8D%E7%9A%84%E7%9F%AD%E6%97%B6%E9%97%B4%E5%86%85%E5%A4%9A%E5%B0%91%E4%B8%AA%E8%AF%B7%E6%B1%82%E5%8F%AF%E4%BB%A5%E8%A2%AB%E5%AD%98%E5%9C%A8%E5%A0%86%E6%A0%88%E4%B8%AD%E3%80%82%E9%BB%98%E8%AE%A4%E5%80%BC%E4%B8%BA50%E3%80%82%E5%AF%B9%E4%BA%8ELinux%E7%B3%BB%E7%BB%9F%E6%8E%A8%E8%8D%90%E8%AE%BE%E7%BD%AE%E4%B8%BA%E5%B0%8F%E4%BA%8E512%E7%9A%84%E6%95%B4%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">指定MySQL可能的连接数量。当MySQL主线程在很短的时间内接收到非常多的连接请求,该参数生效,主线程花费很短的时间检查连接并且启动一个新线程。back_log参数的值指出在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中。默认值为50。对于Linux系统推荐设置为小于512的整数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%9C%80%E5%A4%A7%E5%8C%85-%E9%99%90%E5%88%B6server%E6%8E%A5%E5%8F%97%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%A7%E5%B0%8F%EF%BC%8C%E9%81%BF%E5%85%8D%E8%B6%85%E9%95%BFSQL%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%80%BC%E4%B8%BA16M%EF%BC%8C%E5%BD%93MySQL%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%88%96mysqld%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%94%B6%E5%88%B0%E5%A4%A7%E4%BA%8Emax-allowed-packet%E5%AD%97%E8%8A%82%E7%9A%84%E4%BF%A1%E6%81%AF%E5%8C%85%E6%97%B6%EF%BC%8C%E5%B0%86%E5%8F%91%E5%87%BA%E2%80%9C%E4%BF%A1%E6%81%AF%E5%8C%85%E8%BF%87%E5%A4%A7%E2%80%9D%E9%94%99%E8%AF%AF%EF%BC%8C%E5%B9%B6%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5%E3%80%82%E5%AF%B9%E4%BA%8E%E6%9F%90%E4%BA%9B%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E5%A6%82%E6%9E%9C%E9%80%9A%E4%BF%A1%E4%BF%A1%E6%81%AF%E5%8C%85%E8%BF%87%E5%A4%A7%EF%BC%8C%E5%9C%A8%E6%89%A7%E8%A1%8C%E6%9F%A5%E8%AF%A2%E6%9C%9F%E9%97%B4%EF%BC%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%81%87%E5%88%B0%E2%80%9C%E4%B8%A2%E5%A4%B1%E4%B8%8EMySQL%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E2%80%9D%E9%94%99%E8%AF%AF"><span class="nav-number"></span> <span class="nav-text">设置最大包,限制server接受的数据包大小，避免超长SQL的执行有问题，默认值为16M，当MySQL客户端或mysqld服务器收到大于max_allowed_packet字节的信息包时，将发出“信息包过大”错误，并关闭连接。对于某些客户端，如果通信信息包过大，在执行查询期间，可能会遇到“丢失与MySQL服务器的连接”错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%94%A8%E4%BA%8E%E7%B4%A2%E5%BC%95%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA%E5%A4%A7%E5%B0%8F-%E5%A2%9E%E5%8A%A0%E5%AE%83%E5%8F%AF%E5%BE%97%E5%88%B0%E6%9B%B4%E5%A5%BD%E7%9A%84%E7%B4%A2%E5%BC%95%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E3%80%82%E5%AF%B9%E4%BA%8E%E5%86%85%E5%AD%98%E5%9C%A84GB%E5%B7%A6%E5%8F%B3%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%A5%E5%8F%82%E6%95%B0%E5%8F%AF%E8%AE%BE%E7%BD%AE%E4%B8%BA256M%E6%88%96384M%E3%80%82%E6%B3%A8%E6%84%8F-%E8%AF%A5%E5%8F%82%E6%95%B0%E5%80%BC%E8%AE%BE%E7%BD%AE%E7%9A%84%E8%BF%87%E5%A4%A7%E5%8F%8D%E8%80%8C%E4%BC%9A%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B4%E4%BD%93%E6%95%88%E7%8E%87%E9%99%8D%E4%BD%8E"><span class="nav-number"></span> <span class="nav-text">指定用于索引的缓冲区大小,增加它可得到更好的索引处理性能。对于内存在4GB左右的服务器该参数可设置为256M或384M。注意:该参数值设置的过大反而会是服务器整体效率降低!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%8E%92%E5%BA%8F%E6%97%B6%E6%89%80%E8%83%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA%E5%A4%A7%E5%B0%8F%E3%80%82%E6%B3%A8%E6%84%8F-%E8%AF%A5%E5%8F%82%E6%95%B0%E5%AF%B9%E5%BA%94%E7%9A%84%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E6%98%AF%E6%AF%8F%E8%BF%9E%E6%8E%A5%E7%8B%AC%E5%8D%A0-%E5%A6%82%E6%9E%9C%E6%9C%89100%E4%B8%AA%E8%BF%9E%E6%8E%A5-%E9%82%A3%E4%B9%88%E5%AE%9E%E9%99%85%E5%88%86%E9%85%8D%E7%9A%84%E6%80%BB%E5%85%B1%E6%8E%92%E5%BA%8F%E7%BC%93%E5%86%B2%E5%8C%BA%E5%A4%A7%E5%B0%8F%E4%B8%BA100%C3%976-600MB%E3%80%82%E6%89%80%E4%BB%A5-%E5%AF%B9%E4%BA%8E%E5%86%85%E5%AD%98%E5%9C%A84GB%E5%B7%A6%E5%8F%B3%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E8%8D%90%E8%AE%BE%E7%BD%AE%E4%B8%BA6-8M%E3%80%82"><span class="nav-number"></span> <span class="nav-text">查询排序时所能使用的缓冲区大小。注意:该参数对应的分配内存是每连接独占!如果有100个连接,那么实际分配的总共排序缓冲区大小为100×6&#x3D;600MB。所以,对于内存在4GB左右的服务器推荐设置为6-8M。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BB%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E6%89%80%E8%83%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA%E5%A4%A7%E5%B0%8F%E3%80%82%E5%92%8Csort-buffer-size%E4%B8%80%E6%A0%B7-%E8%AF%A5%E5%8F%82%E6%95%B0%E5%AF%B9%E5%BA%94%E7%9A%84%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E4%B9%9F%E6%98%AF%E6%AF%8F%E8%BF%9E%E6%8E%A5%E7%8B%AC%E4%BA%AB"><span class="nav-number"></span> <span class="nav-text">读查询操作所能使用的缓冲区大小。和sort_buffer_size一样,该参数对应的分配内存也是每连接独享!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%87%8D%E8%A6%81%E5%8F%98%E9%87%8F%E3%80%82%E5%8F%AF%E4%BB%A5%E6%8A%8A%E8%BF%99%E4%B8%AA%E5%80%BC%E8%AE%BE%E4%B8%BA%E5%86%85%E5%AD%98%E7%9A%8470-80-%E3%80%82%E5%92%8Ckey-buffer%E7%9B%B8%E5%90%8C%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%95%B0%E6%8D%AE%E9%87%8F%E6%AF%94%E8%BE%83%E5%B0%8F%E4%B9%9F%E4%B8%8D%E6%80%8E%E4%B9%88%E5%A2%9E%E5%8A%A0%EF%BC%8C%E9%82%A3%E4%B9%88%E4%B8%8D%E8%A6%81%E6%8A%8A%E8%BF%99%E4%B8%AA%E5%80%BC%E8%AE%BE%E5%A4%AA%E9%AB%98%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%8F%90%E9%AB%98%E5%86%85%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E7%8E%87"><span class="nav-number"></span> <span class="nav-text">这是一个重要变量。可以把这个值设为内存的70%-80%。和key_buffer相同，如果数据量比较小也不怎么增加，那么不要把这个值设太高也可以提高内存的使用率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E7%9A%84%E6%95%88%E6%9E%9C%E4%B8%8D%E6%98%AF%E5%BE%88%E6%98%8E%E6%98%BE%EF%BC%8C%E8%87%B3%E5%B0%91%E6%98%AF%E5%BD%93%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%83%BD%E5%90%88%E7%90%86%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E6%97%B6%E3%80%82%E4%BD%86%E4%BD%A0%E5%8F%AF%E8%83%BD%E4%BB%8D%E9%9C%80%E8%A6%81%E8%AE%BE%E6%88%9020M%E6%88%96%E6%9B%B4%E5%A4%9A%E4%B8%80%E7%82%B9%E4%BB%A5%E7%9C%8BInnodb%E4%BC%9A%E5%88%86%E9%85%8D%E5%A4%9A%E5%B0%91%E5%86%85%E5%AD%98%E5%81%9A%E5%85%B6%E4%BB%96%E7%94%A8%E9%80%94"><span class="nav-number"></span> <span class="nav-text">这个的效果不是很明显，至少是当操作系统能合理分配内存时。但你可能仍需要设成20M或更多一点以看Innodb会分配多少内存做其他用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E5%86%99%E5%BE%88%E5%A4%9A%E5%B0%A4%E5%85%B6%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%8F%E6%97%B6%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%E3%80%82%E8%A6%81%E6%B3%A8%E6%84%8F%EF%BC%8C%E5%A4%A7%E7%9A%84%E6%96%87%E4%BB%B6%E6%8F%90%E4%BE%9B%E6%9B%B4%E9%AB%98%E7%9A%84%E6%80%A7%E8%83%BD%EF%BC%8C%E4%BD%86%E6%95%B0%E6%8D%AE%E5%BA%93%E6%81%A2%E5%A4%8D%E6%97%B6%E4%BC%9A%E7%94%A8%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%97%B6%E9%97%B4%E3%80%82%E6%88%91%E4%B8%80%E8%88%AC%E7%94%A864M-512M%EF%BC%8C%E5%85%B7%E4%BD%93%E5%8F%96%E5%86%B3%E4%BA%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E7%A9%BA%E9%97%B4%E3%80%82"><span class="nav-number"></span> <span class="nav-text">对于写很多尤其是大数据量时非常重要。要注意，大的文件提供更高的性能，但数据库恢复时会用更多的时间。我一般用64M-512M，具体取决于服务器的空间。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E6%98%AFInnoDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%9A%84%E4%BA%8B%E5%8A%A1%E6%97%A5%E5%BF%97%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BC%93%E5%86%B2%E5%8C%BA%E3%80%82%E7%B1%BB%E4%BC%BC%E4%BA%8EBinlogBuffer%EF%BC%8C%E5%9C%A8%E5%86%99%E4%BA%8B%E5%8A%A1%E6%97%A5%E5%BF%97%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%B8%BA%E4%BA%86%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%EF%BC%8C%E4%B9%9F%E6%98%AF%E5%85%88%E5%B0%86%E4%BF%A1%E6%81%AF%E5%86%99%E5%85%A5Buffer%E4%B8%AD%EF%BC%8C%E5%BD%93%E6%BB%A1%E8%B6%B3%E7%9B%B8%E5%BA%94%E6%9D%A1%E4%BB%B6%E6%89%8D%E4%BC%9A%E5%86%99%E5%85%A5%E3%80%82"><span class="nav-number"></span> <span class="nav-text">这是InnoDB存储引擎的事务日志所使用的缓冲区。类似于BinlogBuffer，在写事务日志的时候，为了提高性能，也是先将信息写入Buffer中，当满足相应条件才会写入。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%E8%A1%A8%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E7%9A%84%E6%95%B0%E7%9B%AE%E3%80%82%E6%AF%8F%E4%B8%AA%E8%BF%9E%E6%8E%A5%E8%BF%9B%E6%9D%A5%EF%BC%8C%E9%83%BD%E4%BC%9A%E8%87%B3%E5%B0%91%E6%89%93%E5%BC%80%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%BC%93%E5%AD%98%E3%80%82%E5%9B%A0%E6%AD%A4%EF%BC%8C-table-cache-%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%BA%94%E4%B8%8E-max-connections-%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%9C%89%E5%85%B3"><span class="nav-number"></span> <span class="nav-text">参数设置表高速缓存的数目。每个连接进来，都会至少打开一个表缓存。因此， table_cache 的大小应与 max_connections 的设置有关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%A4%A7%E5%B0%8F%E6%98%AF-32M%E3%80%82%E5%A6%82%E6%9E%9C%E4%B8%80%E5%BC%A0%E4%B8%B4%E6%97%B6%E8%A1%A8%E8%B6%85%E5%87%BA%E8%AF%A5%E5%A4%A7%E5%B0%8F%EF%BC%8CMySQL%E4%BA%A7%E7%94%9F%E4%B8%80%E4%B8%AA-The-table-tbl-name-is-full-%E5%BD%A2%E5%BC%8F%E7%9A%84%E9%94%99%E8%AF%AF%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%81%9A%E5%BE%88%E5%A4%9A%E9%AB%98%E7%BA%A7-GROUP-BY%E6%9F%A5%E8%AF%A2%EF%BC%8C%E5%A2%9E%E5%8A%A0tmp-table-size-%E5%80%BC"><span class="nav-number"></span> <span class="nav-text">默认大小是 32M。如果一张临时表超出该大小，MySQL产生一个 The table tbl_name is full 形式的错误，如果你做很多高级 GROUP BY查询，增加tmp_table_size 值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AE%9AMySQL%E5%85%81%E8%AE%B8%E7%9A%84%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E8%BF%9B%E7%A8%8B%E6%95%B0%E3%80%82%E5%A6%82%E6%9E%9C%E5%9C%A8%E8%AE%BF%E9%97%AE%E8%AE%BA%E5%9D%9B%E6%97%B6%E7%BB%8F%E5%B8%B8%E5%87%BA%E7%8E%B0Too-Many-Connections%E7%9A%84%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA-%E5%88%99%E9%9C%80%E8%A6%81%E5%A2%9E%E5%A4%A7%E8%AF%A5%E5%8F%82%E6%95%B0%E5%80%BC"><span class="nav-number"></span> <span class="nav-text">指定MySQL允许的最大连接进程数。如果在访问论坛时经常出现Too Many Connections的错误提示,则需要增大该参数值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%9F%90%E4%B8%AA%E7%94%A8%E6%88%B7%E5%8F%91%E8%B5%B7%E7%9A%84%E8%BF%9E%E6%8E%A5error%E8%B6%85%E8%BF%87%E8%AF%A5%E6%95%B0%E5%80%BC%EF%BC%8C%E5%88%99%E8%AF%A5%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%8B%E6%AC%A1%E8%BF%9E%E6%8E%A5%E5%B0%86%E8%A2%AB%E9%98%BB%E5%A1%9E%EF%BC%8C%E7%9B%B4%E5%88%B0%E7%AE%A1%E7%90%86%E5%91%98%E6%89%A7%E8%A1%8Cflush-hosts-%E5%91%BD%E4%BB%A4%EF%BC%9B%E9%98%B2%E6%AD%A2%E9%BB%91%E5%AE%A2"><span class="nav-number"></span> <span class="nav-text">如果某个用户发起的连接error超过该数值，则该用户的下次连接将被阻塞，直到管理员执行flush hosts ; 命令；防止黑客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E6%97%B6%E9%97%B4-%E5%AF%B9%E4%BA%8E4GB%E5%B7%A6%E5%8F%B3%E5%86%85%E5%AD%98%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E4%B8%BA5-10%E3%80%82"><span class="nav-number"></span> <span class="nav-text">指定一个请求的最大连接时间,对于4GB左右内存的服务器可以设置为5-10。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E4%BA%86Innodb%E7%9A%84innodb-file-per-table%E8%BF%99%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B9%8B%E5%90%8E-innodb-file-per-table-1-%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E5%90%AF%E7%94%A8InnoDB%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%BC%8F%EF%BC%8C%E4%BE%BF%E4%BA%8E%E7%AE%A1%E7%90%86"><span class="nav-number"></span> <span class="nav-text">开启了Innodb的innodb_file_per_table这个参数之后[innodb_file_per_table &#x3D; 1]，也就是启用InnoDB的独立表空间模式，便于管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E5%A4%A7%E8%87%B4%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8Bmysql%E6%97%A5%E5%BF%97%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">首先需要大致了解一下mysql日志操作步骤：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#log-buff-%E2%80%93mysql%E5%86%99-write-%E2%80%93-gt-log-file-%E2%80%93OS%E5%88%B7%E6%96%B0-flush-gt-disk"><span class="nav-number"></span> <span class="nav-text">log_buff –mysql写 (write) –&gt; log_file –OS刷新 (flush)-&gt; disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">参数解释：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0%EF%BC%88%E5%BB%B6%E8%BF%9F%E5%86%99%EF%BC%89%EF%BC%9A-log-buff-%E2%80%93%E6%AF%8F%E9%9A%941%E7%A7%92%E2%80%93-gt-log-file-%E2%80%93%E5%AE%9E%E6%97%B6-gt-disk"><span class="nav-number"></span> <span class="nav-text">0（延迟写）： log_buff –每隔1秒–&gt; log_file –实时-&gt; disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%88%E5%AE%9E%E6%97%B6%E5%86%99%EF%BC%8C%E5%AE%9E%E6%97%B6%E5%88%B7%EF%BC%89%EF%BC%9A-log-buff-%E2%80%93%E5%AE%9E%E6%97%B6%E2%80%94-gt-log-file-%E2%80%93%E5%AE%9E%E6%97%B6%E2%80%94-gt-disk"><span class="nav-number"></span> <span class="nav-text">1（实时写，实时刷）： log_buff –实时—&gt; log_file –实时—&gt; disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%88%E5%AE%9E%E6%97%B6%E5%86%99%EF%BC%8C%E5%BB%B6%E8%BF%9F%E5%88%B7%EF%BC%89%EF%BC%9A-log-buff-%E2%80%93%E5%AE%9E%E6%97%B6%E2%80%94-gt-log-file-%E2%80%93%E6%AF%8F%E9%9A%941%E7%A7%92-gt-disk"><span class="nav-number"></span> <span class="nav-text">2（实时写，延迟刷）： log_buff –实时—&gt; log_file –每隔1秒-&gt; disk</span></a></div>
             
 
           </div>

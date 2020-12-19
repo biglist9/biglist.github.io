@@ -79,29 +79,29 @@
 
 
 
-<meta name="description" content="常见的索引类型 哈希索引、平衡二叉树索引、B树索引、B+树索引 以下对这几类常见索引进行分析  哈希索引 优点哈希索引拥有极高的检索效率，索引的检索可以一次到位 缺点 不能使用范围查询 Hash索引仅仅能满足”=”,”IN”和”&amp;lt;=&amp;gt;”查询(注意&amp;lt;&amp;gt;和＜＝＞是不同的操作），不能使用范围查询，例如WHERE price &amp;gt; 100。由于Hash索引比较的是进行Hash">
-<meta name="keywords" content="MySQL">
+<meta name="description" content="常见的索引类型 哈希索引、平衡二叉树索引、B树索引、B+树索引 以下对这几类常见索引进行分析  哈希索引 优点哈希索引拥有极高的检索效率，索引的检索可以一次到位 缺点 不能使用范围查询 Hash索引仅仅能满足”&#x3D;”,”IN”和”&lt;&#x3D;&gt;”查询(注意&lt;&gt;和＜＝＞是不同的操作），不能使用范围查询，例如WHERE price &gt; 100。由于Hash索引比较的是进行Hash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL索引类型">
-<meta property="og:url" content="http://tit.ink/2020/10/24/MySQL索引类型/index.html">
+<meta property="og:url" content="http://tit.ink/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="学习小札">
-<meta property="og:description" content="常见的索引类型 哈希索引、平衡二叉树索引、B树索引、B+树索引 以下对这几类常见索引进行分析  哈希索引 优点哈希索引拥有极高的检索效率，索引的检索可以一次到位 缺点 不能使用范围查询 Hash索引仅仅能满足”=”,”IN”和”&amp;lt;=&amp;gt;”查询(注意&amp;lt;&amp;gt;和＜＝＞是不同的操作），不能使用范围查询，例如WHERE price &amp;gt; 100。由于Hash索引比较的是进行Hash">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://tit.ink/2020/10/24/MySQL索引类型/2.jpg">
-<meta property="og:image" content="http://tit.ink/2020/10/24/MySQL索引类型/b.jpg">
-<meta property="og:image" content="http://tit.ink/2020/10/24/MySQL索引类型/b+.jpg">
-<meta property="og:updated_time" content="2020-11-25T04:55:21.391Z">
+<meta property="og:description" content="常见的索引类型 哈希索引、平衡二叉树索引、B树索引、B+树索引 以下对这几类常见索引进行分析  哈希索引 优点哈希索引拥有极高的检索效率，索引的检索可以一次到位 缺点 不能使用范围查询 Hash索引仅仅能满足”&#x3D;”,”IN”和”&lt;&#x3D;&gt;”查询(注意&lt;&gt;和＜＝＞是不同的操作），不能使用范围查询，例如WHERE price &gt; 100。由于Hash索引比较的是进行Hash">
+<meta property="og:locale">
+<meta property="og:image" content="http://tit.ink/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/2.jpg">
+<meta property="og:image" content="http://tit.ink/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/b.jpg">
+<meta property="og:image" content="http://tit.ink/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/b+.jpg">
+<meta property="article:published_time" content="2020-10-24T04:49:42.000Z">
+<meta property="article:modified_time" content="2020-11-25T04:55:21.391Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL索引类型">
-<meta name="twitter:description" content="常见的索引类型 哈希索引、平衡二叉树索引、B树索引、B+树索引 以下对这几类常见索引进行分析  哈希索引 优点哈希索引拥有极高的检索效率，索引的检索可以一次到位 缺点 不能使用范围查询 Hash索引仅仅能满足”=”,”IN”和”&amp;lt;=&amp;gt;”查询(注意&amp;lt;&amp;gt;和＜＝＞是不同的操作），不能使用范围查询，例如WHERE price &amp;gt; 100。由于Hash索引比较的是进行Hash">
-<meta name="twitter:image" content="http://tit.ink/2020/10/24/MySQL索引类型/2.jpg">
+<meta name="twitter:image" content="http://tit.ink/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/2.jpg">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -140,7 +140,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -185,7 +185,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -195,7 +195,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -205,7 +205,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -215,7 +215,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -225,7 +225,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -300,10 +300,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/10/24/MySQL索引类型/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -370,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/10/24/MySQL索引类型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/MySQL索引类型/" itemprop="commentCount"></span>
+                <a href="/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -415,17 +415,17 @@
 <li>Hash索引在任何时候都不能避免表扫描<br> Hash索引是将索引键通过Hash运算之后，将 Hash运算结果的Hash值和所对应的行指针信息存放于一个Hash表中。由于不同索引键存在相同Hash值（哈希碰撞），所以无法从Hash索引中直接完成查询，还是要通过访问表中的实际数据进行相应的比较，并得到相应的结果</li>
 </ol>
 <h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><hr>
-<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>又称 AVL树。 它除了具备二叉查找树的基本特征之外，还具有一个非常重要的特点：它的左子树和右子树都是平衡二叉树，且左子树和右子树的深度之差的绝对值（平衡因子 ）不超过1。也就是说AVL树每个节点的平衡因子只可能是-1、0和1（左子树高度减去右子树高度）<br><img src="2.jpg" alt=""></p>
+<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>又称 AVL树。 它除了具备二叉查找树的基本特征之外，还具有一个非常重要的特点：它的左子树和右子树都是平衡二叉树，且左子树和右子树的深度之差的绝对值（平衡因子 ）不超过1。也就是说AVL树每个节点的平衡因子只可能是-1、0和1（左子树高度减去右子树高度）<br><img src="2.jpg"></p>
 <h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ol>
 <li>树的高度越高，查找速度越慢</li>
 <li>支持范围查找，但是需要进行回旋查找</li>
 </ol>
 <h3 id="B树索引"><a href="#B树索引" class="headerlink" title="B树索引"></a>B树索引</h3><hr>
-<p><img src="b.jpg" alt=""></p>
+<p><img src="b.jpg"></p>
 <h4 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h4><p>B树和二叉树最大的区别在于：它一个节点可以存储两个值，这就意味着它的树高度，比二叉树的高度更低，它的查询速度就更快</p>
 <h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><p>在范围查找的时候，存在回旋查询的问题。同样order by排序的时候效率也很低，因为要把树上的数据手动排序一遍</p>
 <h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><hr>
-<p><img src="b+.jpg" alt=""></p>
+<p><img src="b+.jpg"></p>
 <h4 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h4><p>是B树的升级版，B+树相比B树，新增叶子节点与非叶子节点关系。叶子节点中包含了key和value，key存储的是1-10这些数字，value存储的是数据存储地址，非叶子节点中只是包含了key，不包含value。所有相邻的叶子节点包含非叶子节点，使用链表进行结合，有一定顺序排序，从而范围查询效率非常高</p>
 
       
@@ -472,7 +472,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/22/桶排序，计数排序，基数排序/" rel="next" title="桶排序，计数排序，基数排序">
+              <a href="/2020/10/22/%E6%A1%B6%E6%8E%92%E5%BA%8F%EF%BC%8C%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/" rel="next" title="桶排序，计数排序，基数排序">
                 <i class="fa fa-chevron-left"></i> 桶排序，计数排序，基数排序
               </a>
             
@@ -482,7 +482,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/22/MySQL事务/" rel="prev" title="MySQL事务">
+              <a href="/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/" rel="prev" title="MySQL事务">
                 MySQL事务 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -555,10 +555,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -566,7 +566,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -623,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希索引"><span class="nav-number">1.</span> <span class="nav-text">哈希索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">2.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#描述"><span class="nav-number">2.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树索引"><span class="nav-number">3.</span> <span class="nav-text">B树索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#描述-1"><span class="nav-number">3.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-2"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-树"><span class="nav-number">4.</span> <span class="nav-text">B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#描述-2"><span class="nav-number">4.1.</span> <span class="nav-text">描述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95"><span class="nav-number">1.</span> <span class="nav-text">哈希索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="nav-number">2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B%E6%A0%91%E7%B4%A2%E5%BC%95"><span class="nav-number">3.</span> <span class="nav-text">B树索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">3.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-number">4.</span> <span class="nav-text">B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-2"><span class="nav-number">4.1.</span> <span class="nav-text">描述</span></a></li></ol></li></ol></div>
             
 
           </div>

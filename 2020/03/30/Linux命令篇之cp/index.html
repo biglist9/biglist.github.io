@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="关于 –今天有个同事问我，shall编程里的 cp -rf -- 中的--的作用是什么，不知道啊，略尴尬，就查查学习学习 -- 主要是为了解决cp特殊字符文件名的情况，例如 文件名是-aaa.txt，进行cp时，cp -aaa.txt会报错。shell 把破折号(-)之后的内容认作参数了，而很明显没有这样的参数，所以报错 这时候使用 cp -- -aaa.txt 即可  针对-开头的文件需要使用-">
-<meta name="keywords" content="Linux命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令篇之cp">
-<meta property="og:url" content="http://tit.ink/2020/03/30/Linux命令篇之cp/index.html">
+<meta property="og:url" content="http://tit.ink/2020/03/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bcp/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="关于 –今天有个同事问我，shall编程里的 cp -rf -- 中的--的作用是什么，不知道啊，略尴尬，就查查学习学习 -- 主要是为了解决cp特殊字符文件名的情况，例如 文件名是-aaa.txt，进行cp时，cp -aaa.txt会报错。shell 把破折号(-)之后的内容认作参数了，而很明显没有这样的参数，所以报错 这时候使用 cp -- -aaa.txt 即可  针对-开头的文件需要使用-">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-03T09:46:36.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-03-30T07:46:19.000Z">
+<meta property="article:modified_time" content="2020-04-03T09:46:36.000Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="Linux命令">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令篇之cp">
-<meta name="twitter:description" content="关于 –今天有个同事问我，shall编程里的 cp -rf -- 中的--的作用是什么，不知道啊，略尴尬，就查查学习学习 -- 主要是为了解决cp特殊字符文件名的情况，例如 文件名是-aaa.txt，进行cp时，cp -aaa.txt会报错。shell 把破折号(-)之后的内容认作参数了，而很明显没有这样的参数，所以报错 这时候使用 cp -- -aaa.txt 即可  针对-开头的文件需要使用-">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/03/30/Linux命令篇之cp/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/03/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bcp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/30/Linux命令篇之cp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/30/Linux命令篇之cp/" itemprop="commentCount"></span>
+                <a href="/2020/03/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bcp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bcp/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -408,7 +408,8 @@
 <li>针对文件名还包含<code>&#39;</code>或者<code>&quot;</code>的情况，就需要交替使用规则</li>
 </ol>
 <h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp [options] source dest</span><br></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp [options] source... directory</span><br></pre></td></tr></table></figure></p>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp [options] source... directory</span><br></pre></td></tr></table></figure>
 <p> 选项:</p>
 <ul>
 <li>-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合</li>
@@ -419,8 +420,8 @@
 <li>-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</li>
 <li>-l：不复制文件，只是生成链接文件</li>
 </ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>使用指令”cp”将当前目录”test/“下的所有文件复制到新目录”newtest”下，输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp –r test/ newtest</span><br></pre></td></tr></table></figure></p>
-
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>使用指令”cp”将当前目录”test/“下的所有文件复制到新目录”newtest”下，输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp –r test&#x2F; newtest</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -437,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+            <a href="/tags/Linux%E5%91%BD%E4%BB%A4/" rel="tag"># Linux命令</a>
           
         </div>
       
@@ -465,7 +466,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/30/homebrew换源/" rel="next" title="homebrew换源">
+              <a href="/2020/03/30/homebrew%E6%8D%A2%E6%BA%90/" rel="next" title="homebrew换源">
                 <i class="fa fa-chevron-left"></i> homebrew换源
               </a>
             
@@ -475,7 +476,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/08/跳表/" rel="prev" title="跳表">
+              <a href="/2020/04/08/%E8%B7%B3%E8%A1%A8/" rel="prev" title="跳表">
                 跳表 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -548,10 +549,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -559,7 +560,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -616,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-–"><span class="nav-number">1.</span> <span class="nav-text">关于 –</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令格式"><span class="nav-number">2.</span> <span class="nav-text">命令格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-%E2%80%93"><span class="nav-number">1.</span> <span class="nav-text">关于 –</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">命令格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
             
 
           </div>

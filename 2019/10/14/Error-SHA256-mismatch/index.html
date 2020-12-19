@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="用brewhome安装websocketd 报错(brew install websocketd)错误内容如下：123456==&amp;gt; Downloading https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index=1Error: SHA256 mismatchEx">
-<meta name="keywords" content="brewhome install 错误">
+<meta name="description" content="用brewhome安装websocketd 报错(brew install websocketd)错误内容如下： 123456&#x3D;&#x3D;&gt; Downloading https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;commit&#x2F;1a92cdbfc10e0c66f2e015264a39159c055a5c15.p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Error:SHA256 mismatch">
 <meta property="og:url" content="http://tit.ink/2019/10/14/Error-SHA256-mismatch/index.html">
 <meta property="og:site_name" content="学习小札">
-<meta property="og:description" content="用brewhome安装websocketd 报错(brew install websocketd)错误内容如下：123456==&amp;gt; Downloading https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index=1Error: SHA256 mismatchEx">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-14T13:33:06.000Z">
+<meta property="og:description" content="用brewhome安装websocketd 报错(brew install websocketd)错误内容如下： 123456&#x3D;&#x3D;&gt; Downloading https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;commit&#x2F;1a92cdbfc10e0c66f2e015264a39159c055a5c15.p">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-10-14T13:29:32.000Z">
+<meta property="article:modified_time" content="2019-10-14T13:33:06.000Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="brewhome install 错误">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Error:SHA256 mismatch">
-<meta name="twitter:description" content="用brewhome安装websocketd 报错(brew install websocketd)错误内容如下：123456==&amp;gt; Downloading https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index=1Error: SHA256 mismatchEx">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -299,7 +299,7 @@
     <link itemprop="mainEntityOfPage" href="http://tit.ink/2019/10/14/Error-SHA256-mismatch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -400,9 +400,11 @@
       
 
       
-        <p>用<code>brewhome</code>安装<code>websocketd</code> 报错(<code>brew install websocketd</code>)<br>错误内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Downloading https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index=1</span><br><span class="line">Error: SHA256 mismatch</span><br><span class="line">Expected: 9b879e3e759d56093ca7660305c3e4f8aee8acdd87126dc10985360395704139</span><br><span class="line">Actual: 78548296476b0281fe1cea95a85f8055aa0ecae138b8a1fb3b466eed02c10cb8</span><br><span class="line">Archive: /Users/xx/Library/Caches/Homebrew/go--patch-9b879e3e759d56093ca7660305c3e4f8aee8acdd87126dc10985360395704139.patch</span><br><span class="line">To retry an incomplete download, remove the file above.</span><br></pre></td></tr></table></figure></p>
+        <p>用<code>brewhome</code>安装<code>websocketd</code> 报错(<code>brew install websocketd</code>)<br>错误内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&gt; Downloading https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;commit&#x2F;1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index&#x3D;1</span><br><span class="line">Error: SHA256 mismatch</span><br><span class="line">Expected: 9b879e3e759d56093ca7660305c3e4f8aee8acdd87126dc10985360395704139</span><br><span class="line">Actual: 78548296476b0281fe1cea95a85f8055aa0ecae138b8a1fb3b466eed02c10cb8</span><br><span class="line">Archive: &#x2F;Users&#x2F;xx&#x2F;Library&#x2F;Caches&#x2F;Homebrew&#x2F;go--patch-9b879e3e759d56093ca7660305c3e4f8aee8acdd87126dc10985360395704139.patch</span><br><span class="line">To retry an incomplete download, remove the file above.</span><br></pre></td></tr></table></figure>
 <p>可以看到是在安装go补丁时候报的<code>SHA256</code>错误，这个错误可以理解成拉取时候验签错误，错误信息中给出了预期值（Expected）与实际值（Actual）并给出了解决办法</p>
-<p>燃鹅这个retry并不好用，在网上搜了下<a href="https://github.com/caskformula/homebrew-caskformula/issues/57" target="_blank" rel="noopener">类似错误</a>，给出的处理办法是用实际值替换预期值即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 搜索出来的解决办法</span><br><span class="line">使用brew edit caskformula/caskformula/inkscape</span><br><span class="line"></span><br><span class="line">替换1f037cc29cee8e0c60ab4753d4151741c8170e4849129bac68fdc60925eb971d 为 7ce4f70f1cb03cd0bab7dc94821a89bf71600bd59c763ae0d78c48f33db3d9ac</span><br></pre></td></tr></table></figure></p>
+<p>燃鹅这个retry并不好用，在网上搜了下<a target="_blank" rel="noopener" href="https://github.com/caskformula/homebrew-caskformula/issues/57">类似错误</a>，给出的处理办法是用实际值替换预期值即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 搜索出来的解决办法</span><br><span class="line">使用brew edit caskformula&#x2F;caskformula&#x2F;inkscape</span><br><span class="line"></span><br><span class="line">替换1f037cc29cee8e0c60ab4753d4151741c8170e4849129bac68fdc60925eb971d 为 7ce4f70f1cb03cd0bab7dc94821a89bf71600bd59c763ae0d78c48f33db3d9ac</span><br></pre></td></tr></table></figure>
 <p>解决方法</p>
 <ol>
 <li><code>brew edit go</code></li>
@@ -427,7 +429,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/brewhome-install-错误/" rel="tag"># brewhome install 错误</a>
+            <a href="/tags/brewhome-install-%E9%94%99%E8%AF%AF/" rel="tag"># brewhome install 错误</a>
           
         </div>
       
@@ -455,7 +457,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/24/Linux命令篇之chmod/" rel="next" title="Linux命令篇之chmod">
+              <a href="/2019/09/24/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bchmod/" rel="next" title="Linux命令篇之chmod">
                 <i class="fa fa-chevron-left"></i> Linux命令篇之chmod
               </a>
             
@@ -465,7 +467,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Linux命令篇之df/" rel="prev" title="Linux命令篇之df">
+              <a href="/2019/10/24/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bdf/" rel="prev" title="Linux命令篇之df">
                 Linux命令篇之df <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -529,10 +531,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -540,7 +542,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>

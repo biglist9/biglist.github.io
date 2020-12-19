@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="偶然发现sql可以进行正则匹配搜索内容，新大陆  关键字 REGEXP   .表示匹配任意一个字符 1select * from products where name regexp &amp;apos;.000&amp;apos;  or匹配 1select * from products where name regexp &amp;apos;1000|2000&amp;apos;  匹配几个字符之一 1select * f">
-<meta name="keywords" content="SQL">
+<meta name="description" content="偶然发现sql可以进行正则匹配搜索内容，新大陆  关键字 REGEXP   .表示匹配任意一个字符1select * from products where name regexp &#39;.000&#39; or匹配1select * from products where name regexp &#39;1000|2000&#39; 匹配几个字符之一1select * from produ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL用正则表达式进行搜索">
-<meta property="og:url" content="http://tit.ink/2020/03/12/SQL用正则表达式进行搜索/index.html">
+<meta property="og:url" content="http://tit.ink/2020/03/12/SQL%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/index.html">
 <meta property="og:site_name" content="学习小札">
-<meta property="og:description" content="偶然发现sql可以进行正则匹配搜索内容，新大陆  关键字 REGEXP   .表示匹配任意一个字符 1select * from products where name regexp &amp;apos;.000&amp;apos;  or匹配 1select * from products where name regexp &amp;apos;1000|2000&amp;apos;  匹配几个字符之一 1select * f">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-30T03:37:17.000Z">
+<meta property="og:description" content="偶然发现sql可以进行正则匹配搜索内容，新大陆  关键字 REGEXP   .表示匹配任意一个字符1select * from products where name regexp &#39;.000&#39; or匹配1select * from products where name regexp &#39;1000|2000&#39; 匹配几个字符之一1select * from produ">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-03-12T03:33:03.000Z">
+<meta property="article:modified_time" content="2020-03-30T03:37:17.000Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL用正则表达式进行搜索">
-<meta name="twitter:description" content="偶然发现sql可以进行正则匹配搜索内容，新大陆  关键字 REGEXP   .表示匹配任意一个字符 1select * from products where name regexp &amp;apos;.000&amp;apos;  or匹配 1select * from products where name regexp &amp;apos;1000|2000&amp;apos;  匹配几个字符之一 1select * f">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/03/12/SQL用正则表达式进行搜索/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/03/12/SQL%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -344,8 +344,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/12/SQL用正则表达式进行搜索/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/SQL用正则表达式进行搜索/" itemprop="commentCount"></span>
+                <a href="/2020/03/12/SQL%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/SQL%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,20 +383,11 @@
 <p>关键字 REGEXP</p>
 </blockquote>
 <ol>
-<li><p><code>.</code>表示匹配任意一个字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &apos;.000&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>or</code>匹配</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &apos;1000|2000&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匹配几个字符之一</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &apos;[123]Ton&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匹配范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &apos;[1-3]Ton&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匹配字符类</p>
-</li>
+<li><code>.</code>表示匹配任意一个字符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;.000&#39;</span><br></pre></td></tr></table></figure></li>
+<li><code>or</code>匹配<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;1000|2000&#39;</span><br></pre></td></tr></table></figure></li>
+<li>匹配几个字符之一<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;[123]Ton&#39;</span><br></pre></td></tr></table></figure></li>
+<li>匹配范围<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;[1-3]Ton&#39;</span><br></pre></td></tr></table></figure></li>
+<li>匹配字符类</li>
 </ol>
 <table>
 <thead>
@@ -405,8 +396,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>[:alnum:]</td>
 <td>任意字母和数字（同[a-zA-Z0-9]）</td>
 </tr>
@@ -454,8 +444,7 @@
 <td>[:xdigit:]</td>
 <td>任意十六进制数字（同[a-fA-F0-9]）</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
       
     </div>
@@ -501,7 +490,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/10/myisam与innoDB的主要区别和应用场景/" rel="next" title="myisam与innoDB的主要区别和应用场景">
+              <a href="/2020/03/10/myisam%E4%B8%8EinnoDB%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB%E5%92%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" rel="next" title="myisam与innoDB的主要区别和应用场景">
                 <i class="fa fa-chevron-left"></i> myisam与innoDB的主要区别和应用场景
               </a>
             
@@ -511,7 +500,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/20/解决dyld-Library-not-loaded-icu4c/" rel="prev" title="解决dyld: Library not loaded icu4c">
+              <a href="/2020/03/20/%E8%A7%A3%E5%86%B3dyld-Library-not-loaded-icu4c/" rel="prev" title="解决dyld: Library not loaded icu4c">
                 解决dyld: Library not loaded icu4c <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -575,10 +564,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -586,7 +575,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>

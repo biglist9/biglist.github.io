@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="执行计划 执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生 使用explain可以模拟优化器执行sql查询语句  关键字idid 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id  id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行 id 值相同：从上往下依次执行 id">
-<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EXPLAIN 执行计划解析">
-<meta property="og:url" content="http://tit.ink/2020/09/22/EXPLAIN-执行计划解析/index.html">
+<meta property="og:url" content="http://tit.ink/2020/09/22/EXPLAIN-%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="执行计划 执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生 使用explain可以模拟优化器执行sql查询语句  关键字idid 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id  id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行 id 值相同：从上往下依次执行 id">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-25T02:06:54.514Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-09-22T07:09:59.000Z">
+<meta property="article:modified_time" content="2020-11-25T02:06:54.514Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EXPLAIN 执行计划解析">
-<meta name="twitter:description" content="执行计划 执行计划是数据库根据sql语句和相关表的统计信息做的查询方案，由查询优化器自动产生 使用explain可以模拟优化器执行sql查询语句  关键字idid 列的编号就是 select 的序列号，也可以理解为 SQL 执行顺序的标识，有几个 select 就有几个 id  id 值不同：如果是只查询，id 的序号会递增，id 值越大优先级越高，越先被执行 id 值相同：从上往下依次执行 id">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/09/22/EXPLAIN-执行计划解析/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/09/22/EXPLAIN-%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/09/22/EXPLAIN-执行计划解析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/22/EXPLAIN-执行计划解析/" itemprop="commentCount"></span>
+                <a href="/2020/09/22/EXPLAIN-%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/22/EXPLAIN-%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -426,7 +426,7 @@
 <li>如果查询使用了别名，那么这里显示的是别名</li>
 <li>如果不涉及对数据表的操作，那么这显示为 null</li>
 <li>如果显示为尖括号括起来的就表示这个是临时表，后边的 N 就是执行计划中的 id，表示结果来自于这个查询产生</li>
-<li>如果是尖括号括起来的<union m,n="">，与类似，也是一个临时表，表示这个结果来自于 union 查询的 id 为 M,N 的结果集</union></li>
+<li>如果是尖括号括起来的&lt;union M,N&gt;，与类似，也是一个临时表，表示这个结果来自于 union 查询的 id 为 M,N 的结果集</li>
 </ul>
 <h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>访问类型，即 MySQL 决定如何查找表中的行<br>依次从好到差：system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL，除了 all 之外，其他的 type 都可以使用到索引，除了 index_merge 之外，其他的 type 只可以用到一个索引。一般来说，得保证查询至少达到 range 级别，最好能达到 ref</p>
 <ul>
@@ -462,8 +462,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Using filesort</td>
 <td>MySQL 有两种方式可以生成有序的结果，通过排序操作或者使用索引，当 Extra 中出现了 Using filesort 说明 MySQL 使用了后者，但注意虽然叫 filesort 但并不是说明就是用了文件来进行排序，只要可能排序都是在内存里完成的。大部分情况下利用索引排序更快，所以一般这时也要考虑优化查询了。使用文件完成排序操作，这是可能是 ordery by，group by 语句的结果，这可能是一个 CPU 密集型的过程，可以通过选择合适的索引来改进性能，用索引来为查询结果排序</td>
 </tr>
@@ -503,8 +502,7 @@
 <td>distinct</td>
 <td>优化 distinct 操作，在找到第一匹配的元组后即停止找同样值的动作</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="filtered"><a href="#filtered" class="headerlink" title="filtered"></a>filtered</h4><p>这个字段表示存储引擎返回的数据在 server 层过滤后，剩下多少满足查询的记录数量的比例，注意是百分比，不是具体记录数</p>
 <h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><ol>
 <li>EXPLAIN 不会告诉你关于触发器、存储过程的信息或用户自定义函数对查询的影响情况</li>
@@ -568,7 +566,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/10/13/https工作原理/" rel="prev" title="https工作原理">
+              <a href="/2020/10/13/https%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" rel="prev" title="https工作原理">
                 https工作原理 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -641,10 +639,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -652,7 +650,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -709,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行计划"><span class="nav-number">1.</span> <span class="nav-text">执行计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字"><span class="nav-number">2.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-number">2.1.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-type"><span class="nav-number">2.2.</span> <span class="nav-text">select_type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#table"><span class="nav-number">2.3.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-number">2.4.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#possible-keys"><span class="nav-number">2.5.</span> <span class="nav-text">possible_keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key"><span class="nav-number">2.6.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-len"><span class="nav-number">2.7.</span> <span class="nav-text">key_len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">2.8.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rows"><span class="nav-number">2.9.</span> <span class="nav-text">rows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra"><span class="nav-number">2.10.</span> <span class="nav-text">extra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filtered"><span class="nav-number">2.11.</span> <span class="nav-text">filtered</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局限性"><span class="nav-number">3.</span> <span class="nav-text">局限性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">执行计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-number">2.1.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-type"><span class="nav-number">2.2.</span> <span class="nav-text">select_type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#table"><span class="nav-number">2.3.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type"><span class="nav-number">2.4.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#possible-keys"><span class="nav-number">2.5.</span> <span class="nav-text">possible_keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key"><span class="nav-number">2.6.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-len"><span class="nav-number">2.7.</span> <span class="nav-text">key_len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref"><span class="nav-number">2.8.</span> <span class="nav-text">ref</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rows"><span class="nav-number">2.9.</span> <span class="nav-text">rows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extra"><span class="nav-number">2.10.</span> <span class="nav-text">extra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filtered"><span class="nav-number">2.11.</span> <span class="nav-text">filtered</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">局限性</span></a></li></ol></div>
             
 
           </div>

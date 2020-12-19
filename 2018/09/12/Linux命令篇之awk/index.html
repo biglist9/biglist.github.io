@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk  awk中的记录，域，分割符读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在R">
-<meta name="keywords" content="Linux命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令篇之awk">
-<meta property="og:url" content="http://tit.ink/2018/09/12/Linux命令篇之awk/index.html">
+<meta property="og:url" content="http://tit.ink/2018/09/12/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bawk/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk  awk中的记录，域，分割符读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在R">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T06:41:38.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-09-12T08:37:29.000Z">
+<meta property="article:modified_time" content="2018-12-12T06:41:38.000Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="Linux命令">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令篇之awk">
-<meta name="twitter:description" content="awk是linux下的一个命令，他对其他命令的输出、对文件的处理都十分强大，其实他更像一门编程语言，可以自定义变量、条件语句、循环、数组、正则、函数等。可以读取输出，读取文件的方式是一行一行的读，根据给出的条件进行查找，并在找出来的行中进行操作。awk有三种形势，awk，gawk，nawk  awk中的记录，域，分割符读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在R">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2018/09/12/Linux命令篇之awk/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2018/09/12/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bawk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/12/Linux命令篇之awk/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/12/Linux命令篇之awk/" itemprop="commentCount"></span>
+                <a href="/2018/09/12/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bawk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/12/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bawk/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -406,9 +406,9 @@
 <h4 id="awk中的记录，域，分割符"><a href="#awk中的记录，域，分割符" class="headerlink" title="awk中的记录，域，分割符"></a>awk中的记录，域，分割符</h4><p>读取输出或者读取文件时，读取一行就是一个记录。记录分割符默认是回车符，保存在RS，ORS中。</p>
 <p>从记录中分割出需要单词或者词组时，行中的每个字符串定义为域，域分割符默认是空格和TAB符，保存在ORS中。</p>
 <p>举个例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aaaa:bbbb:ccccccc</span><br><span class="line">1111:2343:5t43343</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aaaa:bbbb:ccccccc</span><br><span class="line">1111:2343:5t43343</span><br></pre></td></tr></table></figure>
 <p>上面有二行，这二行就是二个记录，每行后面的回车呢，就是记录分割符，里面冒号呢，就是域分割符，分割出来的aaaa、1111这类东西就是域了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: <span class="string">'&#123;print $1&#125;'</span> testfile</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> testfile</span><br></pre></td></tr></table></figure>
 <h4 id="awk的内建变量和运算符"><a href="#awk的内建变量和运算符" class="headerlink" title="awk的内建变量和运算符"></a>awk的内建变量和运算符</h4><ol>
 <li>变量</li>
 </ol>
@@ -419,8 +419,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>$n</td>
 <td>当前记录的第n个字段，字段间由 FS分隔</td>
 </tr>
@@ -508,8 +507,7 @@
 <td>SUBSEP</td>
 <td>数组下标分隔符(默认值是\034)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ol start="2">
 <li>运算符</li>
 </ol>
@@ -520,8 +518,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>= += -= *= /= %= ^= **=</td>
 <td>赋值</td>
 </tr>
@@ -577,171 +574,164 @@
 <td>in</td>
 <td>数组成员</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="awk的正则"><a href="#awk的正则" class="headerlink" title="awk的正则"></a>awk的正则</h4><table>
 <thead>
 <tr>
-<th style="text-align:center">匹配符</th>
+<th align="center">匹配符</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">\Y</td>
+<tbody><tr>
+<td align="center">\Y</td>
 <td>匹配一个单词开头或者末尾的空字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">\B</td>
+<td align="center">\B</td>
 <td>匹配单词内的空字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">\&lt;</td>
+<td align="center">&lt;</td>
 <td>匹配一个单词的开头的空字符串，锚定开始</td>
 </tr>
 <tr>
-<td style="text-align:center">></td>
+<td align="center">&gt;</td>
 <td>匹配一个单词的末尾的空字符串，锚定末尾</td>
 </tr>
 <tr>
-<td style="text-align:center">\W</td>
+<td align="center">\W</td>
 <td>匹配一个非字母数字组成的单词</td>
 </tr>
 <tr>
-<td style="text-align:center">\w</td>
+<td align="center">\w</td>
 <td>匹配一个字母数字组成的单词</td>
 </tr>
 <tr>
-<td style="text-align:center">\’</td>
+<td align="center">&#39;</td>
 <td>匹配字符串末尾的一个空字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">\‘</td>
+<td align="center">\‘</td>
 <td>匹配字符串开头的一个空字符串</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="awk的函数"><a href="#awk的函数" class="headerlink" title="awk的函数"></a>awk的函数</h4><ol>
 <li>字符串函数</li>
 </ol>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">函数名</th>
+<th align="center">函数名</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">sub</td>
+<tbody><tr>
+<td align="center">sub</td>
 <td>匹配记录中最大、最靠左边的子字符串的正则表达式，并用替换字符串替换这些字符串。如果没有指定目标字符串就默认使用整个记录。替换只发生在第一次匹配的 时候</td>
 </tr>
 <tr>
-<td style="text-align:center">gsub</td>
+<td align="center">gsub</td>
 <td>整个文档中进行匹配</td>
 </tr>
 <tr>
-<td style="text-align:center">index</td>
+<td align="center">index</td>
 <td>返回子字符串第一次被匹配的位置，偏移量从位置1开始</td>
 </tr>
 <tr>
-<td style="text-align:center">substr</td>
+<td align="center">substr</td>
 <td>返回从位置1开始的子字符串，如果指定长度超过实际长度，就返回整个字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">split</td>
+<td align="center">split</td>
 <td>可按给定的分隔符把字符串分割为一个数组。如果分隔符没提供，则按当前FS值进行分割</td>
 </tr>
 <tr>
-<td style="text-align:center">length</td>
+<td align="center">length</td>
 <td>返回记录的字符数</td>
 </tr>
 <tr>
-<td style="text-align:center">match</td>
+<td align="center">match</td>
 <td>返回在字符串中正则表达式位置的索引，如果找不到指定的正则表达式则返回0。match函数会设置内建变量RSTART为字符串中子字符串的开始位 置，RLENGTH为到子字符串末尾的字符个数。substr可利于这些变量来截取字符串</td>
 </tr>
 <tr>
-<td style="text-align:center">toupper和tolower</td>
+<td align="center">toupper和tolower</td>
 <td>可用于字符串大小间的转换，该功能只在gawk中有效</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ol start="2">
 <li>数学函数</li>
 </ol>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">函数名</th>
+<th align="center">函数名</th>
 <th>返回值</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">atan2(x,y)</td>
+<tbody><tr>
+<td align="center">atan2(x,y)</td>
 <td>y,x 范围内的余切</td>
 </tr>
 <tr>
-<td style="text-align:center">cos(x)</td>
+<td align="center">cos(x)</td>
 <td>余弦函数</td>
 </tr>
 <tr>
-<td style="text-align:center">exp(x)</td>
+<td align="center">exp(x)</td>
 <td>求幂</td>
 </tr>
 <tr>
-<td style="text-align:center">int(x)</td>
+<td align="center">int(x)</td>
 <td>取整</td>
 </tr>
 <tr>
-<td style="text-align:center">log(x)</td>
+<td align="center">log(x)</td>
 <td>自然对数</td>
 </tr>
 <tr>
-<td style="text-align:center">rand()</td>
+<td align="center">rand()</td>
 <td>随机数</td>
 </tr>
 <tr>
-<td style="text-align:center">sin(x)</td>
+<td align="center">sin(x)</td>
 <td>正弦</td>
 </tr>
 <tr>
-<td style="text-align:center">sqrt(x)</td>
+<td align="center">sqrt(x)</td>
 <td>平方根</td>
 </tr>
 <tr>
-<td style="text-align:center">srand(x)</td>
+<td align="center">srand(x)</td>
 <td>x是rand()函数的种子</td>
 </tr>
 <tr>
-<td style="text-align:center">int(x)</td>
+<td align="center">int(x)</td>
 <td>取整，过程没有舍入</td>
 </tr>
 <tr>
-<td style="text-align:center">rand()</td>
+<td align="center">rand()</td>
 <td>产生一个大于等于0而小于1的随机数</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>学习awk的时候，做了一个例子，学东西，不要光看，光看是记不住东西的。光看的话，也许你知道怎么回事，真正实际操作，不是这儿有问题，就是那儿有问题。所以一定要动手亲自操作一下。</p>
 <ol>
 <li>测试文件test</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/bin/false</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/bin/false</span><br><span class="line">mail:x:8:12:mail:/var/spool/mail:/bin/false</span><br><span class="line">ftp:x:14:11:ftp:/home/ftp:/bin/false</span><br><span class="line">&amp;nobody:$:99:99:nobody:/:/bin/false</span><br><span class="line">zhangy:x:1000:100:,,,:/home/zhangy:/bin/bash</span><br><span class="line">http:x:33:33::/srv/http:/bin/false</span><br><span class="line">dbus:x:81:81:System message bus:/:/bin/false</span><br><span class="line">hal:x:82:82:HAL daemon:/:/bin/false</span><br><span class="line">mysql:x:89:89::/var/lib/mysql:/bin/false</span><br><span class="line">aaa:x:1001:1001::/home/aaa:/bin/bash</span><br><span class="line">ba:x:1002:1002::/home/zhangy:/bin/bash</span><br><span class="line">test:x:1003:1003::/home/test:/bin/bash</span><br><span class="line">@zhangying:*:1004:1004::/home/test:/bin/bash</span><br><span class="line">policykit:x:102:1005:Po</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br><span class="line">bin:x:1:1:bin:&#x2F;bin:&#x2F;bin&#x2F;false</span><br><span class="line">daemon:x:2:2:daemon:&#x2F;sbin:&#x2F;bin&#x2F;false</span><br><span class="line">mail:x:8:12:mail:&#x2F;var&#x2F;spool&#x2F;mail:&#x2F;bin&#x2F;false</span><br><span class="line">ftp:x:14:11:ftp:&#x2F;home&#x2F;ftp:&#x2F;bin&#x2F;false</span><br><span class="line">&amp;nobody:$:99:99:nobody:&#x2F;:&#x2F;bin&#x2F;false</span><br><span class="line">zhangy:x:1000:100:,,,:&#x2F;home&#x2F;zhangy:&#x2F;bin&#x2F;bash</span><br><span class="line">http:x:33:33::&#x2F;srv&#x2F;http:&#x2F;bin&#x2F;false</span><br><span class="line">dbus:x:81:81:System message bus:&#x2F;:&#x2F;bin&#x2F;false</span><br><span class="line">hal:x:82:82:HAL daemon:&#x2F;:&#x2F;bin&#x2F;false</span><br><span class="line">mysql:x:89:89::&#x2F;var&#x2F;lib&#x2F;mysql:&#x2F;bin&#x2F;false</span><br><span class="line">aaa:x:1001:1001::&#x2F;home&#x2F;aaa:&#x2F;bin&#x2F;bash</span><br><span class="line">ba:x:1002:1002::&#x2F;home&#x2F;zhangy:&#x2F;bin&#x2F;bash</span><br><span class="line">test:x:1003:1003::&#x2F;home&#x2F;test:&#x2F;bin&#x2F;bash</span><br><span class="line">@zhangying:*:1004:1004::&#x2F;home&#x2F;test:&#x2F;bin&#x2F;bash</span><br><span class="line">policykit:x:102:1005:Po</span><br></pre></td></tr></table></figure>
 <p>例1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="built_in">test</span> | awk -F: <span class="string">'&#123;\</span></span><br><span class="line"><span class="string">if ($1 == "root")&#123;\</span></span><br><span class="line"><span class="string">print $1;\</span></span><br><span class="line"><span class="string">&#125;else if($1 == "bin")&#123;\</span></span><br><span class="line"><span class="string">print $2;\</span></span><br><span class="line"><span class="string">&#125;else&#123;\</span></span><br><span class="line"><span class="string">print $3;\</span></span><br><span class="line"><span class="string">&#125; \</span></span><br><span class="line"><span class="string">&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="built_in">test</span> | awk -F: <span class="string">&#x27;&#123;\</span></span><br><span class="line"><span class="string">if ($1 == &quot;root&quot;)&#123;\</span></span><br><span class="line"><span class="string">print $1;\</span></span><br><span class="line"><span class="string">&#125;else if($1 == &quot;bin&quot;)&#123;\</span></span><br><span class="line"><span class="string">print $2;\</span></span><br><span class="line"><span class="string">&#125;else&#123;\</span></span><br><span class="line"><span class="string">print $3;\</span></span><br><span class="line"><span class="string">&#125; \</span></span><br><span class="line"><span class="string">&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>例2：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;\</span></span><br><span class="line"><span class="string">for(i=0;i&lt;NF;i++)&#123;\</span></span><br><span class="line"><span class="string">if ($i ~/^root/)&#123;\</span></span><br><span class="line"><span class="string">print $i;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/zhangy/)&#123;\</span></span><br><span class="line"><span class="string">print $i;continue;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/mysql/)&#123;\</span></span><br><span class="line"><span class="string">print $i;next;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/^test/)&#123;\</span></span><br><span class="line"><span class="string">print $i;break;\</span></span><br><span class="line"><span class="string">&#125; \</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#125;'</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;&#123;\</span></span><br><span class="line"><span class="string">for(i=0;i&lt;NF;i++)&#123;\</span></span><br><span class="line"><span class="string">if ($i ~/^root/)&#123;\</span></span><br><span class="line"><span class="string">print $i;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/zhangy/)&#123;\</span></span><br><span class="line"><span class="string">print $i;continue;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/mysql/)&#123;\</span></span><br><span class="line"><span class="string">print $i;next;\</span></span><br><span class="line"><span class="string">&#125;else if($i ~/^test/)&#123;\</span></span><br><span class="line"><span class="string">print $i;break;\</span></span><br><span class="line"><span class="string">&#125; \</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#125;&#x27;</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 <p>例3：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail <span class="built_in">test</span> | awk <span class="string">'BEGIN&#123;while(getline d)&#123; split(d,test);for(i in test)&#123;\</span></span><br><span class="line"><span class="string">print test[i]\</span></span><br><span class="line"><span class="string">&#125;&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail <span class="built_in">test</span> | awk <span class="string">&#x27;BEGIN&#123;while(getline d)&#123; split(d,test);for(i in test)&#123;\</span></span><br><span class="line"><span class="string">print test[i]\</span></span><br><span class="line"><span class="string">&#125;&#125;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>例4:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/<span class="built_in">test</span> | awk <span class="string">'BEGIN&#123;while(getline d)&#123; split(d,test);\</span></span><br><span class="line"><span class="string">print test[9] ;&#125;</span></span><br><span class="line"><span class="string">&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/<span class="built_in">test</span> | awk <span class="string">&#x27;BEGIN&#123;while(getline d)&#123; split(d,test);\</span></span><br><span class="line"><span class="string">print test[9] ;&#125;</span></span><br><span class="line"><span class="string">&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>例5：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"32:34"</span> |awk -F: <span class="string">'&#123;print "max = ",max($1,$2)&#125;\</span></span><br><span class="line"><span class="string">function max(one,two)&#123;\</span></span><br><span class="line"><span class="string">if(one &gt; two)&#123;\</span></span><br><span class="line"><span class="string">return one;\</span></span><br><span class="line"><span class="string">&#125;else&#123;\</span></span><br><span class="line"><span class="string">return two;\</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;32:34&quot;</span> |awk -F: <span class="string">&#x27;&#123;print &quot;max = &quot;,max($1,$2)&#125;\</span></span><br><span class="line"><span class="string">function max(one,two)&#123;\</span></span><br><span class="line"><span class="string">if(one &gt; two)&#123;\</span></span><br><span class="line"><span class="string">return one;\</span></span><br><span class="line"><span class="string">&#125;else&#123;\</span></span><br><span class="line"><span class="string">return two;\</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#125;\</span></span><br><span class="line"><span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>例6：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#awk 'BEGIN&#123;print "what is your name"; getline name &lt; "/dev/tty"&#125;$1 ~name&#123;print</span></span><br><span class="line"><span class="comment">#"found name on line" NR&#125;END&#123;print "see you" name&#125;' test</span></span><br><span class="line"><span class="comment">#awk '&#123;sub(/daemon/,"tankzhang");print&#125;' test</span></span><br><span class="line"><span class="comment">#awk '&#123; &#123;sub(/zhangy/,"tankzhang");$1&#125;;print&#125;' test</span></span><br><span class="line"><span class="comment">#awk '&#123; &#123;gsub(/zhangy/,"tankzhang");$1&#125;;print&#125;' test</span></span><br><span class="line"><span class="comment">#awk -F: '&#123;print index("zhangy",$1)&#125;' test</span></span><br><span class="line"><span class="comment">#awk -F: '&#123;print substr($1,1,2)&#125;' test</span></span><br><span class="line">awk -F: <span class="string">'&#123;mat=match($1,/^[a-zA-Z]+$/);print mat,RSTART,RLENGTH&#125;'</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#awk &#x27;BEGIN&#123;print &quot;what is your name&quot;; getline name &lt; &quot;/dev/tty&quot;&#125;$1 ~name&#123;print</span></span><br><span class="line"><span class="comment">#&quot;found name on line&quot; NR&#125;END&#123;print &quot;see you&quot; name&#125;&#x27; test</span></span><br><span class="line"><span class="comment">#awk &#x27;&#123;sub(/daemon/,&quot;tankzhang&quot;);print&#125;&#x27; test</span></span><br><span class="line"><span class="comment">#awk &#x27;&#123; &#123;sub(/zhangy/,&quot;tankzhang&quot;);$1&#125;;print&#125;&#x27; test</span></span><br><span class="line"><span class="comment">#awk &#x27;&#123; &#123;gsub(/zhangy/,&quot;tankzhang&quot;);$1&#125;;print&#125;&#x27; test</span></span><br><span class="line"><span class="comment">#awk -F: &#x27;&#123;print index(&quot;zhangy&quot;,$1)&#125;&#x27; test</span></span><br><span class="line"><span class="comment">#awk -F: &#x27;&#123;print substr($1,1,2)&#125;&#x27; test</span></span><br><span class="line">awk -F: <span class="string">&#x27;&#123;mat=match($1,/^[a-zA-Z]+$/);print mat,RSTART,RLENGTH&#125;&#x27;</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 <p>例7：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="built_in">test</span> |awk -F: <span class="string">'\</span></span><br><span class="line"><span class="string">NF != 7&#123;\</span></span><br><span class="line"><span class="string">printf("line %d,does not have 7 fields:%s\n",NR,$0)&#125;\</span></span><br><span class="line"><span class="string">$1 !~ /^[A-Za-z0-9]/&#123;printf("line %d,non alpha and numeric user id:%s: %s\n",NR,$1,$0)&#125;\</span></span><br><span class="line"><span class="string">$2 == "*" &#123;printf("lind %d,no password:%s\n",NR,$0)&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="built_in">test</span> |awk -F: <span class="string">&#x27;\</span></span><br><span class="line"><span class="string">NF != 7&#123;\</span></span><br><span class="line"><span class="string">printf(&quot;line %d,does not have 7 fields:%s\n&quot;,NR,$0)&#125;\</span></span><br><span class="line"><span class="string">$1 !~ /^[A-Za-z0-9]/&#123;printf(&quot;line %d,non alpha and numeric user id:%s: %s\n&quot;,NR,$1,$0)&#125;\</span></span><br><span class="line"><span class="string">$2 == &quot;*&quot; &#123;printf(&quot;lind %d,no password:%s\n&quot;,NR,$0)&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -759,7 +749,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+            <a href="/tags/Linux%E5%91%BD%E4%BB%A4/" rel="tag"># Linux命令</a>
           
         </div>
       
@@ -787,7 +777,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/06/Linux命令篇之ln/" rel="next" title="Linux命令篇之ln">
+              <a href="/2018/09/06/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bln/" rel="next" title="Linux命令篇之ln">
                 <i class="fa fa-chevron-left"></i> Linux命令篇之ln
               </a>
             
@@ -797,7 +787,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/18/Linux命令篇之cat/" rel="prev" title="Linux命令篇之cat">
+              <a href="/2018/09/18/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bcat/" rel="prev" title="Linux命令篇之cat">
                 Linux命令篇之cat <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -870,10 +860,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -881,7 +871,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -938,7 +928,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#awk中的记录，域，分割符"><span class="nav-number">1.</span> <span class="nav-text">awk中的记录，域，分割符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk的内建变量和运算符"><span class="nav-number">2.</span> <span class="nav-text">awk的内建变量和运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk的正则"><span class="nav-number">3.</span> <span class="nav-text">awk的正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk的函数"><span class="nav-number">4.</span> <span class="nav-text">awk的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#awk%E4%B8%AD%E7%9A%84%E8%AE%B0%E5%BD%95%EF%BC%8C%E5%9F%9F%EF%BC%8C%E5%88%86%E5%89%B2%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">awk中的记录，域，分割符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk%E7%9A%84%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">awk的内建变量和运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk%E7%9A%84%E6%AD%A3%E5%88%99"><span class="nav-number">3.</span> <span class="nav-text">awk的正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">awk的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
             
 
           </div>

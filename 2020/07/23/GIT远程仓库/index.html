@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="要参与任何一个 Git 项目的协作，必须要了解该如何管理远程仓库。远程仓库是指托管在网络上的项目仓库，可能会有好多个，其中有些你只能读，另外有些可以写。同他人协作开发某个项目时，需要管理这些远程仓库，以便推送或拉取数据，分享各自的工作进展。 管理远程仓库的工作，包括添加远程库，移除废弃的远程库，管理各式远程库分支，定义是否跟踪这些分支，等等  查看当前远程仓库要查看当前配置有哪些远程仓库，可以用">
-<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GIT远程仓库">
-<meta property="og:url" content="http://tit.ink/2020/07/23/GIT远程仓库/index.html">
+<meta property="og:url" content="http://tit.ink/2020/07/23/GIT%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="要参与任何一个 Git 项目的协作，必须要了解该如何管理远程仓库。远程仓库是指托管在网络上的项目仓库，可能会有好多个，其中有些你只能读，另外有些可以写。同他人协作开发某个项目时，需要管理这些远程仓库，以便推送或拉取数据，分享各自的工作进展。 管理远程仓库的工作，包括添加远程库，移除废弃的远程库，管理各式远程库分支，定义是否跟踪这些分支，等等  查看当前远程仓库要查看当前配置有哪些远程仓库，可以用">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-25T03:03:51.008Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-23T03:02:45.000Z">
+<meta property="article:modified_time" content="2020-11-25T03:03:51.008Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GIT远程仓库">
-<meta name="twitter:description" content="要参与任何一个 Git 项目的协作，必须要了解该如何管理远程仓库。远程仓库是指托管在网络上的项目仓库，可能会有好多个，其中有些你只能读，另外有些可以写。同他人协作开发某个项目时，需要管理这些远程仓库，以便推送或拉取数据，分享各自的工作进展。 管理远程仓库的工作，包括添加远程库，移除废弃的远程库，管理各式远程库分支，定义是否跟踪这些分支，等等  查看当前远程仓库要查看当前配置有哪些远程仓库，可以用">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/07/23/GIT远程仓库/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/07/23/GIT%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -348,7 +348,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MAC使用/" itemprop="url" rel="index">
+                  <a href="/categories/MAC%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index">
                     <span itemprop="name">MAC使用</span>
                   </a>
                 </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/23/GIT远程仓库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/23/GIT远程仓库/" itemprop="commentCount"></span>
+                <a href="/2020/07/23/GIT%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/23/GIT%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,16 +404,16 @@
 <p>要参与任何一个 Git 项目的协作，必须要了解该如何管理远程仓库。远程仓库是指托管在网络上的项目仓库，可能会有好多个，其中有些你只能读，另外有些可以写。同他人协作开发某个项目时，需要管理这些远程仓库，以便推送或拉取数据，分享各自的工作进展。 管理远程仓库的工作，包括添加远程库，移除废弃的远程库，管理各式远程库分支，定义是否跟踪这些分支，等等</p>
 </blockquote>
 <h3 id="查看当前远程仓库"><a href="#查看当前远程仓库" class="headerlink" title="查看当前远程仓库"></a>查看当前远程仓库</h3><p>要查看当前配置有哪些远程仓库，可以用 <code>git remote</code> 命令，它会列出每个远程库的简短名字。在克隆完某个项目后，至少可以看到一个名为 <code>origin</code> 的远程库，Git 默认使用这个名字来标识你所克隆的原始仓库：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git://github.com/schacon/ticgit.git</span><br><span class="line">Cloning into &apos;ticgit&apos;...</span><br><span class="line">remote: Reusing existing pack: 1857, done.</span><br><span class="line">remote: Total 1857 (delta 0), reused 0 (delta 0)</span><br><span class="line">Receiving objects: 100% (1857/1857), 374.35 KiB | 193.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (772/772), done.</span><br><span class="line">Checking connectivity... done.</span><br><span class="line">$ cd ticgit</span><br><span class="line">$ git remote</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git:&#x2F;&#x2F;github.com&#x2F;schacon&#x2F;ticgit.git</span><br><span class="line">Cloning into &#39;ticgit&#39;...</span><br><span class="line">remote: Reusing existing pack: 1857, done.</span><br><span class="line">remote: Total 1857 (delta 0), reused 0 (delta 0)</span><br><span class="line">Receiving objects: 100% (1857&#x2F;1857), 374.35 KiB | 193.00 KiB&#x2F;s, done.</span><br><span class="line">Resolving deltas: 100% (772&#x2F;772), done.</span><br><span class="line">Checking connectivity... done.</span><br><span class="line">$ cd ticgit</span><br><span class="line">$ git remote</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
 <p>也可以加上 <code>-v</code> 选项（译注：此为 <code>--verbose</code> 的简写，取首字母），显示对应的克隆地址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  git://github.com/schacon/ticgit.git (fetch)</span><br><span class="line">origin  git://github.com/schacon/ticgit.git (push)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  git:&#x2F;&#x2F;github.com&#x2F;schacon&#x2F;ticgit.git (fetch)</span><br><span class="line">origin  git:&#x2F;&#x2F;github.com&#x2F;schacon&#x2F;ticgit.git (push)</span><br></pre></td></tr></table></figure>
 <p>如果有多个远程仓库，此命令将全部列出。比如在我的 Grit 项目中，可以看到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cd grit</span><br><span class="line">$ git remote -v</span><br><span class="line">bakkdoor  git://github.com/bakkdoor/grit.git</span><br><span class="line">cho45     git://github.com/cho45/grit.git</span><br><span class="line">defunkt   git://github.com/defunkt/grit.git</span><br><span class="line">koke      git://github.com/koke/grit.git</span><br><span class="line">origin    git@github.com:mojombo/grit.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cd grit</span><br><span class="line">$ git remote -v</span><br><span class="line">bakkdoor  git:&#x2F;&#x2F;github.com&#x2F;bakkdoor&#x2F;grit.git</span><br><span class="line">cho45     git:&#x2F;&#x2F;github.com&#x2F;cho45&#x2F;grit.git</span><br><span class="line">defunkt   git:&#x2F;&#x2F;github.com&#x2F;defunkt&#x2F;grit.git</span><br><span class="line">koke      git:&#x2F;&#x2F;github.com&#x2F;koke&#x2F;grit.git</span><br><span class="line">origin    git@github.com:mojombo&#x2F;grit.git</span><br></pre></td></tr></table></figure>
 <p>这样一来，我就可以非常轻松地从这些用户的仓库中，拉取他们的提交到本地。请注意，上面列出的地址只有 <code>origin</code> 用的是 <code>SSH URL</code> 链接，所以也只有这个仓库我能推送数据上去</p>
 <h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>要添加一个新的远程仓库，可以指定一个简单的名字，以便将来引用，运行 <code>git remote add [shortname] [url]</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br><span class="line">$ git remote add pb git://github.com/paulboone/ticgit.git</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  git://github.com/schacon/ticgit.git</span><br><span class="line">pb  git://github.com/paulboone/ticgit.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br><span class="line">$ git remote add pb git:&#x2F;&#x2F;github.com&#x2F;paulboone&#x2F;ticgit.git</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  git:&#x2F;&#x2F;github.com&#x2F;schacon&#x2F;ticgit.git</span><br><span class="line">pb  git:&#x2F;&#x2F;github.com&#x2F;paulboone&#x2F;ticgit.git</span><br></pre></td></tr></table></figure>
 <p>现在可以用字符串 <code>pb</code> 指代对应的仓库地址了。比如说，要抓取所有 <code>Paul</code> 有的，但本地仓库没有的信息，可以运行 <code>git fetch pb</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch pb</span><br><span class="line">remote: Counting objects: 58, done.</span><br><span class="line">remote: Compressing objects: 100% (41/41), done.</span><br><span class="line">remote: Total 44 (delta 24), reused 1 (delta 0)</span><br><span class="line">Unpacking objects: 100% (44/44), done.</span><br><span class="line">From git://github.com/paulboone/ticgit</span><br><span class="line"> * [new branch]      master     -&gt; pb/master</span><br><span class="line"> * [new branch]      ticgit     -&gt; pb/ticgit</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch pb</span><br><span class="line">remote: Counting objects: 58, done.</span><br><span class="line">remote: Compressing objects: 100% (41&#x2F;41), done.</span><br><span class="line">remote: Total 44 (delta 24), reused 1 (delta 0)</span><br><span class="line">Unpacking objects: 100% (44&#x2F;44), done.</span><br><span class="line">From git:&#x2F;&#x2F;github.com&#x2F;paulboone&#x2F;ticgit</span><br><span class="line"> * [new branch]      master     -&gt; pb&#x2F;master</span><br><span class="line"> * [new branch]      ticgit     -&gt; pb&#x2F;ticgit</span><br></pre></td></tr></table></figure>
 <p>现在，<code>Paul</code> 的主干分支<code>master</code>已经完全可以在本地访问了，对应的名字是 pb/master，你可以将它合并到自己的某个分支，或者切换到这个分支，看看有些什么有趣的更新。</p>
 <h3 id="从远程仓库抓取数据"><a href="#从远程仓库抓取数据" class="headerlink" title="从远程仓库抓取数据"></a>从远程仓库抓取数据</h3><p>正如之前所看到的，可以用下面的命令从远程仓库抓取数据到本地：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch [remote-name]</span><br></pre></td></tr></table></figure>
@@ -424,10 +424,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
 <p>只有在所克隆的服务器上有写权限，或者同一时刻没有其他人在推数据，这条命令才会如期完成任务。如果在你推数据前，已经有其他人推送了若干更新，那你的推送操作就会被驳回。你必须先把他们的更新抓取到本地，合并到自己的项目中，然后才可以再次推送</p>
 <h3 id="查看远程仓库信息"><a href="#查看远程仓库信息" class="headerlink" title="查看远程仓库信息"></a>查看远程仓库信息</h3><p>我们可以通过命令 <code>git remote show [remote-name]</code> 查看某个远程仓库的详细信息，比如要看所克隆的 origin 仓库，可以运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line">* remote origin</span><br><span class="line">  URL: git://github.com/schacon/ticgit.git</span><br><span class="line">  Remote branch merged with &apos;git pull&apos; while on branch master</span><br><span class="line">    master</span><br><span class="line">  Tracked remote branches</span><br><span class="line">    master</span><br><span class="line">    ticgit</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line">* remote origin</span><br><span class="line">  URL: git:&#x2F;&#x2F;github.com&#x2F;schacon&#x2F;ticgit.git</span><br><span class="line">  Remote branch merged with &#39;git pull&#39; while on branch master</span><br><span class="line">    master</span><br><span class="line">  Tracked remote branches</span><br><span class="line">    master</span><br><span class="line">    ticgit</span><br></pre></td></tr></table></figure>
 <p>除了对应的克隆地址外，它还给出了许多额外的信息。它友善地告诉你如果是在 <code>master</code> 分支，就可以用 <code>git pull</code> 命令抓取数据合并到本地。另外还列出了所有处于跟踪状态中的远端分支。</p>
 <p>上面的例子非常简单，而随着使用 <code>Git</code> 的深入，<code>git remote show</code> 给出的信息可能会像这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line">* remote origin</span><br><span class="line">  URL: git@github.com:defunkt/github.git</span><br><span class="line">  Remote branch merged with &apos;git pull&apos; while on branch issues</span><br><span class="line">    issues</span><br><span class="line">  Remote branch merged with &apos;git pull&apos; while on branch master</span><br><span class="line">    master</span><br><span class="line">  New remote branches (next fetch will store in remotes/origin)</span><br><span class="line">    caching</span><br><span class="line">  Stale tracking branches (use &apos;git remote prune&apos;)</span><br><span class="line">    libwalker</span><br><span class="line">    walker2</span><br><span class="line">  Tracked remote branches</span><br><span class="line">    acl</span><br><span class="line">    apiv2</span><br><span class="line">    dashboard2</span><br><span class="line">    issues</span><br><span class="line">    master</span><br><span class="line">    postgres</span><br><span class="line">  Local branch pushed with &apos;git push&apos;</span><br><span class="line">    master:master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line">* remote origin</span><br><span class="line">  URL: git@github.com:defunkt&#x2F;github.git</span><br><span class="line">  Remote branch merged with &#39;git pull&#39; while on branch issues</span><br><span class="line">    issues</span><br><span class="line">  Remote branch merged with &#39;git pull&#39; while on branch master</span><br><span class="line">    master</span><br><span class="line">  New remote branches (next fetch will store in remotes&#x2F;origin)</span><br><span class="line">    caching</span><br><span class="line">  Stale tracking branches (use &#39;git remote prune&#39;)</span><br><span class="line">    libwalker</span><br><span class="line">    walker2</span><br><span class="line">  Tracked remote branches</span><br><span class="line">    acl</span><br><span class="line">    apiv2</span><br><span class="line">    dashboard2</span><br><span class="line">    issues</span><br><span class="line">    master</span><br><span class="line">    postgres</span><br><span class="line">  Local branch pushed with &#39;git push&#39;</span><br><span class="line">    master:master</span><br></pre></td></tr></table></figure>
 <p>它告诉我们，运行 <code>git push</code> 时缺省推送的分支是什么（译注：最后两行）。它还显示了有哪些远端分支还没有同步到本地（译注：第六行的 <code>caching</code> 分支），哪些已同步到本地的远端分支在远端服务器上已被删除（译注：<code>Stale tracking branches</code> 下面的两个分支），以及运行 <code>git pull</code> 时将自动合并哪些分支（译注：前四行中列出的 <code>issues</code> 和 <code>master</code> 分支）。</p>
 <h3 id="远程仓库的删除与重命名"><a href="#远程仓库的删除与重命名" class="headerlink" title="远程仓库的删除与重命名"></a>远程仓库的删除与重命名</h3><p>在新版 <code>Git</code> 中可以用 <code>git remote rename</code> 命令修改某个远程仓库在本地的简称，比如想把 pb 改成 paul，可以这么运行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rename pb paul</span><br><span class="line">$ git remote</span><br><span class="line">origin</span><br><span class="line">paul</span><br></pre></td></tr></table></figure>
@@ -482,7 +482,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/14/哈希算法/" rel="next" title="哈希算法">
+              <a href="/2020/07/14/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/" rel="next" title="哈希算法">
                 <i class="fa fa-chevron-left"></i> 哈希算法
               </a>
             
@@ -492,7 +492,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/14/TCP-三次握手和四次挥手简单理解/" rel="prev" title="TCP-三次握手和四次挥手简单理解">
+              <a href="/2020/08/14/TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/" rel="prev" title="TCP-三次握手和四次挥手简单理解">
                 TCP-三次握手和四次挥手简单理解 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -565,10 +565,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -576,7 +576,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -633,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前远程仓库"><span class="nav-number">1.</span> <span class="nav-text">查看当前远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加远程仓库"><span class="nav-number">2.</span> <span class="nav-text">添加远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程仓库抓取数据"><span class="nav-number">3.</span> <span class="nav-text">从远程仓库抓取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送数据到远程仓库"><span class="nav-number">4.</span> <span class="nav-text">推送数据到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看远程仓库信息"><span class="nav-number">5.</span> <span class="nav-text">查看远程仓库信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库的删除与重命名"><span class="nav-number">6.</span> <span class="nav-text">远程仓库的删除与重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉取远程分支并创建本地分支"><span class="nav-number">7.</span> <span class="nav-text">拉取远程分支并创建本地分支</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">查看当前远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">添加远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%8A%93%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">从远程仓库抓取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E6%95%B0%E6%8D%AE%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">推送数据到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">查看远程仓库信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%A0%E9%99%A4%E4%B8%8E%E9%87%8D%E5%91%BD%E5%90%8D"><span class="nav-number">6.</span> <span class="nav-text">远程仓库的删除与重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%B9%B6%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-number">7.</span> <span class="nav-text">拉取远程分支并创建本地分支</span></a></li></ol></div>
             
 
           </div>

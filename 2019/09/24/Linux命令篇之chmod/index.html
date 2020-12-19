@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="Linux/Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他。利用 chmod 可以控制文件如何被他人所调用。  使用权限 : 所有使用者语法1chmod [-cfvR] [--help] [--version] mode file...  参数说明mode : 权限设定字串，格式如下 :  1[ugoa...][[+-=][rwxX]...][,...] 其中：1234567891">
-<meta name="keywords" content="Linux命令">
+<meta name="description" content="Linux&#x2F;Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他。利用 chmod 可以控制文件如何被他人所调用。  使用权限 : 所有使用者语法1chmod [-cfvR] [--help] [--version] mode file...  参数说明mode : 权限设定字串，格式如下 :  1[ugoa...][[+-&#x3D;][rwxX]...][,...] 其中： 1234">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令篇之chmod">
-<meta property="og:url" content="http://tit.ink/2019/09/24/Linux命令篇之chmod/index.html">
+<meta property="og:url" content="http://tit.ink/2019/09/24/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bchmod/index.html">
 <meta property="og:site_name" content="学习小札">
-<meta property="og:description" content="Linux/Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他。利用 chmod 可以控制文件如何被他人所调用。  使用权限 : 所有使用者语法1chmod [-cfvR] [--help] [--version] mode file...  参数说明mode : 权限设定字串，格式如下 :  1[ugoa...][[+-=][rwxX]...][,...] 其中：1234567891">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T10:31:16.000Z">
+<meta property="og:description" content="Linux&#x2F;Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他。利用 chmod 可以控制文件如何被他人所调用。  使用权限 : 所有使用者语法1chmod [-cfvR] [--help] [--version] mode file...  参数说明mode : 权限设定字串，格式如下 :  1[ugoa...][[+-&#x3D;][rwxX]...][,...] 其中： 1234">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-09-24T10:30:25.000Z">
+<meta property="article:modified_time" content="2019-10-24T10:31:16.000Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="Linux命令">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令篇之chmod">
-<meta name="twitter:description" content="Linux/Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他。利用 chmod 可以控制文件如何被他人所调用。  使用权限 : 所有使用者语法1chmod [-cfvR] [--help] [--version] mode file...  参数说明mode : 权限设定字串，格式如下 :  1[ugoa...][[+-=][rwxX]...][,...] 其中：1234567891">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2019/09/24/Linux命令篇之chmod/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2019/09/24/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bchmod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/24/Linux命令篇之chmod/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/24/Linux命令篇之chmod/" itemprop="commentCount"></span>
+                <a href="/2019/09/24/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bchmod/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/24/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bchmod/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -407,8 +407,9 @@
 <ul>
 <li>参数说明<br>mode : 权限设定字串，格式如下 :</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ugoa...][[+-=][rwxX]...][,...]</span><br></pre></td></tr></table></figure>
-<p>其中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># ugoa</span><br><span class="line">u 表示该文件的拥有者</span><br><span class="line">g 表示与该文件的拥有者属于同一个群体(group)者</span><br><span class="line">o 表示其他以外的人</span><br><span class="line">a 表示这三者皆是</span><br><span class="line"># +-=</span><br><span class="line">+ 表示增加权限</span><br><span class="line">- 表示取消权限</span><br><span class="line">= 表示唯一设定权限</span><br><span class="line"># rwxX</span><br><span class="line">r 表示可读取</span><br><span class="line">w 表示可写入</span><br><span class="line">x 表示可执行</span><br><span class="line">X 表示只有当该文件是个子目录或者该文件已经被设定过为可执行</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ugoa...][[+-&#x3D;][rwxX]...][,...]</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># ugoa</span><br><span class="line">u 表示该文件的拥有者</span><br><span class="line">g 表示与该文件的拥有者属于同一个群体(group)者</span><br><span class="line">o 表示其他以外的人</span><br><span class="line">a 表示这三者皆是</span><br><span class="line"># +-&#x3D;</span><br><span class="line">+ 表示增加权限</span><br><span class="line">- 表示取消权限</span><br><span class="line">&#x3D; 表示唯一设定权限</span><br><span class="line"># rwxX</span><br><span class="line">r 表示可读取</span><br><span class="line">w 表示可写入</span><br><span class="line">x 表示可执行</span><br><span class="line">X 表示只有当该文件是个子目录或者该文件已经被设定过为可执行</span><br></pre></td></tr></table></figure>
 <ul>
 <li>其他参数说明：</li>
 </ul>
@@ -433,9 +434,9 @@
 <li>将目前目录下的所有文件与子目录皆设为任何人可读取 :</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R a+r *</span><br></pre></td></tr></table></figure>
-<h4 id="chmod也可以用数字来表示权限如"><a href="#chmod也可以用数字来表示权限如" class="headerlink" title="chmod也可以用数字来表示权限如 :"></a><code>chmod</code>也可以用数字来表示权限如 :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># chmod a=rwx file 与以下渔具效果相同</span><br><span class="line">chmod 777 file</span><br></pre></td></tr></table></figure>
+<h4 id="chmod也可以用数字来表示权限如"><a href="#chmod也可以用数字来表示权限如" class="headerlink" title="chmod也可以用数字来表示权限如 :"></a><code>chmod</code>也可以用数字来表示权限如 :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># chmod a&#x3D;rwx file 与以下渔具效果相同</span><br><span class="line">chmod 777 file</span><br></pre></td></tr></table></figure>
 <p>语法为：<code>chmod abc file</code>其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r=4，w=2，x=1</span><br><span class="line">若要rwx属性则4+2+1=7；</span><br><span class="line">若要rw-属性则4+2=6；</span><br><span class="line">若要r-x属性则4+1=5。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r&#x3D;4，w&#x3D;2，x&#x3D;1</span><br><span class="line">若要rwx属性则4+2+1&#x3D;7；</span><br><span class="line">若要rw-属性则4+2&#x3D;6；</span><br><span class="line">若要r-x属性则4+1&#x3D;5。</span><br></pre></td></tr></table></figure>
 <p><code>chmod ug=rwx,o=x file</code>和<code>chmod 771 file</code>效果相同</p>
 <p>若用<code>chmod 4755 filename</code>可使此程序具有root的权限</p>
 
@@ -455,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+            <a href="/tags/Linux%E5%91%BD%E4%BB%A4/" rel="tag"># Linux命令</a>
           
         </div>
       
@@ -483,7 +484,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/02/http状态码/" rel="next" title="http状态码">
+              <a href="/2019/09/02/http%E7%8A%B6%E6%80%81%E7%A0%81/" rel="next" title="http状态码">
                 <i class="fa fa-chevron-left"></i> http状态码
               </a>
             
@@ -566,10 +567,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -577,7 +578,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -634,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用权限-所有使用者"><span class="nav-number">1.</span> <span class="nav-text">使用权限 : 所有使用者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chmod也可以用数字来表示权限如"><span class="nav-number">4.</span> <span class="nav-text">chmod也可以用数字来表示权限如 :</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9D%83%E9%99%90-%E6%89%80%E6%9C%89%E4%BD%BF%E7%94%A8%E8%80%85"><span class="nav-number">1.</span> <span class="nav-text">使用权限 : 所有使用者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chmod%E4%B9%9F%E5%8F%AF%E4%BB%A5%E7%94%A8%E6%95%B0%E5%AD%97%E6%9D%A5%E8%A1%A8%E7%A4%BA%E6%9D%83%E9%99%90%E5%A6%82"><span class="nav-number">4.</span> <span class="nav-text">chmod也可以用数字来表示权限如 :</span></a></li></ol></div>
             
 
           </div>

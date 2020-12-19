@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="停机部署介绍停机部署其实是最简单粗暴的方式，就是简单地把现有版本的服务停机，然后部署新的版本。在一些时候，我们必需使用这样的方式来部署或升级多个服务。比如，新版本中的服务使用到了和老版本完全不兼容的数据表的设计。这个时候，我们对生产有两个变更，一个是数据库，另一个是服务，而且新老版本互不兼容，所以只能使用停机部署的方式。这种方式的优势是，在部署过程中不会出现新老版本同时在线的情况，所有状态完全一致">
-<meta name="keywords" content="部署">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署升级策略">
-<meta property="og:url" content="http://tit.ink/2020/11/30/部署升级策略/index.html">
+<meta property="og:url" content="http://tit.ink/2020/11/30/%E9%83%A8%E7%BD%B2%E5%8D%87%E7%BA%A7%E7%AD%96%E7%95%A5/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="停机部署介绍停机部署其实是最简单粗暴的方式，就是简单地把现有版本的服务停机，然后部署新的版本。在一些时候，我们必需使用这样的方式来部署或升级多个服务。比如，新版本中的服务使用到了和老版本完全不兼容的数据表的设计。这个时候，我们对生产有两个变更，一个是数据库，另一个是服务，而且新老版本互不兼容，所以只能使用停机部署的方式。这种方式的优势是，在部署过程中不会出现新老版本同时在线的情况，所有状态完全一致">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-30T11:41:24.876Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-11-30T11:40:43.000Z">
+<meta property="article:modified_time" content="2020-11-30T11:41:24.876Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="部署">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署升级策略">
-<meta name="twitter:description" content="停机部署介绍停机部署其实是最简单粗暴的方式，就是简单地把现有版本的服务停机，然后部署新的版本。在一些时候，我们必需使用这样的方式来部署或升级多个服务。比如，新版本中的服务使用到了和老版本完全不兼容的数据表的设计。这个时候，我们对生产有两个变更，一个是数据库，另一个是服务，而且新老版本互不兼容，所以只能使用停机部署的方式。这种方式的优势是，在部署过程中不会出现新老版本同时在线的情况，所有状态完全一致">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/11/30/部署升级策略/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/11/30/%E9%83%A8%E7%BD%B2%E5%8D%87%E7%BA%A7%E7%AD%96%E7%95%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -348,7 +348,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/部署/" itemprop="url" rel="index">
+                  <a href="/categories/%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index">
                     <span itemprop="name">部署</span>
                   </a>
                 </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/11/30/部署升级策略/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/11/30/部署升级策略/" itemprop="commentCount"></span>
+                <a href="/2020/11/30/%E9%83%A8%E7%BD%B2%E5%8D%87%E7%BA%A7%E7%AD%96%E7%95%A5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/11/30/%E9%83%A8%E7%BD%B2%E5%8D%87%E7%BA%A7%E7%AD%96%E7%95%A5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,7 +434,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/部署/" rel="tag"># 部署</a>
+            <a href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag"># 部署</a>
           
         </div>
       
@@ -462,7 +462,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/25/MySQL-Server层/" rel="next" title="MySQL Server层">
+              <a href="/2020/11/25/MySQL-Server%E5%B1%82/" rel="next" title="MySQL Server层">
                 <i class="fa fa-chevron-left"></i> MySQL Server层
               </a>
             
@@ -472,7 +472,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/12/01/平衡二叉树/" rel="prev" title="平衡二叉树">
+              <a href="/2020/12/01/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="prev" title="平衡二叉树">
                 平衡二叉树 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -545,10 +545,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -556,7 +556,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -613,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#停机部署"><span class="nav-number">1.</span> <span class="nav-text">停机部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝绿部署"><span class="nav-number">2.</span> <span class="nav-text">蓝绿部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-1"><span class="nav-number">2.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滚动部署"><span class="nav-number">3.</span> <span class="nav-text">滚动部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-2"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-2"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#灰度部署（金丝雀）"><span class="nav-number">4.</span> <span class="nav-text">灰度部署（金丝雀）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-3"><span class="nav-number">4.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AB-测试"><span class="nav-number">4.2.</span> <span class="nav-text">AB 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9C%E6%9C%BA%E9%83%A8%E7%BD%B2"><span class="nav-number">1.</span> <span class="nav-text">停机部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%93%9D%E7%BB%BF%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">蓝绿部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="nav-number">2.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="nav-number">2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">滚动部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%81%B0%E5%BA%A6%E9%83%A8%E7%BD%B2%EF%BC%88%E9%87%91%E4%B8%9D%E9%9B%80%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">灰度部署（金丝雀）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="nav-number">4.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AB-%E6%B5%8B%E8%AF%95"><span class="nav-number">4.2.</span> <span class="nav-text">AB 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>

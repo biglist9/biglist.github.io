@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="如何获取当前运行模式 1php_sapi_name() CLI:（command-line interface）命令行接口 可以在控制台或者是shell中键入命令。如：1php index.php CGI ：(Common Gateway Interface)公共网关接口 CGI实际上是一种程序之间的交互协议，通常作为HTTP Server和“程序”进行“交谈”的一种工具。这里的“程序”即实现了C">
-<meta name="keywords" content="PHP">
+<meta name="description" content="如何获取当前运行模式 1php_sapi_name() CLI:（command-line interface）命令行接口 可以在控制台或者是shell中键入命令。如： 1php index.php  CGI ：(Common Gateway Interface)公共网关接口 CGI实际上是一种程序之间的交互协议，通常作为HTTP Server和“程序”进行“交谈”的一种工具。这里的“程序”即实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP的运行模式">
-<meta property="og:url" content="http://tit.ink/2020/06/13/PHP的运行模式/index.html">
+<meta property="og:url" content="http://tit.ink/2020/06/13/PHP%E7%9A%84%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="学习小札">
-<meta property="og:description" content="如何获取当前运行模式 1php_sapi_name() CLI:（command-line interface）命令行接口 可以在控制台或者是shell中键入命令。如：1php index.php CGI ：(Common Gateway Interface)公共网关接口 CGI实际上是一种程序之间的交互协议，通常作为HTTP Server和“程序”进行“交谈”的一种工具。这里的“程序”即实现了C">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-25T03:39:28.835Z">
+<meta property="og:description" content="如何获取当前运行模式 1php_sapi_name() CLI:（command-line interface）命令行接口 可以在控制台或者是shell中键入命令。如： 1php index.php  CGI ：(Common Gateway Interface)公共网关接口 CGI实际上是一种程序之间的交互协议，通常作为HTTP Server和“程序”进行“交谈”的一种工具。这里的“程序”即实现">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-06-13T03:12:01.000Z">
+<meta property="article:modified_time" content="2020-11-25T03:39:28.835Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP的运行模式">
-<meta name="twitter:description" content="如何获取当前运行模式 1php_sapi_name() CLI:（command-line interface）命令行接口 可以在控制台或者是shell中键入命令。如：1php index.php CGI ：(Common Gateway Interface)公共网关接口 CGI实际上是一种程序之间的交互协议，通常作为HTTP Server和“程序”进行“交谈”的一种工具。这里的“程序”即实现了C">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/06/13/PHP的运行模式/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/06/13/PHP%E7%9A%84%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/06/13/PHP的运行模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/13/PHP的运行模式/" itemprop="commentCount"></span>
+                <a href="/2020/06/13/PHP%E7%9A%84%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/13/PHP%E7%9A%84%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,7 +403,9 @@
         <h3 id="如何获取当前运行模式"><a href="#如何获取当前运行模式" class="headerlink" title="如何获取当前运行模式"></a>如何获取当前运行模式</h3><hr>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php_sapi_name()</span><br></pre></td></tr></table></figure>
 <h3 id="CLI-（command-line-interface）命令行接口"><a href="#CLI-（command-line-interface）命令行接口" class="headerlink" title="CLI:（command-line interface）命令行接口"></a>CLI:（command-line interface）命令行接口</h3><hr>
-<p>可以在控制台或者是shell中键入命令。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php index.php</span><br></pre></td></tr></table></figure></p>
+<p>可以在控制台或者是shell中键入命令。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php index.php</span><br></pre></td></tr></table></figure>
+
 <h3 id="CGI-：-Common-Gateway-Interface-公共网关接口"><a href="#CGI-：-Common-Gateway-Interface-公共网关接口" class="headerlink" title="CGI ：(Common Gateway Interface)公共网关接口"></a>CGI ：(Common Gateway Interface)公共网关接口</h3><hr>
 <p><code>CGI</code>实际上是一种程序之间的交互协议，通常作为<code>HTTP Server</code>和“程序”进行“交谈”的一种工具。这里的“程序”即实现了<code>CGI</code>协议的程序，我们可以称之为<code>CGI程序</code>，<code>CGI程序</code>的实现语言并没有要求。例如<code>PHP-CGI</code>就是实现了CGI协议的<code>CGI</code>程序，而<code>HTTP Server</code>本身也要实现<code>CGI协议</code>才能和<code>PHP-CGI</code>交互。</p>
 <p>通过<code>CGI</code>协议，保证了<code>HTTP Server</code>传递过来的数据是标准格式的，以方便<code>CGI</code>程序的编写者。服务器要支持<code>CGI</code>就要提供<code>CGI</code>中要求的环境变量。该协议要求<code>HTTP Server</code>把<code>HTTP Request</code>的Header设置成<code>CGI</code>程序的环境变量，<code>HTTP Request</code>的正文设置成<code>CGI</code>程序的标准输入，而<code>CGI</code>程序的标准输出就是<code>HTTP Response</code>，包括Header和正文。</p>
@@ -437,11 +439,9 @@
 <li><p>nginx配置比较</p>
 <ul>
 <li><p><code>unix socket</code>需要在<code>nginx</code>配置文件中填写<code>php-fpm</code>运行的pid文件（即sock文件）地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">	include fastcgi_params;</span><br><span class="line">       fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;;</span><br><span class="line">       fastcgi_pass unix:/var/run/php5-fpm.sock;</span><br><span class="line">       fastcgi_index index.php;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">	include fastcgi_params;</span><br><span class="line">       fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;;</span><br><span class="line">       fastcgi_pass unix:&#x2F;var&#x2F;run&#x2F;php5-fpm.sock;</span><br><span class="line">       fastcgi_index index.php;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
 <li><p><code>tcp socket</code>需要在<code>nginx</code>配置文件中填写php-fpm运行的ip地址和端口号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>特点比较</p>
@@ -453,17 +453,17 @@
 <ol>
 <li><code>nginx.conf</code>配置<code>webserver</code>参数, 请求PHP类应用可配置<code>fastcgi_pass</code>，指明监听端口或socket地址</li>
 <li><code>php-fpm.conf</code>中listen地址与<code>nginx.conf fastcgi_pass</code>字段配置一致（sock文件或是端口），表明<code>php-fpm worker</code>进程监听目标</li>
-<li>启动后，请求先到达<code>nginx server</code>端口，分发到对应位置，若配置了<code>fastcgi-pass</code>，则被转到对应端口或<code>socket</code>，<code>php-fpm master</code>进程监听到，再创建<code>fork worker</code>进程实际运行，运行结束返回给nginx。即如下所示：<pre><code>www.example.com =》
-Nginx =》
-路由到www.example.com/index.php =》
-加载nginx的fast-cgi模块 =》
-fast-cgi监听127.0.0.1:9000地址=》
-www.example.com/index.php请求到达127.0.0.1:9000 =》
-php-fpm 监听127.0.0.1:9000 =》
-php-fpm 接收到请求，启用worker进程处理请求 =》
-php-fpm 处理完请求，返回给nginx =》
-nginx将结果通过http返回给浏览器
-</code></pre></li>
+<li>启动后，请求先到达<code>nginx server</code>端口，分发到对应位置，若配置了<code>fastcgi-pass</code>，则被转到对应端口或<code>socket</code>，<code>php-fpm master</code>进程监听到，再创建<code>fork worker</code>进程实际运行，运行结束返回给nginx。即如下所示：<pre><code> www.example.com =》
+ Nginx =》
+ 路由到www.example.com/index.php =》
+ 加载nginx的fast-cgi模块 =》
+ fast-cgi监听127.0.0.1:9000地址=》
+ www.example.com/index.php请求到达127.0.0.1:9000 =》
+ php-fpm 监听127.0.0.1:9000 =》
+ php-fpm 接收到请求，启用worker进程处理请求 =》
+ php-fpm 处理完请求，返回给nginx =》
+ nginx将结果通过http返回给浏览器</code></pre>
+</li>
 </ol>
 <p>所以综上所述，Nginx和phpcgi都是实现了cgi协议的cgi程序，cgi协议规定了交互（输入和输出）的数据格式和方式，这个方式就是socket</p>
 
@@ -511,7 +511,7 @@ nginx将结果通过http返回给浏览器
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/02/散列表（下）/" rel="next" title="散列表（下）">
+              <a href="/2020/06/02/%E6%95%A3%E5%88%97%E8%A1%A8%EF%BC%88%E4%B8%8B%EF%BC%89/" rel="next" title="散列表（下）">
                 <i class="fa fa-chevron-left"></i> 散列表（下）
               </a>
             
@@ -521,7 +521,7 @@ nginx将结果通过http返回给浏览器
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/06/20/PHP精度问题/" rel="prev" title="PHP精度问题">
+              <a href="/2020/06/20/PHP%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/" rel="prev" title="PHP精度问题">
                 PHP精度问题 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -594,10 +594,10 @@ nginx将结果通过http返回给浏览器
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -605,7 +605,7 @@ nginx将结果通过http返回给浏览器
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -662,7 +662,7 @@ nginx将结果通过http返回给浏览器
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何获取当前运行模式"><span class="nav-number">1.</span> <span class="nav-text">如何获取当前运行模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLI-（command-line-interface）命令行接口"><span class="nav-number">2.</span> <span class="nav-text">CLI:（command-line interface）命令行接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CGI-：-Common-Gateway-Interface-公共网关接口"><span class="nav-number">3.</span> <span class="nav-text">CGI ：(Common Gateway Interface)公共网关接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastCGI：-Fast-Common-Gateway-Interface-快速公共网关接口"><span class="nav-number">4.</span> <span class="nav-text">FastCGI：(Fast Common Gateway Interface)快速公共网关接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FastCGI整个流程"><span class="nav-number">4.1.</span> <span class="nav-text">FastCGI整个流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP-FPM：-PHP-Fast-CGI-Process-Manager-PHP-FastCGI进程管理器"><span class="nav-number">4.2.</span> <span class="nav-text">PHP-FPM：(PHP Fast CGI Process Manager)PHP-FastCGI进程管理器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mod-php：即apache的php模块"><span class="nav-number">5.</span> <span class="nav-text">mod_php：即apache的php模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache的工作模式prefork的工作原理"><span class="nav-number">5.1.</span> <span class="nav-text">Apache的工作模式prefork的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#worker的工作原理"><span class="nav-number">5.2.</span> <span class="nav-text">worker的工作原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于fast-cgi协议模式的nginx和php-fpm交互细节"><span class="nav-number">6.</span> <span class="nav-text">基于fast-cgi协议模式的nginx和php-fpm交互细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx和php配合处理请求的通用流程："><span class="nav-number">7.</span> <span class="nav-text">nginx和php配合处理请求的通用流程：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">如何获取当前运行模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLI-%EF%BC%88command-line-interface%EF%BC%89%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">CLI:（command-line interface）命令行接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CGI-%EF%BC%9A-Common-Gateway-Interface-%E5%85%AC%E5%85%B1%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3"><span class="nav-number">3.</span> <span class="nav-text">CGI ：(Common Gateway Interface)公共网关接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastCGI%EF%BC%9A-Fast-Common-Gateway-Interface-%E5%BF%AB%E9%80%9F%E5%85%AC%E5%85%B1%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3"><span class="nav-number">4.</span> <span class="nav-text">FastCGI：(Fast Common Gateway Interface)快速公共网关接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FastCGI%E6%95%B4%E4%B8%AA%E6%B5%81%E7%A8%8B"><span class="nav-number">4.1.</span> <span class="nav-text">FastCGI整个流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP-FPM%EF%BC%9A-PHP-Fast-CGI-Process-Manager-PHP-FastCGI%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">PHP-FPM：(PHP Fast CGI Process Manager)PHP-FastCGI进程管理器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mod-php%EF%BC%9A%E5%8D%B3apache%E7%9A%84php%E6%A8%A1%E5%9D%97"><span class="nav-number">5.</span> <span class="nav-text">mod_php：即apache的php模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8Fprefork%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">Apache的工作模式prefork的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#worker%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">5.2.</span> <span class="nav-text">worker的工作原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Efast-cgi%E5%8D%8F%E8%AE%AE%E6%A8%A1%E5%BC%8F%E7%9A%84nginx%E5%92%8Cphp-fpm%E4%BA%A4%E4%BA%92%E7%BB%86%E8%8A%82"><span class="nav-number">6.</span> <span class="nav-text">基于fast-cgi协议模式的nginx和php-fpm交互细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E5%92%8Cphp%E9%85%8D%E5%90%88%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E7%9A%84%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">nginx和php配合处理请求的通用流程：</span></a></li></ol></div>
             
 
           </div>

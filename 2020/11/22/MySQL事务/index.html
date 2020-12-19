@@ -80,26 +80,26 @@
 
 
 <meta name="description" content="事务就是要保证一组数据库操作，要么全部成功，要么全部失败。在 MySQL 中，事务支持是在引擎层实现的。你现在知道，MySQL 是一个支持多引擎的系统，但并不是所有的引擎都支持事务。比如 MySQL 原生的 MyISAM引擎就不支持事务，这也是 MyISAM 被 InnoDB 取代的重要原因之一。 四大特性（ACID）原子性（Atomicity） 定义一个事务（transaction）中的所有操作">
-<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL事务">
-<meta property="og:url" content="http://tit.ink/2020/11/22/MySQL事务/index.html">
+<meta property="og:url" content="http://tit.ink/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="事务就是要保证一组数据库操作，要么全部成功，要么全部失败。在 MySQL 中，事务支持是在引擎层实现的。你现在知道，MySQL 是一个支持多引擎的系统，但并不是所有的引擎都支持事务。比如 MySQL 原生的 MyISAM引擎就不支持事务，这也是 MyISAM 被 InnoDB 取代的重要原因之一。 四大特性（ACID）原子性（Atomicity） 定义一个事务（transaction）中的所有操作">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://tit.ink/2020/11/22/MySQL事务/mvcc.png">
-<meta property="og:updated_time" content="2020-11-26T06:27:03.418Z">
+<meta property="og:locale">
+<meta property="og:image" content="http://tit.ink/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/mvcc.png">
+<meta property="article:published_time" content="2020-11-22T05:40:51.000Z">
+<meta property="article:modified_time" content="2020-11-26T06:27:03.418Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL事务">
-<meta name="twitter:description" content="事务就是要保证一组数据库操作，要么全部成功，要么全部失败。在 MySQL 中，事务支持是在引擎层实现的。你现在知道，MySQL 是一个支持多引擎的系统，但并不是所有的引擎都支持事务。比如 MySQL 原生的 MyISAM引擎就不支持事务，这也是 MyISAM 被 InnoDB 取代的重要原因之一。 四大特性（ACID）原子性（Atomicity） 定义一个事务（transaction）中的所有操作">
-<meta name="twitter:image" content="http://tit.ink/2020/11/22/MySQL事务/mvcc.png">
+<meta name="twitter:image" content="http://tit.ink/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/mvcc.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -138,7 +138,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -183,7 +183,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -193,7 +193,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -203,7 +203,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -213,7 +213,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -223,7 +223,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -298,10 +298,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/11/22/MySQL事务/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -368,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/11/22/MySQL事务/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/11/22/MySQL事务/" itemprop="commentCount"></span>
+                <a href="/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/11/22/MySQL%E4%BA%8B%E5%8A%A1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,39 +419,37 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">时间</th>
-<th style="text-align:center">事务A</th>
-<th style="text-align:center">事务B</th>
+<th align="center">时间</th>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">T1</td>
-<td style="text-align:center">开始</td>
-<td style="text-align:center">开始</td>
+<tbody><tr>
+<td align="center">T1</td>
+<td align="center">开始</td>
+<td align="center">开始</td>
 </tr>
 <tr>
-<td style="text-align:center">T2</td>
-<td style="text-align:center">查询张三数学分数60</td>
-<td style="text-align:center"></td>
+<td align="center">T2</td>
+<td align="center">查询张三数学分数60</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">T3</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">修改张三数学分数为65</td>
+<td align="center">T3</td>
+<td align="center"></td>
+<td align="center">修改张三数学分数为65</td>
 </tr>
 <tr>
-<td style="text-align:center">T4</td>
-<td style="text-align:center">查询张三数学分数65</td>
-<td style="text-align:center"></td>
+<td align="center">T4</td>
+<td align="center">查询张三数学分数65</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">T5</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">提交事务</td>
+<td align="center">T5</td>
+<td align="center"></td>
+<td align="center">提交事务</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>我们可以清楚的看见事务B在T5时刻在提交，事务A却在T4时已经读到事务B提交的内容了</p>
 <ol start="2">
 <li>不可重复读：在事务A中先后两次读取同一个数据，两次读取的结果不一样</li>
@@ -459,39 +457,37 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">时间</th>
-<th style="text-align:center">事务A</th>
-<th style="text-align:center">事务B</th>
+<th align="center">时间</th>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">T1</td>
-<td style="text-align:center">开始</td>
-<td style="text-align:center">开始</td>
+<tbody><tr>
+<td align="center">T1</td>
+<td align="center">开始</td>
+<td align="center">开始</td>
 </tr>
 <tr>
-<td style="text-align:center">T2</td>
-<td style="text-align:center">查询张三数学分数60</td>
-<td style="text-align:center"></td>
+<td align="center">T2</td>
+<td align="center">查询张三数学分数60</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">T3</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">修改张三数学分数为65</td>
+<td align="center">T3</td>
+<td align="center"></td>
+<td align="center">修改张三数学分数为65</td>
 </tr>
 <tr>
-<td style="text-align:center">T4</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">提交事务</td>
+<td align="center">T4</td>
+<td align="center"></td>
+<td align="center">提交事务</td>
 </tr>
 <tr>
-<td style="text-align:center">T5</td>
-<td style="text-align:center">查询张三数学分数65</td>
-<td style="text-align:center">-</td>
+<td align="center">T5</td>
+<td align="center">查询张三数学分数65</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>可以清楚看见，事务A在两次读取张三的数学分数，取得的结果是不同的。不可重复读与脏读的区别前者为提交后读取的数据不同，后者为未提交读取的数据不同。</p>
 <ol start="3">
 <li>幻读：在事务A中按照某个条件先后两次查询数据库，两次查询结果的条数不同</li>
@@ -499,39 +495,37 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">时间</th>
-<th style="text-align:center">事务A</th>
-<th style="text-align:center">事务B</th>
+<th align="center">时间</th>
+<th align="center">事务A</th>
+<th align="center">事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">T1</td>
-<td style="text-align:center">开始</td>
-<td style="text-align:center">开始</td>
+<tbody><tr>
+<td align="center">T1</td>
+<td align="center">开始</td>
+<td align="center">开始</td>
 </tr>
 <tr>
-<td style="text-align:center">T2</td>
-<td style="text-align:center">查询张三小于60的科目：数学</td>
-<td style="text-align:center"></td>
+<td align="center">T2</td>
+<td align="center">查询张三小于60的科目：数学</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">T3</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">插入张三英语成绩，59</td>
+<td align="center">T3</td>
+<td align="center"></td>
+<td align="center">插入张三英语成绩，59</td>
 </tr>
 <tr>
-<td style="text-align:center">T4</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">提交事务</td>
+<td align="center">T4</td>
+<td align="center"></td>
+<td align="center">提交事务</td>
 </tr>
 <tr>
-<td style="text-align:center">T5</td>
-<td style="text-align:center">查询张三小于60的科目：数学、英语</td>
-<td style="text-align:center">-</td>
+<td align="center">T5</td>
+<td align="center">查询张三小于60的科目：数学、英语</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>在前后两次查询中，取到的数据条数是不同，幻读与不可重复读前者是查询出的记录条数不同，后者则是查询单条记录不同。不可重复读与幻读的区别可以通俗的理解为：前者是数据变了，后者是数据的行数变了。</p>
 <h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><p>首先明确一点，隔离级别越高，效率就会越低。</p>
 <ul>
@@ -543,31 +537,30 @@
 <h4 id="各个隔离级别存在的问题"><a href="#各个隔离级别存在的问题" class="headerlink" title="各个隔离级别存在的问题"></a>各个隔离级别存在的问题</h4><table>
 <thead>
 <tr>
-<th style="text-align:center">隔离级别</th>
-<th style="text-align:center">问题</th>
+<th align="center">隔离级别</th>
+<th align="center">问题</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">读未提交</td>
-<td style="text-align:center">脏读、不可重复读和幻读</td>
+<tbody><tr>
+<td align="center">读未提交</td>
+<td align="center">脏读、不可重复读和幻读</td>
 </tr>
 <tr>
-<td style="text-align:center">读提交</td>
-<td style="text-align:center">不可重复读和幻读</td>
+<td align="center">读提交</td>
+<td align="center">不可重复读和幻读</td>
 </tr>
 <tr>
-<td style="text-align:center">可重复读</td>
-<td style="text-align:center">幻读</td>
+<td align="center">可重复读</td>
+<td align="center">幻读</td>
 </tr>
 <tr>
-<td style="text-align:center">串行化</td>
-<td style="text-align:center">没问题</td>
+<td align="center">串行化</td>
+<td align="center">没问题</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>在实现上，数据库里面会创建一个视图，访问的时候以视图的逻辑结果为准。在“可重复读”隔离级别下，这个视图是在事务启动时创建的，整个事务存在期间都用这个视图。在“读提交”隔离级别下，这个视图是在每个 SQL 语句开始执行的时候创建的。这里需要注意的是，“读未提交”隔离级别下直接返回记录上的最新值，没有视图概念；而“串行化”隔离级别下直接用加锁的方式来避免并行访问。</p>
-<h4 id="默认隔离级别"><a href="#默认隔离级别" class="headerlink" title="默认隔离级别"></a>默认隔离级别</h4><p>Oracle : 读提交<br>MySQL : 可重复读<br>因此对于一些从 <code>Oracle</code> 迁移到 <code>MySQL</code> 的应用，为保证数据库隔离级别的一致，要记得将 <code>MySQL</code> 的隔离级别设置为“读提交”<br>MySQL可以这样查看隔离级别<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'transaction_isolation'</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="默认隔离级别"><a href="#默认隔离级别" class="headerlink" title="默认隔离级别"></a>默认隔离级别</h4><p>Oracle : 读提交<br>MySQL : 可重复读<br>因此对于一些从 <code>Oracle</code> 迁移到 <code>MySQL</code> 的应用，为保证数据库隔离级别的一致，要记得将 <code>MySQL</code> 的隔离级别设置为“读提交”<br>MySQL可以这样查看隔离级别</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;transaction_isolation&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><p>可重复读解决脏读、不可重复读、幻读等问题，使用的是MVCC：MVCC全称Multi-Version Concurrency Control，即多版本的并发控制协议。<br>MVCC最大的优点是读不加锁，因此读写不冲突，并发性能好。InnoDB实现MVCC，多个版本的数据可以共存，主要基于以下技术及数据结构：</p>
 <ol>
 <li>隐藏列：InnoDB中每行数据都有隐藏列，隐藏列中包含了本行数据的事务id、指向<code>undo log</code>的指针等。</li>
@@ -578,7 +571,7 @@
 <ol>
 <li>low_limit_id：表示生成ReadView时系统中应该分配给下一个事务的id。如果数据的事务id大于等于<code>low_limit_id</code>，说明该事务还没执行，则对该ReadView不可见。</li>
 <li>up_limit_id：表示生成ReadView时当前系统中活跃的读写事务中最小的事务id。如果数据的事务id小于<code>up_limit_id</code>，说明该事务已经执行完成，则对该ReadView可见。</li>
-<li>rw_trx_ids：表示生成ReadView时当前系统中活跃的读写事务的事务id列表。如果数据的事务id在<code>low_limit_id</code>和<code>up_limit_id</code>之间，则需要判断事务id是否在<code>rw_trx_ids</code>中：如果在，说明生成ReadView时事务仍在活跃中，因此数据对ReadView不可见；如果不在，说明生成ReadView时事务已经提交了，因此数据对ReadView可见。如下<br><img src="mvcc.png" alt=""></li>
+<li>rw_trx_ids：表示生成ReadView时当前系统中活跃的读写事务的事务id列表。如果数据的事务id在<code>low_limit_id</code>和<code>up_limit_id</code>之间，则需要判断事务id是否在<code>rw_trx_ids</code>中：如果在，说明生成ReadView时事务仍在活跃中，因此数据对ReadView不可见；如果不在，说明生成ReadView时事务已经提交了，因此数据对ReadView可见。如下<br><img src="mvcc.png"></li>
 </ol>
 
       
@@ -625,7 +618,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/24/MySQL索引类型/" rel="next" title="MySQL索引类型">
+              <a href="/2020/10/24/MySQL%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B/" rel="next" title="MySQL索引类型">
                 <i class="fa fa-chevron-left"></i> MySQL索引类型
               </a>
             
@@ -635,7 +628,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/11/24/redis知识点整理/" rel="prev" title="redis知识点整理">
+              <a href="/2020/11/24/redis%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="prev" title="redis知识点整理">
                 redis知识点整理 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -708,10 +701,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -719,7 +712,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -776,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#四大特性（ACID）"><span class="nav-number">1.</span> <span class="nav-text">四大特性（ACID）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原子性（Atomicity）"><span class="nav-number">1.1.</span> <span class="nav-text">原子性（Atomicity）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.1.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性（Consistency）"><span class="nav-number">1.2.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久性（Durability）"><span class="nav-number">1.3.</span> <span class="nav-text">持久性（Durability）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原理-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离性（Isolation）"><span class="nav-number">1.4.</span> <span class="nav-text">隔离性（Isolation）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于脏读、不可重复读、幻读"><span class="nav-number">1.4.2.</span> <span class="nav-text">关于脏读、不可重复读、幻读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔离级别"><span class="nav-number">1.4.3.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各个隔离级别存在的问题"><span class="nav-number">1.4.4.</span> <span class="nav-text">各个隔离级别存在的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">1.4.5.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认隔离级别"><span class="nav-number">1.4.6.</span> <span class="nav-text">默认隔离级别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVCC"><span class="nav-number">2.</span> <span class="nav-text">MVCC</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7%EF%BC%88ACID%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">四大特性（ACID）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%AD%90%E6%80%A7%EF%BC%88Atomicity%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">原子性（Atomicity）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%88Consistency%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">一致性（Consistency）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E6%80%A7%EF%BC%88Durability%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">持久性（Durability）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%EF%BC%88Isolation%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">隔离性（Isolation）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%84%8F%E8%AF%BB%E3%80%81%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E3%80%81%E5%B9%BB%E8%AF%BB"><span class="nav-number">1.4.2.</span> <span class="nav-text">关于脏读、不可重复读、幻读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">1.4.3.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%84%E4%B8%AA%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.4.</span> <span class="nav-text">各个隔离级别存在的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.5.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">1.4.6.</span> <span class="nav-text">默认隔离级别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVCC"><span class="nav-number">2.</span> <span class="nav-text">MVCC</span></a></li></ol></div>
             
 
           </div>

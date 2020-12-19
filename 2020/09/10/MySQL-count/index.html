@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="数据库查询相信很多人都不陌生，所有经常有人调侃程序员就是CRUD专员，这所谓的CRUD指的就是数据库的增删改查。在数据库的增删改查操作中，使用最频繁的就是查询操作。而在所有查询操作中，统计数量操作更是经常被用到。关于数据库中行数统计，无论是MySQL还是Oracle，都有一个函数可以使用，那就是COUNT。但是，就是这个常用的COUNT函数，却暗藏着很多玄机，尤其是在面试的时候，一不小心就会被虐。">
-<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL count">
 <meta property="og:url" content="http://tit.ink/2020/09/10/MySQL-count/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="数据库查询相信很多人都不陌生，所有经常有人调侃程序员就是CRUD专员，这所谓的CRUD指的就是数据库的增删改查。在数据库的增删改查操作中，使用最频繁的就是查询操作。而在所有查询操作中，统计数量操作更是经常被用到。关于数据库中行数统计，无论是MySQL还是Oracle，都有一个函数可以使用，那就是COUNT。但是，就是这个常用的COUNT函数，却暗藏着很多玄机，尤其是在面试的时候，一不小心就会被虐。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-26T14:49:03.342Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-09-10T07:09:16.000Z">
+<meta property="article:modified_time" content="2020-11-26T14:49:03.342Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL count">
-<meta name="twitter:description" content="数据库查询相信很多人都不陌生，所有经常有人调侃程序员就是CRUD专员，这所谓的CRUD指的就是数据库的增删改查。在数据库的增删改查操作中，使用最频繁的就是查询操作。而在所有查询操作中，统计数量操作更是经常被用到。关于数据库中行数统计，无论是MySQL还是Oracle，都有一个函数可以使用，那就是COUNT。但是，就是这个常用的COUNT函数，却暗藏着很多玄机，尤其是在面试的时候，一不小心就会被虐。">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -299,7 +299,7 @@
     <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/09/10/MySQL-count/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -406,8 +406,10 @@
 </blockquote>
 <p>以上10道题，如果您可以全部准确无误的回答的话，那说明你真的很了解<code>COUNT</code>函数了，如果有哪些知识点是不了解的，那么本文正好可以帮你答疑解惑。</p>
 <h3 id="认识COUNT"><a href="#认识COUNT" class="headerlink" title="认识COUNT"></a>认识COUNT</h3><p>1、COUNT(expr) ，返回SELECT语句检索的行中expr的值不为NULL的数量。结果是一个BIGINT值。<br>2、如果查询结果没有命中任何记录，则返回0<br>3、但是，值得注意的是，<code>COUNT(*)</code> 的统计结果中，会包含值为NULL的行数。</p>
-<p>即以下表记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table #bla(id int,id2 int)</span><br><span class="line">insert #bla values(null,null)</span><br><span class="line">insert #bla values(1,null)</span><br><span class="line">insert #bla values(null,1)</span><br><span class="line">insert #bla values(1,null)</span><br><span class="line">insert #bla values(null,1)</span><br><span class="line">insert #bla values(1,null)</span><br><span class="line">insert #bla values(null,null)</span><br></pre></td></tr></table></figure></p>
-<p>使用语句<code>count(*)</code>,<code>count(id)</code>,<code>count(id2)</code>查询结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select count(*),count(id),count(id2)</span><br><span class="line">from #bla</span><br><span class="line">results 7 3 2</span><br></pre></td></tr></table></figure></p>
+<p>即以下表记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table #bla(id int,id2 int)</span><br><span class="line">insert #bla values(null,null)</span><br><span class="line">insert #bla values(1,null)</span><br><span class="line">insert #bla values(null,1)</span><br><span class="line">insert #bla values(1,null)</span><br><span class="line">insert #bla values(null,1)</span><br><span class="line">insert #bla values(1,null)</span><br><span class="line">insert #bla values(null,null)</span><br></pre></td></tr></table></figure>
+<p>使用语句<code>count(*)</code>,<code>count(id)</code>,<code>count(id2)</code>查询结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select count(*),count(id),count(id2)</span><br><span class="line">from #bla</span><br><span class="line">results 7 3 2</span><br></pre></td></tr></table></figure>
 <p>除了<code>COUNT(id)</code>和<code>COUNT(*)</code>以外，还可以使用<code>COUNT(常量)</code>（如<code>COUNT(1)</code>）来统计行数，那么这三条SQL语句有什么区别呢？到底哪种效率更高呢？为什么《阿里巴巴Java开发手册》中强制要求不让使用 <code>COUNT(列名)</code>或 <code>COUNT(常量)</code>来替代 <code>COUNT(*)</code>呢？</p>
 <h3 id="COUNT-列名-、COUNT-常量-和COUNT-之间的区别"><a href="#COUNT-列名-、COUNT-常量-和COUNT-之间的区别" class="headerlink" title="COUNT(列名)、COUNT(常量)和COUNT(*)之间的区别"></a><code>COUNT(列名)</code>、<code>COUNT(常量)</code>和<code>COUNT(*)</code>之间的区别</h3><p>前面我们提到过<code>COUNT(expr)</code>用于做行数统计，统计的是expr不为NULL的行数，那么<code>COUNT(列名)</code>、 <code>COUNT(常量)</code> 和 <code>COUNT(*)</code>这三种语法中，expr分别是列名、 常量 和 <code>*</code>。<br>那么列名、常量和 <code>*</code>这三个条件中，常量是一个固定值，肯定不为NULL。<code>*</code>可以理解为查询整行，所以肯定也不为NULL，那么就只有列名的查询结果有可能是NULL了。<br>所以， <code>COUNT(常量)</code> 和 <code>COUNT(*)</code>表示的是直接查询符合条件的数据库表的行数。而<code>COUNT(列名)</code>表示的是查询符合条件的列的值不为NULL的行数。<br>除了查询得到结果集有区别之外，<code>COUNT(*)</code>相比<code>COUNT(常量)</code> 和 <code>COUNT(列名)</code>来讲，<code>COUNT(*)</code>是SQL92定义的标准统计行数的语法，因为他是标准语法，所以MySQL数据库对他进行过很多优化。</p>
 <blockquote>
@@ -421,7 +423,7 @@
 <p>画重点：same way , no performance difference。所以，对于<code>COUNT(1)</code>和<code>COUNT(*)</code>，MySQL的优化是完全一样的，根本不存在谁比谁快！<br>那既然<code>COUNT(*)</code>和<code>COUNT(1)</code>一样，建议用哪个呢？<br>建议使用<code>COUNT(*)</code>！因为这个是SQL92定义的标准统计行数的语法，而且本文只是基于MySQL做了分析，关于Oracle中的这个问题，也是众说纷纭的呢。</p>
 <h3 id="COUNT-字段"><a href="#COUNT-字段" class="headerlink" title="COUNT(字段)"></a>COUNT(字段)</h3><p>最后，就是我们一直还没提到的<code>COUNT(字段)</code>，他的查询就比较简单粗暴了，就是进行全表扫描，然后判断指定字段的值是不是为NULL，不为NULL则累加。<br>相比<code>COUNT(*)</code>，<code>COUNT(字段)</code>多了一个步骤就是判断所查询的字段是否为NULL，所以他的性能要比<code>COUNT(*)</code>慢。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文介绍了COUNT函数的用法，主要用于统计表行数。主要用法有<code>COUNT(*)</code>、<code>COUNT(字段)</code>和<code>COUNT(1)</code>。<br>因为<code>COUNT(*)</code>是SQL92定义的标准统计行数的语法，所以MySQL对他进行了很多优化，MyISAM中会直接把表的总行数单独记录下来供<code>COUNT(*)</code>查询，而InnoDB则会在扫表的时候选择最小的索引来降低成本。当然，这些优化的前提都是没有进行where和group的条件查询。<br>在InnoDB中<code>COUNT(*)</code>和<code>COUNT(1)</code>实现上没有区别，而且效率一样，但是COUNT(字段)需要进行字段的非NULL判断，所以效率会低一些。<br>因为<code>COUNT(*)</code>是SQL92定义的标准统计行数的语法，并且效率高，所以请直接使用<code>COUNT(*)</code>查询表的行数！</p>
-<p>作者：HollisChuang<br>链接：<a href="https://juejin.cn/post/6844903974445776903" target="_blank" rel="noopener">https://juejin.cn/post/6844903974445776903</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>作者：HollisChuang<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903974445776903">https://juejin.cn/post/6844903974445776903</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
       
     </div>
@@ -467,7 +469,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/07/堆应用/" rel="next" title="堆应用">
+              <a href="/2020/09/07/%E5%A0%86%E5%BA%94%E7%94%A8/" rel="next" title="堆应用">
                 <i class="fa fa-chevron-left"></i> 堆应用
               </a>
             
@@ -477,7 +479,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/22/EXPLAIN-执行计划解析/" rel="prev" title="EXPLAIN 执行计划解析">
+              <a href="/2020/09/22/EXPLAIN-%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%A7%A3%E6%9E%90/" rel="prev" title="EXPLAIN 执行计划解析">
                 EXPLAIN 执行计划解析 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -550,10 +552,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -561,7 +563,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -618,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#认识COUNT"><span class="nav-number">1.</span> <span class="nav-text">认识COUNT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-列名-、COUNT-常量-和COUNT-之间的区别"><span class="nav-number">2.</span> <span class="nav-text">COUNT(列名)、COUNT(常量)和COUNT(*)之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-的优化"><span class="nav-number">3.</span> <span class="nav-text">COUNT(*)的优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-和COUNT-1"><span class="nav-number">4.</span> <span class="nav-text">COUNT(*)和COUNT(1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-字段"><span class="nav-number">5.</span> <span class="nav-text">COUNT(字段)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86COUNT"><span class="nav-number">1.</span> <span class="nav-text">认识COUNT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-%E5%88%97%E5%90%8D-%E3%80%81COUNT-%E5%B8%B8%E9%87%8F-%E5%92%8CCOUNT-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">COUNT(列名)、COUNT(常量)和COUNT(*)之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">COUNT(*)的优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-%E5%92%8CCOUNT-1"><span class="nav-number">4.</span> <span class="nav-text">COUNT(*)和COUNT(1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNT-%E5%AD%97%E6%AE%B5"><span class="nav-number">5.</span> <span class="nav-text">COUNT(字段)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

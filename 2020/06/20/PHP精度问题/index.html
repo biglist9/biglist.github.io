@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="问题intval(0.58 * 100)输出结果为57 分析要搞明白这个原因, 首先我们要知道浮点数的表示(IEEE 754):  浮点数, 以64位的长度(双精度)为例， 会采用1位符号位(E)， 11指数位(Q)，52位尾数(M)表示(一共64位)。 符号位：最高位表示数据的正负，0表示正数，1表示负数。 指数位：表示数据以2为底的幂，指数采用偏移码表示。 尾数：表示数据小数点后的有效数字。">
-<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP精度问题">
-<meta property="og:url" content="http://tit.ink/2020/06/20/PHP精度问题/index.html">
+<meta property="og:url" content="http://tit.ink/2020/06/20/PHP%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="问题intval(0.58 * 100)输出结果为57 分析要搞明白这个原因, 首先我们要知道浮点数的表示(IEEE 754):  浮点数, 以64位的长度(双精度)为例， 会采用1位符号位(E)， 11指数位(Q)，52位尾数(M)表示(一共64位)。 符号位：最高位表示数据的正负，0表示正数，1表示负数。 指数位：表示数据以2为底的幂，指数采用偏移码表示。 尾数：表示数据小数点后的有效数字。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-05T10:26:16.545Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-06-20T10:25:23.000Z">
+<meta property="article:modified_time" content="2020-12-05T10:26:16.545Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP精度问题">
-<meta name="twitter:description" content="问题intval(0.58 * 100)输出结果为57 分析要搞明白这个原因, 首先我们要知道浮点数的表示(IEEE 754):  浮点数, 以64位的长度(双精度)为例， 会采用1位符号位(E)， 11指数位(Q)，52位尾数(M)表示(一共64位)。 符号位：最高位表示数据的正负，0表示正数，1表示负数。 指数位：表示数据以2为底的幂，指数采用偏移码表示。 尾数：表示数据小数点后的有效数字。">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/06/20/PHP精度问题/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/06/20/PHP%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/06/20/PHP精度问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/20/PHP精度问题/" itemprop="commentCount"></span>
+                <a href="/2020/06/20/PHP%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/20/PHP%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -410,10 +410,11 @@
 </ul>
 <p>这里的关键点就在于，小数在二进制的表示，关于小数如何用二进制表示，大家可以百度一下,，我这里就不再赘述, 我们关键的要了解，0.58 对于二进制表示来说，是无限长的值(下面的数字省掉了隐含的1)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.58的二进制表示基本上(52位)是: 0010100011110101110000101000111101011100001010001111</span><br><span class="line">0.57的二进制表示基本上(52位)是: 0010001111010111000010100011110101110000101000111101</span><br></pre></td></tr></table></figure>
-<p>而两者的二进制，如果只是通过这52位计算的话，分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.58 -&gt; 0.57999999999999996</span><br><span class="line">0.57 -&gt; 0.56999999999999995</span><br></pre></td></tr></table></figure></p>
+<p>而两者的二进制，如果只是通过这52位计算的话，分别是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.58 -&gt; 0.57999999999999996</span><br><span class="line">0.57 -&gt; 0.56999999999999995</span><br></pre></td></tr></table></figure>
 <p>模糊的来看：0.58 * 100 = 57.999999999。<br>经过<code>intval</code>，自然就是57了。<br>可见, 这个问题的关键点就是: “看似有穷的小数, 在计算机的二进制表示里却是无穷的”。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="number">0.1</span>;</span><br><span class="line">$b = <span class="number">0.7</span>;</span><br><span class="line">var_dump(($a + $b) == <span class="number">0.8</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<p><strong>PHP浮点型在进行+-*%/存在不准确的问题</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="number">0.1</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="number">0.7</span>;</span><br><span class="line">var_dump((<span class="variable">$a</span> + <span class="variable">$b</span>) == <span class="number">0.8</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>*<em>PHP浮点型在进行+-</em>%/存在不准确的问题**</p>
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>使用高精度的数学函数<br>例如使用 <code>bcmul(0.58,100)</code>输出结果为58。</p>
 <p>常用的高精度函数如下</p>
 <table>
@@ -423,8 +424,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>bcadd</td>
 <td>将两个高精度的数字相加</td>
 </tr>
@@ -464,8 +464,7 @@
 <td>bcsub</td>
 <td>将两个高精度数字相减</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
       
     </div>
@@ -511,7 +510,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/13/PHP的运行模式/" rel="next" title="PHP的运行模式">
+              <a href="/2020/06/13/PHP%E7%9A%84%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" rel="next" title="PHP的运行模式">
                 <i class="fa fa-chevron-left"></i> PHP的运行模式
               </a>
             
@@ -594,10 +593,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -605,7 +604,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -662,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
             
 
           </div>

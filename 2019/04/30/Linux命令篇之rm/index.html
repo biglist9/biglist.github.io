@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是删除了链接，原有文件均保持不变。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状  命令格式1rm [选项] 文件 参数123456-f, --force	#强制删除，不再二次确认，忽略文件不存在的错误。-i, --interactive	#进行交互式删除-r, -R,">
-<meta name="keywords" content="Linux命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令篇之rm">
-<meta property="og:url" content="http://tit.ink/2019/04/30/Linux命令篇之rm/index.html">
+<meta property="og:url" content="http://tit.ink/2019/04/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Brm/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是删除了链接，原有文件均保持不变。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状  命令格式1rm [选项] 文件 参数123456-f, --force	#强制删除，不再二次确认，忽略文件不存在的错误。-i, --interactive	#进行交互式删除-r, -R,">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T11:22:04.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-04-30T10:41:23.000Z">
+<meta property="article:modified_time" content="2019-04-30T11:22:04.000Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="Linux命令">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令篇之rm">
-<meta name="twitter:description" content="该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是删除了链接，原有文件均保持不变。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状  命令格式1rm [选项] 文件 参数123456-f, --force	#强制删除，不再二次确认，忽略文件不存在的错误。-i, --interactive	#进行交互式删除-r, -R,">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +201,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +211,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +221,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +296,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2019/04/30/Linux命令篇之rm/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2019/04/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Brm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/30/Linux命令篇之rm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/30/Linux命令篇之rm/" itemprop="commentCount"></span>
+                <a href="/2019/04/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Brm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Brm/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -409,66 +409,43 @@
 <li>删除文件file，系统会先询问是否删除</li>
 </ol>
 <ul>
-<li><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm 文件名 #二次确认时，输入y后就会删除文件，不想删除则数据n</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 4</span><br><span class="line">-rw-r--r-- 1 root root 56 10-26 14:31 log.log</span><br><span class="line">root@localhost test1]<span class="comment"># rm log.log </span></span><br><span class="line">rm：是否删除 一般文件 “log.log”? y</span><br><span class="line">root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 0</span><br><span class="line">[root@localhost test1]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm 文件名 #二次确认时，输入y后就会删除文件，不想删除则数据n</span><br></pre></td></tr></table></figure></li>
+<li>输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 4</span><br><span class="line">-rw-r--r-- 1 root root 56 10-26 14:31 log.log</span><br><span class="line">root@localhost test1]<span class="comment"># rm log.log </span></span><br><span class="line">rm：是否删除 一般文件 “log.log”? y</span><br><span class="line">root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 0</span><br><span class="line">[root@localhost test1]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="2">
 <li>强行删除file，系统不再提示</li>
 </ol>
 <ul>
-<li><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f log1.log</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 4</span><br><span class="line">-rw-r--r-- 1 root root 23 10-26 14:40 log1.log</span><br><span class="line">[root@localhost test1]<span class="comment"># rm -f log1.log </span></span><br><span class="line">[root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 0</span><br><span class="line">[root@localhost test1]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f log1.log</span><br></pre></td></tr></table></figure></li>
+<li>输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 4</span><br><span class="line">-rw-r--r-- 1 root root 23 10-26 14:40 log1.log</span><br><span class="line">[root@localhost test1]<span class="comment"># rm -f log1.log </span></span><br><span class="line">[root@localhost test1]<span class="comment"># ll</span></span><br><span class="line">总计 0</span><br><span class="line">[root@localhost test1]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="3">
 <li>将test1子目录及子目录中所有档案删除</li>
 </ol>
 <ul>
-<li><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r test1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 24drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-26 14:51 test1</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm -r test1</span></span><br><span class="line">rm：是否进入目录 “test1”? y</span><br><span class="line">rm：是否删除 一般文件 “test1/log3.log”? y</span><br><span class="line">rm：是否删除 目录 “test1”? y</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 20drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r test1</span><br></pre></td></tr></table></figure></li>
+<li>输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 24drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-26 14:51 test1</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm -r test1</span></span><br><span class="line">rm：是否进入目录 “test1”? y</span><br><span class="line">rm：是否删除 一般文件 “test1/log3.log”? y</span><br><span class="line">rm：是否删除 目录 “test1”? y</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 20drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="4">
 <li>将test1子目录及子目录中所有档案删除 并不需要二次确认</li>
 </ol>
 <ul>
-<li><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf test1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 24drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-26 14:51 test1</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm -r test1</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 20drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf test1</span><br></pre></td></tr></table></figure></li>
+<li>输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 24drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-26 14:51 test1</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm -r test1</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 20drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:44 test2</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="5">
 <li>-f为强制命令，若需要删除以-f开头的文件</li>
 </ol>
 <ul>
-<li><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -- -f</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># touch -- -f</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -- -f</span></span><br><span class="line">-f</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm -- -f</span></span><br><span class="line">rm：是否删除 一般空文件 “-f”? y</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -- -f</span></span><br><span class="line">ls: -f: 没有那个文件或目录</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># touch ./-f</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls ./-f</span></span><br><span class="line">./-f</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm ./-f</span></span><br><span class="line">rm：是否删除 一般空文件 “./-f”? y</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -- -f</span><br></pre></td></tr></table></figure></li>
+<li>输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># touch -- -f</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -- -f</span></span><br><span class="line">-f</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm -- -f</span></span><br><span class="line">rm：是否删除 一般空文件 “-f”? y</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls -- -f</span></span><br><span class="line">ls: -f: 没有那个文件或目录</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br><span class="line"></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># touch ./-f</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls ./-f</span></span><br><span class="line">./-f</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm ./-f</span></span><br><span class="line">rm：是否删除 一般空文件 “./-f”? y</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="6">
 <li>自定义回收站功能</li>
 </ol>
 <ul>
-<li><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myrm()&#123; D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &quot;$@&quot; $D &amp;&amp; echo &quot;moved to $D ok&quot;; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># myrm()&#123; D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; 	mv "$@" $D &amp;&amp; echo "moved to $D ok"; &#125;</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># alias rm='myrm'</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># touch 1.log 2.log 3.log</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 16</span><br><span class="line">-rw-r--r-- 1 root root    0 10-26 15:08 1.log</span><br><span class="line">-rw-r--r-- 1 root root    0 10-26 15:08 2.log</span><br><span class="line">-rw-r--r-- 1 root root    0 10-26 15:08 3.log</span><br><span class="line">drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm [123].log</span></span><br><span class="line">moved to /tmp/20121026150901 ok</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 16drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls /tmp/20121026150901/</span></span><br><span class="line">1.log  2.log  3.log</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
+<li>输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myrm()&#123; D&#x3D;&#x2F;tmp&#x2F;$(date +%Y%m%d%H%M%S); mkdir -p $D; mv &quot;$@&quot; $D &amp;&amp; echo &quot;moved to $D ok&quot;; &#125;</span><br></pre></td></tr></table></figure></li>
+<li>输出<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># myrm()&#123; D=/tmp/$(date +%Y%m%d%H%M%S); mkdir -p $D; 	mv &quot;$@&quot; $D &amp;&amp; echo &quot;moved to $D ok&quot;; &#125;</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># alias rm=&#x27;myrm&#x27;</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># touch 1.log 2.log 3.log</span></span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 16</span><br><span class="line">-rw-r--r-- 1 root root    0 10-26 15:08 1.log</span><br><span class="line">-rw-r--r-- 1 root root    0 10-26 15:08 2.log</span><br><span class="line">-rw-r--r-- 1 root root    0 10-26 15:08 3.log</span><br><span class="line">drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># rm [123].log</span></span><br><span class="line">moved to /tmp/20121026150901 ok</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ll</span></span><br><span class="line">总计 16drwxr-xr-x 7 root root 4096 10-25 18:07 scf</span><br><span class="line">drwxrwxrwx 2 root root 4096 10-25 17:46 test3</span><br><span class="line">drwxr-xr-x 2 root root 4096 10-25 17:56 test4</span><br><span class="line">drwxr-xr-x 3 root root 4096 10-25 17:56 test5</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ls /tmp/20121026150901/</span></span><br><span class="line">1.log  2.log  3.log</span><br><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment">#</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -487,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+            <a href="/tags/Linux%E5%91%BD%E4%BB%A4/" rel="tag"># Linux命令</a>
           
         </div>
       
@@ -515,7 +492,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/30/Linux命令篇之mkdir/" rel="next" title="Linux命令篇之mkdir">
+              <a href="/2019/04/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Bmkdir/" rel="next" title="Linux命令篇之mkdir">
                 <i class="fa fa-chevron-left"></i> Linux命令篇之mkdir
               </a>
             
@@ -525,7 +502,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/30/Linux命令篇之rmdir/" rel="prev" title="Linux命令篇之rmdir">
+              <a href="/2019/04/30/Linux%E5%91%BD%E4%BB%A4%E7%AF%87%E4%B9%8Brmdir/" rel="prev" title="Linux命令篇之rmdir">
                 Linux命令篇之rmdir <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -598,10 +575,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -609,7 +586,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -666,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令格式"><span class="nav-number">1.</span> <span class="nav-text">命令格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">命令格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
             
 
           </div>

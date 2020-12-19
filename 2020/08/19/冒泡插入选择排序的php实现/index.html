@@ -80,24 +80,25 @@
 
 
 <meta name="description" content="一、排序方法与复杂度归类 几种最经典、最常用的排序方法：冒泡排序、插入排序、选择排序、快速排序、归并排序、计数排序、基数排序、桶排序。 复杂度归类 冒泡排序、插入排序、选择排序 O(n^2) 快速排序、归并排序 O(nlogn) 计数排序、基数排序、桶排序 O(n)    二、如何分析一个“排序算法”？算法的执行效率 最好、最坏、平均情况时间复杂度。 时间复杂度的系数、常数和低阶。 比较次数，交换">
-<meta name="keywords" content="算法,php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="冒泡插入选择排序的php实现">
-<meta property="og:url" content="http://tit.ink/2020/08/19/冒泡插入选择排序的php实现/index.html">
+<meta property="og:url" content="http://tit.ink/2020/08/19/%E5%86%92%E6%B3%A1%E6%8F%92%E5%85%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%9A%84php%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="学习小札">
 <meta property="og:description" content="一、排序方法与复杂度归类 几种最经典、最常用的排序方法：冒泡排序、插入排序、选择排序、快速排序、归并排序、计数排序、基数排序、桶排序。 复杂度归类 冒泡排序、插入排序、选择排序 O(n^2) 快速排序、归并排序 O(nlogn) 计数排序、基数排序、桶排序 O(n)    二、如何分析一个“排序算法”？算法的执行效率 最好、最坏、平均情况时间复杂度。 时间复杂度的系数、常数和低阶。 比较次数，交换">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-05T09:10:59.117Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-08-19T12:03:59.000Z">
+<meta property="article:modified_time" content="2020-12-05T09:10:59.117Z">
+<meta property="article:author" content="Kaizen">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="冒泡插入选择排序的php实现">
-<meta name="twitter:description" content="一、排序方法与复杂度归类 几种最经典、最常用的排序方法：冒泡排序、插入排序、选择排序、快速排序、归并排序、计数排序、基数排序、桶排序。 复杂度归类 冒泡排序、插入排序、选择排序 O(n^2) 快速排序、归并排序 O(nlogn) 计数排序、基数排序、桶排序 O(n)    二、如何分析一个“排序算法”？算法的执行效率 最好、最坏、平均情况时间复杂度。 时间复杂度的系数、常数和低阶。 比较次数，交换">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -136,7 +137,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +182,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -191,7 +192,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -201,7 +202,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -211,7 +212,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,7 +222,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -296,10 +297,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/08/19/冒泡插入选择排序的php实现/">
+    <link itemprop="mainEntityOfPage" href="http://tit.ink/2020/08/19/%E5%86%92%E6%B3%A1%E6%8F%92%E5%85%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%9A%84php%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kaizen">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/18437572">
     </span>
@@ -366,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/08/19/冒泡插入选择排序的php实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/19/冒泡插入选择排序的php实现/" itemprop="commentCount"></span>
+                <a href="/2020/08/19/%E5%86%92%E6%B3%A1%E6%8F%92%E5%85%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%9A%84php%E5%AE%9E%E7%8E%B0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/19/%E5%86%92%E6%B3%A1%E6%8F%92%E5%85%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%9A%84php%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,7 +433,7 @@
 </ol>
 </li>
 </ol>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span><span class="params">($array)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $count = count($array);</span><br><span class="line">    <span class="keyword">if</span> ($count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $count; $i++) &#123;</span><br><span class="line">        <span class="comment">// 提前退出冒泡循环的标志位</span></span><br><span class="line">        $flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> ($j = $count - <span class="number">1</span>; $j &gt; $i; $j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> ($array[$j] &lt; $array [$j - <span class="number">1</span>]) &#123;</span><br><span class="line">                $tmp = $array[$j];</span><br><span class="line">                $array[$j] = $array[$j - <span class="number">1</span>];</span><br><span class="line">                $array [$j - <span class="number">1</span>] = $tmp;</span><br><span class="line">                $flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!$flag) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params"><span class="variable">$array</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$count</span> = count(<span class="variable">$array</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$count</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$count</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="comment">// 提前退出冒泡循环的标志位</span></span><br><span class="line">        <span class="variable">$flag</span> = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="variable">$j</span> = <span class="variable">$count</span> - <span class="number">1</span>; <span class="variable">$j</span> &gt; <span class="variable">$i</span>; <span class="variable">$j</span>--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$array</span>[<span class="variable">$j</span>] &lt; <span class="variable">$array</span> [<span class="variable">$j</span> - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="variable">$tmp</span> = <span class="variable">$array</span>[<span class="variable">$j</span>];</span><br><span class="line">                <span class="variable">$array</span>[<span class="variable">$j</span>] = <span class="variable">$array</span>[<span class="variable">$j</span> - <span class="number">1</span>];</span><br><span class="line">                <span class="variable">$array</span> [<span class="variable">$j</span> - <span class="number">1</span>] = <span class="variable">$tmp</span>;</span><br><span class="line">                <span class="variable">$flag</span> = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable">$flag</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$array</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="四、插入排序"><a href="#四、插入排序" class="headerlink" title="四、插入排序"></a>四、插入排序</h3><p>插入排序将数组数据分成已排序区间和未排序区间。初始已排序区间只有一个元素，即数组第一个元素。在未排序区间取出一个元素插入到已排序区间的合适位置，直到未排序区间为空。</p>
 <h4 id="稳定性-1"><a href="#稳定性-1" class="headerlink" title="稳定性"></a>稳定性</h4><p>插入排序是稳定的排序算法。</p>
 <h4 id="空间复杂度-1"><a href="#空间复杂度-1" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><p>插入排序是原地排序算法。</p>
@@ -441,7 +442,7 @@
 <li>最坏情况：O(n^2)。</li>
 <li>平均情况：O(n^2)（往数组中插入一个数的平均时间复杂度是O(n)，一共重复n次）。</li>
 </ol>
-<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span><span class="params">(array $a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $n = count($a);</span><br><span class="line">    <span class="keyword">if</span> ($n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; $n; $i++) &#123;</span><br><span class="line">        $value = $a[$i];</span><br><span class="line">        <span class="keyword">for</span> ($j = $i - <span class="number">1</span>; $j &gt;= <span class="number">0</span>; --$j) &#123;</span><br><span class="line">            <span class="keyword">if</span> ($a[$j] &gt; $value) &#123;</span><br><span class="line">                $a[$j + <span class="number">1</span>] = $a[$j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        $a[$j + <span class="number">1</span>] = $value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$a</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$n</span> = count(<span class="variable">$a</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$n</span> &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt; <span class="variable">$n</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$value</span> = <span class="variable">$a</span>[<span class="variable">$i</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="variable">$j</span> = <span class="variable">$i</span> - <span class="number">1</span>; <span class="variable">$j</span> &gt;= <span class="number">0</span>; --<span class="variable">$j</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$a</span>[<span class="variable">$j</span>] &gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">                <span class="variable">$a</span>[<span class="variable">$j</span> + <span class="number">1</span>] = <span class="variable">$a</span>[<span class="variable">$j</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$a</span>[<span class="variable">$j</span> + <span class="number">1</span>] = <span class="variable">$value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="五、选择排序"><a href="#五、选择排序" class="headerlink" title="五、选择排序"></a>五、选择排序</h3><p>选择排序将数组分成已排序区间和未排序区间。初始已排序区间为空。每次从未排序区间中选出最小的元素插入已排序区间的末尾，直到未排序区间为空。</p>
 <h4 id="稳定性-2"><a href="#稳定性-2" class="headerlink" title="稳定性"></a>稳定性</h4><p>选择排序不是稳定的排序算法。</p>
 <h4 id="空间复杂度-2"><a href="#空间复杂度-2" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><p>选择排序是原地排序算法。</p>
@@ -450,7 +451,8 @@
 <li>最坏情况：O(n^2)。</li>
 <li>平均情况：O(n^2)。</li>
 </ol>
-<h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 选择排序</span></span><br><span class="line"><span class="comment">* 时间复杂度O(n^2)</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> array $list</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span><span class="params">(array $list)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $n = count($list);</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $n - <span class="number">1</span>; $i++) &#123;</span><br><span class="line">        $min = $i;</span><br><span class="line">        <span class="keyword">for</span> ($j = $i + <span class="number">1</span>; $j &lt; $n; $j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ($list[$j] &lt; $list[$min]) &#123;</span><br><span class="line">                $min = $j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> ($min != $i) &#123;</span><br><span class="line">            $value = $list[$min];</span><br><span class="line">            $list[$min] = $list[$i];</span><br><span class="line">            $list[$i] = $value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 选择排序</span></span><br><span class="line"><span class="comment">* 时间复杂度O(n^2)</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> array $list</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$list</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$n</span> = count(<span class="variable">$list</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$n</span> - <span class="number">1</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$min</span> = <span class="variable">$i</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="variable">$j</span> = <span class="variable">$i</span> + <span class="number">1</span>; <span class="variable">$j</span> &lt; <span class="variable">$n</span>; <span class="variable">$j</span>++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$list</span>[<span class="variable">$j</span>] &lt; <span class="variable">$list</span>[<span class="variable">$min</span>]) &#123;</span><br><span class="line">                <span class="variable">$min</span> = <span class="variable">$j</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$min</span> != <span class="variable">$i</span>) &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="variable">$list</span>[<span class="variable">$min</span>];</span><br><span class="line">            <span class="variable">$list</span>[<span class="variable">$min</span>] = <span class="variable">$list</span>[<span class="variable">$i</span>];</span><br><span class="line">            <span class="variable">$list</span>[<span class="variable">$i</span>] = <span class="variable">$value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ol>
 <li>冒泡排序和插入排序的时间复杂度相同，都是<code>O(n^2)</code>，在实际的软件开发中，为什么我们更倾向于使用插入排序而不是冒泡排序算法呢？<br>答：从代码实现上来看，冒泡排序的数据交换要比插入排序的数据移动要复杂，冒泡排序需要3个赋值操作，而插入排序只需要1个，所以在对相同数组进行排序时，冒泡排序的运行时间理论上要长于插入排序。</li>
 <li>这种排序算法，都是基于数组实现的。如果数据存储在链表中，这三种排序算法还能工作吗？如果能，那相应的时间、空间复杂度又是多少呢？<br>答：是否允许修改链表的节点value值，还是只能改变节点的位置。一般而言，考虑只能改变节点位置，冒泡排序相比于数组实现，比较次数一致，但交换时操作更复杂；插入排序，比较次数一致，不需要再有后移操作，找到位置后可以直接插入，但排序完毕后可能需要倒置链表；选择排序比较次数一致，交换操作同样比较麻烦。综上，时间复杂度和空间复杂度并无明显变化，若追求极致性能，冒泡排序的时间复杂度系数会变大，插入排序系数会减小，选择排序无明显变化</li>
@@ -472,7 +474,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
           
             <a href="/tags/php/" rel="tag"># php</a>
           
@@ -502,7 +504,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/14/TCP-三次握手和四次挥手简单理解/" rel="next" title="TCP-三次握手和四次挥手简单理解">
+              <a href="/2020/08/14/TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/" rel="next" title="TCP-三次握手和四次挥手简单理解">
                 <i class="fa fa-chevron-left"></i> TCP-三次握手和四次挥手简单理解
               </a>
             
@@ -512,7 +514,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/20/归并排序与快速排序的PHP实现/" rel="prev" title="归并排序与快速排序的PHP实现">
+              <a href="/2020/08/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%9A%84PHP%E5%AE%9E%E7%8E%B0/" rel="prev" title="归并排序与快速排序的PHP实现">
                 归并排序与快速排序的PHP实现 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -585,10 +587,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars1.githubusercontent.com/u/18437572"
-                alt="Kaizen" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">Kaizen</p>
-              <p class="site-description motion-element" itemprop="description">积累知识，坚持坚持坚持</p>
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -596,7 +598,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
@@ -653,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、排序方法与复杂度归类"><span class="nav-number">1.</span> <span class="nav-text">一、排序方法与复杂度归类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、如何分析一个“排序算法”？"><span class="nav-number">2.</span> <span class="nav-text">二、如何分析一个“排序算法”？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法的执行效率"><span class="nav-number">2.1.</span> <span class="nav-text">算法的执行效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序算法的稳定性"><span class="nav-number">2.2.</span> <span class="nav-text">排序算法的稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序算法的内存损耗"><span class="nav-number">2.3.</span> <span class="nav-text">排序算法的内存损耗</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、冒泡排序"><span class="nav-number">3.</span> <span class="nav-text">三、冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#稳定性"><span class="nav-number">3.1.</span> <span class="nav-text">稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空间复杂度"><span class="nav-number">3.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">3.3.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、插入排序"><span class="nav-number">4.</span> <span class="nav-text">四、插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#稳定性-1"><span class="nav-number">4.1.</span> <span class="nav-text">稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空间复杂度-1"><span class="nav-number">4.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度："><span class="nav-number">4.3.</span> <span class="nav-text">时间复杂度：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">4.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、选择排序"><span class="nav-number">5.</span> <span class="nav-text">五、选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#稳定性-2"><span class="nav-number">5.1.</span> <span class="nav-text">稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空间复杂度-2"><span class="nav-number">5.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度：（都是O-n-2-）"><span class="nav-number">5.3.</span> <span class="nav-text">时间复杂度：（都是O(n^2)）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-2"><span class="nav-number">5.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考"><span class="nav-number">6.</span> <span class="nav-text">思考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%BD%92%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">一、排序方法与复杂度归类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90%E4%B8%80%E4%B8%AA%E2%80%9C%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E2%80%9D%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">二、如何分析一个“排序算法”？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87"><span class="nav-number">2.1.</span> <span class="nav-text">算法的执行效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">排序算法的稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E5%86%85%E5%AD%98%E6%8D%9F%E8%80%97"><span class="nav-number">2.3.</span> <span class="nav-text">排序算法的内存损耗</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">三、冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">3.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">3.3.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">四、插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7-1"><span class="nav-number">4.1.</span> <span class="nav-text">稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6-1"><span class="nav-number">4.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="nav-number">4.3.</span> <span class="nav-text">时间复杂度：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">4.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">五、选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7-2"><span class="nav-number">5.1.</span> <span class="nav-text">稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6-2"><span class="nav-number">5.2.</span> <span class="nav-text">空间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A%EF%BC%88%E9%83%BD%E6%98%AFO-n-2-%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">时间复杂度：（都是O(n^2)）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="nav-number">5.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">思考</span></a></li></ol></div>
             
 
           </div>
