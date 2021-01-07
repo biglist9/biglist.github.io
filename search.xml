@@ -546,6 +546,12 @@
         <content type="html"><![CDATA[<h3 id="三次握手（three-way-handshaking）"><a href="#三次握手（three-way-handshaking）" class="headerlink" title="三次握手（three-way handshaking）"></a>三次握手（three-way handshaking）</h3><blockquote><p>在Google Groups的TopLanguage中看到一帖讨论TCP“三次握手”觉得很有意思。贴主提出“TCP建立连接为什么是三次握手？”的问题，在众多回复中，有一条回复写道：“这个问题的本质是, 信道不可靠, 但是通信双发需要就某个问题达成一致. 而要解决这个问题, 无论你在消息中包含什么信息, 三次通信是理论上的最小值. 所以三次握手不是TCP本身的要求, 而是为了满足”在不可靠信道上可靠地传输信息”这一需求所导致的. 请注意这里的本质需求,信道不可靠, 数据传输要可靠. 三次达到了, 那后面你想接着握手也好, 发数据也好, 跟进行可靠信息传输的需求就没关系了. 因此,如果信道是可靠的, 即无论什么时候发出消息, 对方一定能收到, 或者你不关心是否要保证对方收到你的消息, 那就能像UDP那样直接发送消息就可以了.”。这可视为对“三次握手”目的的另一种解答思路</p></blockquote><ol><li><p>背景：TCP位于传输层，作用是提供可靠的字节流服务，为了准确无误地将数据送达目的地，TCP协议采纳三次握手策略。</p></li><li><p>原理：</p><ol><li>发送端首先发送一个带有SYN（synchronize）标志地数据包给接收方。</li><li>接收方接收后，回传一个带有SYN/ACK标志的数据包传递确认信息，表示我收到了。</li><li>最后，发送方再回传一个带有ACK标志的数据包，代表我知道了，表示’握手‘结束。</li></ol></li><li><p>通俗的说法</p><ol><li><p>Client：嘿，李四，是我，听到了吗？</p></li><li><p>Server：我听到了，你能听到我的吗?</p></li><li><p>Client：好的，我们互相都能听到对方的话，我们的通信可以开始了。</p><p> <img src="3.png" alt="三次握手">        </p></li></ol></li></ol><h3 id="四次挥手（Four-Way-Wavehand）"><a href="#四次挥手（Four-Way-Wavehand）" class="headerlink" title="四次挥手（Four-Way-Wavehand）"></a>四次挥手（Four-Way-Wavehand）</h3><ol><li><p>意义：当被动方收到主动方的FIN报文通知时，它仅仅表示主动方没有数据再发送给被动方了。但未必被动方所有的数据都完整的发送给了主动方，所以被动方不会马上关闭SOCKET,它可能还需要发送一些数据给主动方后，再发送FIN报文给主动方，告诉主动方同意关闭连接，所以这里的ACK报文和FIN报文多数情况下都是分开发送的。</p></li><li><p>原理：</p><ol><li>第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。</li><li>第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。</li><li>第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。</li><li>第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手</li></ol></li><li><p>通俗的说法</p><ol><li><p>Client：我所有东西都说完了</p></li><li><p>Server：我已经全部听到了，但是等等我，我还没说完</p></li><li><p>Server：好了，我已经说完了</p></li><li><p>Client：好的，那我们的通信结束l</p><p> <img src="4.png" alt="四次挥手">     </p></li></ol></li></ol><p>作者：心如简_cc99<br>链接：<a href="https://www.jianshu.com/p/d3725391af59">https://www.jianshu.com/p/d3725391af59</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
       
       
+      <categories>
+          
+          <category> http </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -1043,6 +1049,12 @@
       
         <content type="html"><![CDATA[<p>偶然发现sql可以进行正则匹配搜索内容，新大陆</p><blockquote><p>关键字 REGEXP</p></blockquote><ol><li><code>.</code>表示匹配任意一个字符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;.000&#39;</span><br></pre></td></tr></table></figure></li><li><code>or</code>匹配<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;1000|2000&#39;</span><br></pre></td></tr></table></figure></li><li>匹配几个字符之一<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;[123]Ton&#39;</span><br></pre></td></tr></table></figure></li><li>匹配范围<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from products where name regexp &#39;[1-3]Ton&#39;</span><br></pre></td></tr></table></figure></li><li>匹配字符类</li></ol><table><thead><tr><th>类</th><th>说明</th></tr></thead><tbody><tr><td>[:alnum:]</td><td>任意字母和数字（同[a-zA-Z0-9]）</td></tr><tr><td>[:alpha:]</td><td>任意字符（同[a-zA-Z]）</td></tr><tr><td>[:blank:]</td><td>空格和制表（同[\t]）</td></tr><tr><td>[:cntrl:]</td><td>ASCII控制字符（ASCII 0到31和127）</td></tr><tr><td>[:digit:]</td><td>任意数字（同[0-9]）</td></tr><tr><td>[:graph:]</td><td>与[:print:]相同，但不包括空格</td></tr><tr><td>[:lower:]</td><td>任意小写字母（同[a-z]）</td></tr><tr><td>[:print:]</td><td>任意可打印字符</td></tr><tr><td>[:punct:]</td><td>既不在[:alnum:]又不在[:cntrl:]中的任意字符</td></tr><tr><td>[:space:]</td><td>包括空格在内的任意空白字符（同[\f\n\r\t\v]）</td></tr><tr><td>[:upper:]</td><td>任意大写字母（同[A-Z]）</td></tr><tr><td>[:xdigit:]</td><td>任意十六进制数字（同[a-fA-F0-9]）</td></tr></tbody></table>]]></content>
       
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
       
       
         <tags>
@@ -1662,6 +1674,12 @@
       
         <content type="html"><![CDATA[<p>最近发现Nginx+Laravel 搭建的网站搜索某些关键字时返回502错误。</p><p>查了一下Nginx的错误日志，发现如下错误</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2015&#x2F;03&#x2F;19 10:46:40 [error] 6412#0: *16436265 upstream sent too big header while reading response header from upstream, client: 192.168.101.100, server: localhost, request: &quot;GET &#x2F;search_rst.html?word&#x3D;%E7%88%B1%E6%82%A0 HTTP&#x2F;1.1&quot;, upstream: &quot;fastcgi:&#x2F;&#x2F;127.0.0.1:9000&quot;, host: ......</span><br></pre></td></tr></table></figure><p>看来还是Nginx的配置问题。</p><p>在Nginx配置文件的的http段，加入下面的配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy_buffer_size  128k;</span><br><span class="line">proxy_buffers   32 32k;</span><br><span class="line">proxy_busy_buffers_size 128k;</span><br></pre></td></tr></table></figure><p>重启Nginx错误依旧。再在host配置的php段加入下面配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fastcgi_buffer_size 128k;</span><br><span class="line">fastcgi_buffers 4 256k;</span><br><span class="line">fastcgi_busy_buffers_size 256k;</span><br></pre></td></tr></table></figure><p>重启Nginx就不再报错了。</p>]]></content>
       
+      
+      <categories>
+          
+          <category> NGINX </category>
+          
+      </categories>
       
       
         <tags>
